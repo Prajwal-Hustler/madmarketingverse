@@ -17,274 +17,315 @@ html{scroll-behavior:smooth;}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
 
 /* PAGE SYSTEM */
-.page{display:none;min-height:100vh;animation:fadeIn .4s ease;}
+.page{display:none;min-height:100vh;animation:pgIn .35s ease;}
 .page.active{display:block;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+@keyframes pgIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
 
-/* NAV */
-nav{position:fixed;top:0;width:100%;z-index:300;height:70px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;background:rgba(6,8,12,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border2);transition:background .3s;}
+/* ── NAV ── */
+nav{position:fixed;top:0;width:100%;z-index:300;height:68px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(6,8,12,.93);backdrop-filter:blur(20px);border-bottom:1px solid var(--border2);transition:background .3s;}
 nav.scrolled{background:rgba(6,8,12,.99);}
-.nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer;}
-.logo-mark{width:34px;height:34px;border-radius:8px;background:var(--ggrad);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.95rem;color:#06080C;}
-.logo-name{font-size:1.05rem;font-weight:800;color:#fff;letter-spacing:-.3px;}
+.nav-logo{display:flex;align-items:center;gap:9px;cursor:pointer;text-decoration:none;}
+.logo-mark{width:32px;height:32px;border-radius:8px;background:var(--ggrad);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.9rem;color:#06080C;flex-shrink:0;}
+.logo-name{font-size:1rem;font-weight:800;color:#fff;letter-spacing:-.3px;white-space:nowrap;}
 .logo-name em{font-style:normal;color:var(--gold2);}
-.nav-links{display:flex;gap:2rem;list-style:none;}
-.nav-links a{color:var(--muted);font-size:.875rem;font-weight:500;text-decoration:none;cursor:pointer;transition:color .2s;}
+.nav-links{display:flex;gap:1.8rem;list-style:none;}
+.nav-links a{color:var(--muted);font-size:.85rem;font-weight:500;text-decoration:none;cursor:pointer;transition:color .2s;background:none;border:none;font-family:inherit;padding:0;}
 .nav-links a:hover{color:#fff;}
-.nav-cta{padding:9px 20px;border-radius:6px;background:var(--ggrad);color:#06080C;font-weight:700;font-size:.85rem;text-decoration:none;cursor:pointer;transition:opacity .2s,transform .2s;border:none;font-family:'Inter',sans-serif;}
+.nav-cta{padding:9px 18px;border-radius:6px;background:var(--ggrad);color:#06080C;font-weight:700;font-size:.82rem;cursor:pointer;transition:opacity .2s,transform .2s;border:none;font-family:'Inter',sans-serif;white-space:nowrap;}
 .nav-cta:hover{opacity:.88;transform:translateY(-1px);}
-.hbg{display:none;background:none;border:none;color:#fff;font-size:1.3rem;cursor:pointer;}
-@media(max-width:820px){.nav-links{display:none;}.hbg{display:block;}}
+.hbg{display:none;background:none;border:none;color:#fff;font-size:1.3rem;cursor:pointer;padding:4px;}
+.mob-menu{display:none;position:fixed;top:68px;left:0;right:0;background:#0A0D14;border-bottom:1px solid var(--border2);padding:20px 5%;z-index:299;flex-direction:column;gap:0;}
+.mob-menu.open{display:flex;}
+.mob-menu a{color:var(--muted);font-size:.9rem;font-weight:500;text-decoration:none;cursor:pointer;padding:14px 0;border-bottom:1px solid var(--border2);transition:color .2s;background:none;border-left:none;border-right:none;border-top:none;font-family:inherit;}
+.mob-menu a:last-child{border-bottom:none;}
+.mob-menu a:hover{color:#fff;}
+.mob-audit{margin-top:16px;padding:13px;background:var(--ggrad);border-radius:7px;text-align:center;color:#06080C;font-weight:700;cursor:pointer;border:none;font-family:'Inter',sans-serif;width:100%;font-size:.9rem;}
+@media(max-width:820px){.nav-links{display:none;}.nav-cta{display:none;}.hbg{display:block;}}
 
-/* HERO */
-#hero-section{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 6% 80px;position:relative;overflow:hidden;}
-.h-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 55% at 50% 20%,rgba(201,150,59,.08) 0%,transparent 65%);}
-.h-grid{position:absolute;inset:0;opacity:.025;background-image:linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);background-size:64px 64px;}
-.h-wrap{position:relative;max-width:920px;}
-.h-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 18px;border-radius:100px;border:1px solid var(--border);background:rgba(201,150,59,.07);font-size:.72rem;font-weight:700;color:var(--gold2);letter-spacing:1px;text-transform:uppercase;margin-bottom:32px;}
+/* ── HERO ── */
+#hero-section{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:110px 5% 80px;position:relative;overflow:hidden;}
+.h-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 55% at 50% 20%,rgba(201,150,59,.09) 0%,transparent 65%);}
+.h-grid{position:absolute;inset:0;opacity:.022;background-image:linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);background-size:60px 60px;}
+.h-wrap{position:relative;max-width:880px;width:100%;}
+.h-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:100px;border:1px solid var(--border);background:rgba(201,150,59,.07);font-size:.72rem;font-weight:700;color:var(--gold2);letter-spacing:.9px;text-transform:uppercase;margin-bottom:28px;}
 .h-dot{width:6px;height:6px;border-radius:50%;background:var(--gold2);animation:pulse 2s infinite;}
-@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
-h1.hero-h{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,5.5vw,4.8rem);line-height:1.1;letter-spacing:-1.5px;color:#fff;margin-bottom:28px;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+h1.hero-h{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5.5vw,4.6rem);line-height:1.1;letter-spacing:-1.5px;color:#fff;margin-bottom:24px;}
 h1.hero-h em{font-style:italic;background:var(--ggrad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.hero-p{font-size:1.1rem;color:var(--muted);max-width:600px;margin:0 auto 46px;line-height:1.85;}
+.hero-p{font-size:clamp(.95rem,2vw,1.08rem);color:var(--muted);max-width:580px;margin:0 auto 42px;line-height:1.85;}
 .hero-p strong{color:var(--text);}
-.btn-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
-.btn-gold{padding:14px 34px;border-radius:7px;background:var(--ggrad);color:#06080C;font-weight:700;font-size:.95rem;text-decoration:none;cursor:pointer;border:none;font-family:'Inter',sans-serif;transition:transform .2s,box-shadow .2s,opacity .2s;}
-.btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(201,150,59,.3);}
-.btn-ghost{padding:14px 34px;border-radius:7px;border:1px solid var(--border2);color:var(--text);font-weight:600;font-size:.95rem;text-decoration:none;cursor:pointer;background:none;font-family:'Inter',sans-serif;transition:border-color .2s,background .2s;}
+.btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-gold{padding:13px 30px;border-radius:7px;background:var(--ggrad);color:#06080C;font-weight:700;font-size:.92rem;cursor:pointer;border:none;font-family:'Inter',sans-serif;transition:transform .2s,box-shadow .2s,opacity .2s;}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(201,150,59,.3);}
+.btn-ghost{padding:13px 30px;border-radius:7px;border:1px solid var(--border2);color:var(--text);font-weight:600;font-size:.92rem;cursor:pointer;background:none;font-family:'Inter',sans-serif;transition:border-color .2s,background .2s;}
 .btn-ghost:hover{border-color:rgba(201,150,59,.35);background:rgba(201,150,59,.05);}
-.stat-bar{display:flex;margin-top:72px;border:1px solid var(--border2);border-radius:14px;background:var(--bg2);overflow:hidden;max-width:660px;margin-left:auto;margin-right:auto;}
-.stat{flex:1;padding:24px 16px;text-align:center;border-right:1px solid var(--border2);}
+.stat-bar{display:flex;margin-top:64px;border:1px solid var(--border2);border-radius:12px;background:var(--bg2);overflow:hidden;max-width:640px;margin-left:auto;margin-right:auto;}
+.stat{flex:1;padding:20px 12px;text-align:center;border-right:1px solid var(--border2);}
 .stat:last-child{border-right:none;}
-.stat-n{font-size:1.9rem;font-weight:800;background:var(--ggrad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;}
-.stat-l{font-size:.72rem;color:var(--muted);margin-top:5px;font-weight:500;letter-spacing:.3px;}
+.stat-n{font-size:1.6rem;font-weight:800;background:var(--ggrad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;}
+.stat-l{font-size:.68rem;color:var(--muted);margin-top:5px;font-weight:500;letter-spacing:.2px;}
 
-/* SECTION SHARED */
-.sw{padding:96px 6%;}
-.lbl{display:block;font-size:.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
-.sh{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3vw,2.6rem);color:#fff;line-height:1.2;margin-bottom:16px;}
-.ss{font-size:.95rem;color:var(--muted);line-height:1.8;max-width:520px;}
+/* ── SHARED ── */
+.sw{padding:80px 5%;}
+.lbl{display:block;font-size:.68rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.sh{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3vw,2.5rem);color:#fff;line-height:1.2;margin-bottom:14px;}
+.ss{font-size:.92rem;color:var(--muted);line-height:1.8;max-width:520px;}
 .ctr{text-align:center;}.ctr .ss{margin:0 auto;}
-.fade{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
+.gold-line{display:block;width:36px;height:2px;background:var(--ggrad);border-radius:2px;margin-bottom:16px;}
+.ctr .gold-line{margin:0 auto 16px;}
+.fade{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease;}
 .fade.on{opacity:1;transform:none;}
-.gold-line{display:inline-block;width:40px;height:2px;background:var(--ggrad);border-radius:2px;margin-bottom:18px;}
 
-/* TRUST STRIP */
-#trust{background:var(--bg2);padding:28px 6%;border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);}
-.trust-in{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;}
-.trust-lbl{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--muted);}
-.trust-chips{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
-.tc{padding:7px 18px;border-radius:100px;border:1px solid var(--border);background:rgba(201,150,59,.05);font-size:.78rem;font-weight:600;color:var(--muted);letter-spacing:.3px;}
+/* ── TRUST STRIP ── */
+#trust{background:var(--bg2);padding:24px 5%;border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);}
+.trust-in{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;}
+.trust-lbl{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--muted);white-space:nowrap;}
+.trust-chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;}
+.tc{padding:6px 14px;border-radius:100px;border:1px solid var(--border);background:rgba(201,150,59,.05);font-size:.74rem;font-weight:600;color:var(--muted);}
 
-/* SERVICES GRID */
+/* ── SERVICES GRID ── */
 #services-section{background:var(--bg2);}
-.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:var(--border2);border:1px solid var(--border2);border-radius:16px;overflow:hidden;margin-top:52px;}
-.svc-card{background:var(--bg2);padding:34px 28px;cursor:pointer;position:relative;transition:background .25s;}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border2);border:1px solid var(--border2);border-radius:14px;overflow:hidden;margin-top:48px;}
+.svc-card{background:var(--bg2);padding:28px 24px;cursor:pointer;position:relative;transition:background .25s;}
 .svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--ggrad);opacity:0;transition:opacity .25s;}
 .svc-card:hover{background:var(--card);}
 .svc-card:hover::before{opacity:1;}
-.svc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;}
-.svc-ico{width:46px;height:46px;border-radius:10px;background:rgba(201,150,59,.1);border:1px solid rgba(201,150,59,.2);display:flex;align-items:center;justify-content:center;font-size:1.3rem;}
-.svc-badge{font-size:.62rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);opacity:.8;}
-.svc-title{font-size:1rem;font-weight:700;color:#fff;margin-bottom:10px;}
-.svc-desc{font-size:.85rem;color:var(--muted);line-height:1.7;margin-bottom:16px;}
+.svc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;}
+.svc-ico{width:42px;height:42px;border-radius:9px;background:rgba(201,150,59,.1);border:1px solid rgba(201,150,59,.2);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.svc-badge{font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);opacity:.8;}
+.svc-title{font-size:.95rem;font-weight:700;color:#fff;margin-bottom:8px;}
+.svc-desc{font-size:.82rem;color:var(--muted);line-height:1.7;margin-bottom:14px;}
 .svc-bullets{list-style:none;}
-.svc-bullets li{font-size:.8rem;color:var(--muted);padding:3px 0;padding-left:14px;position:relative;line-height:1.6;}
-.svc-bullets li::before{content:'—';position:absolute;left:0;color:var(--gold);font-size:.7rem;}
-.svc-link{display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:.8rem;font-weight:700;color:var(--gold);cursor:pointer;transition:gap .2s;background:none;border:none;font-family:'Inter',sans-serif;padding:0;}
-.svc-link:hover{gap:10px;}
+.svc-bullets li{font-size:.78rem;color:var(--muted);padding:2px 0 2px 13px;position:relative;line-height:1.6;}
+.svc-bullets li::before{content:'—';position:absolute;left:0;color:var(--gold);font-size:.68rem;top:4px;}
+.svc-link{display:inline-flex;align-items:center;gap:5px;margin-top:14px;font-size:.76rem;font-weight:700;color:var(--gold);cursor:pointer;transition:gap .2s;background:none;border:none;font-family:'Inter',sans-serif;padding:0;}
+.svc-link:hover{gap:9px;}
 
-/* WHY US */
+/* ── WHY US ── */
 #why-section{background:var(--bg);}
-.why-g{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
-@media(max-width:780px){.why-g{grid-template-columns:1fr;gap:44px;}}
-.why-list{list-style:none;margin-top:36px;}
-.why-item{display:flex;gap:16px;margin-bottom:30px;}
-.why-num{min-width:30px;height:30px;border-radius:7px;background:rgba(201,150,59,.1);border:1px solid rgba(201,150,59,.22);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;color:var(--gold);flex-shrink:0;margin-top:2px;}
-.why-h{font-size:.95rem;font-weight:700;color:#fff;margin-bottom:5px;}
-.why-p{font-size:.875rem;color:var(--muted);line-height:1.72;}
-.why-panel{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:36px;}
-.panel-lbl{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--muted);margin-bottom:24px;}
-.metric{margin-bottom:20px;}
+.why-g{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+.why-list{list-style:none;margin-top:32px;}
+.why-item{display:flex;gap:14px;margin-bottom:26px;}
+.why-num{min-width:28px;height:28px;border-radius:7px;background:rgba(201,150,59,.1);border:1px solid rgba(201,150,59,.22);display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:800;color:var(--gold);flex-shrink:0;margin-top:2px;}
+.why-h{font-size:.92rem;font-weight:700;color:#fff;margin-bottom:4px;}
+.why-p{font-size:.84rem;color:var(--muted);line-height:1.72;}
+.why-panel{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:32px;}
+.panel-lbl{font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--muted);margin-bottom:22px;}
+.metric{margin-bottom:18px;}
 .metric:last-of-type{margin-bottom:0;}
-.m-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
-.m-name{font-size:.85rem;color:var(--text);font-weight:500;}
-.m-val{font-size:.82rem;font-weight:700;color:var(--gold2);}
+.m-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;}
+.m-name{font-size:.82rem;color:var(--text);font-weight:500;}
+.m-val{font-size:.8rem;font-weight:700;color:var(--gold2);}
 .m-bar{height:3px;background:rgba(255,255,255,.05);border-radius:4px;}
 .m-fill{height:100%;background:var(--ggrad);border-radius:4px;}
-.panel-note{margin-top:24px;padding:14px 16px;background:rgba(201,150,59,.05);border:1px solid rgba(201,150,59,.15);border-radius:8px;font-size:.78rem;color:var(--muted);line-height:1.65;}
+.panel-note{margin-top:20px;padding:13px 15px;background:rgba(201,150,59,.05);border:1px solid rgba(201,150,59,.15);border-radius:8px;font-size:.76rem;color:var(--muted);line-height:1.65;}
 
-/* PROCESS */
-#process-section{background:var(--bg2);}
-.proc-g{display:grid;grid-template-columns:repeat(4,1fr);margin-top:56px;border:1px solid var(--border2);border-radius:14px;overflow:hidden;}
-@media(max-width:700px){.proc-g{grid-template-columns:1fr 1fr;}}
-.proc-step{padding:34px 24px;text-align:center;background:var(--bg2);border-right:1px solid var(--border2);}
-.proc-step:last-child{border-right:none;}
-.pnum{width:48px;height:48px;border-radius:50%;margin:0 auto 18px;border:1px solid var(--border);background:rgba(201,150,59,.08);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;color:var(--gold);}
-.pt{font-size:.95rem;font-weight:700;color:#fff;margin-bottom:8px;}
-.pp{font-size:.82rem;color:var(--muted);line-height:1.7;}
-
-/* PROOF SECTION */
-#proof-section{background:var(--bg);}
-.proof-g{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px;}
-@media(max-width:720px){.proof-g{grid-template-columns:1fr;}}
-.proof-card{background:var(--card);border:1px solid var(--border2);border-radius:14px;padding:32px 28px;transition:border-color .25s;}
+/* ── PROOF ── */
+#proof-section{background:var(--bg2);}
+.proof-g{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;}
+.proof-card{background:var(--card);border:1px solid var(--border2);border-radius:12px;padding:28px 24px;transition:border-color .25s;}
 .proof-card:hover{border-color:rgba(201,150,59,.25);}
-.proof-num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:800;background:var(--ggrad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:10px;}
-.proof-title{font-size:.95rem;font-weight:700;color:#fff;margin-bottom:8px;}
-.proof-desc{font-size:.85rem;color:var(--muted);line-height:1.7;}
+.proof-num{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:800;background:var(--ggrad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:10px;}
+.proof-title{font-size:.9rem;font-weight:700;color:#fff;margin-bottom:7px;}
+.proof-desc{font-size:.82rem;color:var(--muted);line-height:1.7;}
 
-/* FORM */
+/* ── PROCESS ── */
+#process-section{background:var(--bg);}
+.proc-g{display:grid;grid-template-columns:repeat(4,1fr);margin-top:48px;border:1px solid var(--border2);border-radius:12px;overflow:hidden;}
+.proc-step{padding:28px 20px;text-align:center;background:var(--bg);border-right:1px solid var(--border2);}
+.proc-step:last-child{border-right:none;}
+.pnum{width:44px;height:44px;border-radius:50%;margin:0 auto 16px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.82rem;color:var(--gold);}
+.pt{font-size:.9rem;font-weight:700;color:#fff;margin-bottom:7px;}
+.pp{font-size:.8rem;color:var(--muted);line-height:1.7;}
+
+/* ── FORM ── */
 #audit-section{background:var(--bg2);}
-.audit-w{max-width:700px;margin:0 auto;text-align:center;}
-.audit-box{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:48px 44px;margin-top:44px;text-align:left;position:relative;overflow:hidden;}
+.audit-w{max-width:680px;margin:0 auto;text-align:center;}
+.audit-box{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:40px 36px;margin-top:40px;text-align:left;position:relative;overflow:hidden;}
 .audit-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ggrad);}
-@media(max-width:600px){.audit-box{padding:28px 18px;}}
-.fr{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-@media(max-width:520px){.fr{grid-template-columns:1fr;}}
-.fg{margin-bottom:14px;}
-.fg label{display:block;font-size:.72rem;font-weight:600;color:var(--muted);margin-bottom:6px;letter-spacing:.5px;text-transform:uppercase;}
-.fg input,.fg select,.fg textarea{width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:8px;color:#fff;padding:12px 15px;font-size:.9rem;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;appearance:none;}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.fg{margin-bottom:12px;}
+.fg label{display:block;font-size:.7rem;font-weight:600;color:var(--muted);margin-bottom:5px;letter-spacing:.5px;text-transform:uppercase;}
+.fg input,.fg select,.fg textarea{width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:7px;color:#fff;padding:11px 13px;font-size:.88rem;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;appearance:none;-webkit-appearance:none;}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold);}
 .fg select option{background:var(--bg2);}
-.fg textarea{height:86px;resize:vertical;}
-.fsub{width:100%;padding:15px;background:var(--ggrad);border:none;border-radius:8px;cursor:pointer;font-size:.95rem;font-weight:700;color:#06080C;font-family:'Inter',sans-serif;transition:opacity .2s,transform .2s,box-shadow .2s;margin-top:6px;}
-.fsub:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 8px 24px rgba(201,150,59,.25);}
-.fpv{font-size:.72rem;color:var(--muted);text-align:center;margin-top:12px;}
+.fg textarea{height:82px;resize:vertical;}
+.fsub{width:100%;padding:14px;background:var(--ggrad);border:none;border-radius:7px;cursor:pointer;font-size:.92rem;font-weight:700;color:#06080C;font-family:'Inter',sans-serif;transition:opacity .2s,transform .2s,box-shadow .2s;margin-top:4px;}
+.fsub:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 8px 22px rgba(201,150,59,.25);}
+.fpv{font-size:.7rem;color:var(--muted);text-align:center;margin-top:10px;line-height:1.5;}
 .fpv span{color:var(--gold2);}
-#fsuccess{display:none;text-align:center;padding:24px 0;}
-.fchk{width:60px;height:60px;border-radius:50%;margin:0 auto 16px;background:rgba(201,150,59,.1);border:1px solid rgba(201,150,59,.3);display:flex;align-items:center;justify-content:center;font-size:1.6rem;}
-.fh{font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:8px;}
-.fp{font-size:.875rem;color:var(--muted);line-height:1.7;}
+#fsuccess{display:none;text-align:center;padding:20px 0;}
+.fchk{width:56px;height:56px;border-radius:50%;margin:0 auto 14px;background:rgba(201,150,59,.1);border:1px solid rgba(201,150,59,.3);display:flex;align-items:center;justify-content:center;font-size:1.5rem;}
+.fh{font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:8px;}
+.fp{font-size:.85rem;color:var(--muted);line-height:1.7;}
 
-/* FOOTER */
-footer{background:var(--bg);border-top:1px solid var(--border2);padding:56px 6% 28px;}
-.foot-g{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:44px;}
-@media(max-width:640px){.foot-g{grid-template-columns:1fr;gap:28px;}}
-.foot-brand{font-size:1.05rem;font-weight:800;color:#fff;margin-bottom:10px;}
+/* ── FOOTER ── */
+footer{background:var(--bg);border-top:1px solid var(--border2);padding:48px 5% 24px;}
+.foot-g{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:36px;}
+.foot-brand{font-size:1rem;font-weight:800;color:#fff;margin-bottom:9px;}
 .foot-brand span{color:var(--gold2);}
-.foot-desc{font-size:.84rem;color:var(--muted);line-height:1.75;max-width:260px;}
-.fct{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:14px;display:block;}
-.foot-col a{display:block;font-size:.84rem;color:var(--muted);text-decoration:none;margin-bottom:9px;cursor:pointer;transition:color .2s;}
+.foot-desc{font-size:.82rem;color:var(--muted);line-height:1.75;max-width:240px;}
+.fct{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:12px;display:block;}
+.foot-col a{display:block;font-size:.82rem;color:var(--muted);text-decoration:none;margin-bottom:8px;cursor:pointer;transition:color .2s;background:none;border:none;font-family:inherit;padding:0;text-align:left;}
 .foot-col a:hover{color:#fff;}
-.foot-bot{border-top:1px solid var(--border2);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
-.foot-c{font-size:.76rem;color:var(--muted);}
+.foot-bot{border-top:1px solid var(--border2);padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.foot-c{font-size:.74rem;color:var(--muted);}
 
-/* ═══════════════════════════════════════
+/* ═══════════════════════════════
    SERVICE PAGE
-═══════════════════════════════════════ */
-.svc-page{padding-top:70px;}
-.svc-hero{padding:80px 6% 60px;background:var(--bg);position:relative;overflow:hidden;border-bottom:1px solid var(--border2);}
-.svc-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 20% 50%,rgba(201,150,59,.07) 0%,transparent 60%);}
-.back-btn{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:600;color:var(--muted);cursor:pointer;background:none;border:none;font-family:'Inter',sans-serif;margin-bottom:28px;transition:color .2s;padding:0;}
-.back-btn:hover{color:var(--gold);}
-.svc-hero-tag{font-size:.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:block;}
-.svc-hero-h{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.4rem);color:#fff;line-height:1.15;letter-spacing:-1px;margin-bottom:20px;}
-.svc-hero-p{font-size:1.05rem;color:var(--muted);max-width:620px;line-height:1.82;}
+═══════════════════════════════ */
+.svc-page{padding-top:68px;}
+.svc-hero{padding:60px 5% 50px;background:var(--bg);position:relative;overflow:hidden;border-bottom:1px solid var(--border2);}
+.svc-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 15% 50%,rgba(201,150,59,.07) 0%,transparent 60%);}
+.back-btn{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;color:var(--muted);cursor:pointer;background:none;border:1px solid var(--border2);border-radius:6px;font-family:'Inter',sans-serif;margin-bottom:24px;transition:color .2s,border-color .2s;padding:7px 14px;}
+.back-btn:hover{color:var(--gold);border-color:var(--border);}
+.svc-hero-tag{font-size:.68rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:block;}
+.svc-hero-h{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3rem);color:#fff;line-height:1.15;letter-spacing:-1px;margin-bottom:18px;}
+.svc-hero-p{font-size:.98rem;color:var(--muted);max-width:600px;line-height:1.82;}
+.sp-inner{max-width:1080px;margin:0 auto;position:relative;}
 
-/* PROBLEM SECTION */
-.svc-problem{padding:64px 6%;background:var(--bg2);border-bottom:1px solid var(--border2);}
-.prob-g{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
-@media(max-width:760px){.prob-g{grid-template-columns:1fr;gap:32px;}}
-.prob-title{font-family:'Playfair Display',serif;font-size:1.7rem;color:#fff;margin-bottom:16px;line-height:1.25;}
-.prob-p{font-size:.9rem;color:var(--muted);line-height:1.8;}
-.prob-cards{display:flex;flex-direction:column;gap:12px;}
-.prob-card{background:var(--card);border:1px solid var(--border2);border-radius:10px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start;}
-.prob-icon{font-size:1.1rem;flex-shrink:0;margin-top:2px;}
-.prob-card-t{font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:3px;}
-.prob-card-p{font-size:.8rem;color:var(--muted);line-height:1.65;}
+.svc-problem{padding:56px 5%;background:var(--bg2);border-bottom:1px solid var(--border2);}
+.prob-g{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+.prob-title{font-family:'Playfair Display',serif;font-size:1.55rem;color:#fff;margin-bottom:14px;line-height:1.25;}
+.prob-p{font-size:.87rem;color:var(--muted);line-height:1.8;}
+.prob-cards{display:flex;flex-direction:column;gap:10px;}
+.prob-card{background:var(--card);border:1px solid var(--border2);border-radius:9px;padding:14px 16px;display:flex;gap:11px;align-items:flex-start;}
+.prob-icon{font-size:1rem;flex-shrink:0;margin-top:2px;}
+.prob-card-t{font-size:.85rem;font-weight:600;color:var(--text);margin-bottom:3px;}
+.prob-card-p{font-size:.78rem;color:var(--muted);line-height:1.6;}
 
-/* APPROACH SECTION */
-.svc-approach{padding:64px 6%;background:var(--bg);}
-.approach-title{font-family:'Playfair Display',serif;font-size:1.7rem;color:#fff;margin-bottom:8px;}
-.approach-sub{font-size:.9rem;color:var(--muted);margin-bottom:44px;}
-.steps-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
-.step-card{background:var(--card);border:1px solid var(--border2);border-radius:12px;padding:28px 24px;position:relative;overflow:hidden;transition:border-color .25s;}
-.step-card:hover{border-color:rgba(201,150,59,.3);}
-.step-card::after{content:attr(data-n);position:absolute;bottom:-10px;right:10px;font-family:'Playfair Display',serif;font-size:4rem;font-weight:800;color:rgba(201,150,59,.06);line-height:1;}
-.step-num{width:32px;height:32px;border-radius:7px;background:var(--ggrad);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;color:#06080C;margin-bottom:14px;}
-.step-t{font-size:.95rem;font-weight:700;color:#fff;margin-bottom:8px;}
-.step-p{font-size:.84rem;color:var(--muted);line-height:1.72;}
+.svc-approach{padding:56px 5%;background:var(--bg);}
+.approach-title{font-family:'Playfair Display',serif;font-size:1.55rem;color:#fff;margin-bottom:6px;}
+.approach-sub{font-size:.87rem;color:var(--muted);margin-bottom:36px;}
+.steps-g{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.step-card{background:var(--card);border:1px solid var(--border2);border-radius:11px;padding:24px 22px;position:relative;overflow:hidden;transition:border-color .25s;}
+.step-card:hover{border-color:rgba(201,150,59,.28);}
+.step-card::after{content:attr(data-n);position:absolute;bottom:-8px;right:8px;font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:800;color:rgba(201,150,59,.06);line-height:1;}
+.step-num{width:30px;height:30px;border-radius:6px;background:var(--ggrad);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.75rem;color:#06080C;margin-bottom:12px;}
+.step-t{font-size:.9rem;font-weight:700;color:#fff;margin-bottom:7px;}
+.step-p{font-size:.82rem;color:var(--muted);line-height:1.7;}
 
-/* DEPTH SECTION */
-.svc-depth{padding:64px 6%;background:var(--bg2);}
-.depth-g{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
-@media(max-width:760px){.depth-g{grid-template-columns:1fr;gap:32px;}}
-.depth-col-t{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:20px;}
+.svc-depth{padding:56px 5%;background:var(--bg2);}
+.depth-g{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;}
+.depth-col-t{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:18px;}
 .depth-list{list-style:none;}
-.depth-item{display:flex;gap:12px;margin-bottom:16px;align-items:flex-start;}
-.depth-bullet{width:20px;height:20px;border-radius:5px;background:rgba(201,150,59,.1);border:1px solid rgba(201,150,59,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
-.depth-bullet span{font-size:.65rem;color:var(--gold);font-weight:700;}
-.depth-item-t{font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:3px;}
-.depth-item-p{font-size:.8rem;color:var(--muted);line-height:1.65;}
-.insight-box{background:linear-gradient(135deg,rgba(201,150,59,.08),rgba(232,184,75,.04));border:1px solid var(--border);border-radius:12px;padding:28px;}
-.insight-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:14px;}
-.insight-quote{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--text);line-height:1.65;font-style:italic;}
+.depth-item{display:flex;gap:11px;margin-bottom:16px;align-items:flex-start;}
+.depth-bullet{width:18px;height:18px;border-radius:5px;background:rgba(201,150,59,.1);border:1px solid rgba(201,150,59,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.depth-bullet span{font-size:.6rem;color:var(--gold);font-weight:700;}
+.depth-item-t{font-size:.85rem;font-weight:600;color:var(--text);margin-bottom:2px;}
+.depth-item-p{font-size:.78rem;color:var(--muted);line-height:1.65;}
+.insight-box{background:linear-gradient(135deg,rgba(201,150,59,.07),rgba(232,184,75,.03));border:1px solid var(--border);border-radius:12px;padding:26px;}
+.insight-label{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:12px;}
+.insight-quote{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--text);line-height:1.7;font-style:italic;}
 
-/* DELIVERABLES */
-.svc-deliver{padding:64px 6%;background:var(--bg);}
-.deliv-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:36px;}
-.deliv-card{background:var(--card);border:1px solid var(--border2);border-radius:10px;padding:22px 20px;text-align:center;transition:border-color .25s;}
-.deliv-card:hover{border-color:rgba(201,150,59,.25);}
-.deliv-ico{font-size:1.5rem;margin-bottom:10px;}
-.deliv-t{font-size:.88rem;font-weight:700;color:#fff;margin-bottom:5px;}
-.deliv-p{font-size:.78rem;color:var(--muted);line-height:1.6;}
+.svc-deliver{padding:56px 5%;background:var(--bg);}
+.deliv-g{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px;}
+.deliv-card{background:var(--card);border:1px solid var(--border2);border-radius:9px;padding:20px 18px;text-align:center;transition:border-color .25s;}
+.deliv-card:hover{border-color:rgba(201,150,59,.22);}
+.deliv-ico{font-size:1.4rem;margin-bottom:9px;}
+.deliv-t{font-size:.84rem;font-weight:700;color:#fff;margin-bottom:4px;}
+.deliv-p{font-size:.75rem;color:var(--muted);line-height:1.6;}
 
-/* SVC PAGE CTA */
-.svc-cta{padding:64px 6%;background:var(--bg2);text-align:center;border-top:1px solid var(--border2);}
-.svc-cta-h{font-family:'Playfair Display',serif;font-size:1.9rem;color:#fff;margin-bottom:14px;}
-.svc-cta-p{font-size:.95rem;color:var(--muted);max-width:480px;margin:0 auto 32px;line-height:1.75;}
+.svc-cta-sec{padding:56px 5%;background:var(--bg2);text-align:center;border-top:1px solid var(--border2);}
+.svc-cta-h{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,1.9rem);color:#fff;margin-bottom:12px;}
+.svc-cta-p{font-size:.9rem;color:var(--muted);max-width:460px;margin:0 auto 28px;line-height:1.75;}
+
+/* ══════════════ MOBILE ══════════════ */
+@media(max-width:900px){
+  .svc-grid{grid-template-columns:repeat(2,1fr);}
+  .why-g{grid-template-columns:1fr;gap:36px;}
+  .proof-g{grid-template-columns:1fr 1fr;gap:14px;}
+  .proc-g{grid-template-columns:1fr 1fr;}
+  .proc-step{border-right:none;border-bottom:1px solid var(--border2);}
+  .proc-step:nth-child(odd){border-right:1px solid var(--border2);}
+  .proc-step:nth-last-child(-n+2){border-bottom:none;}
+  .depth-g{grid-template-columns:1fr;}
+  .steps-g{grid-template-columns:1fr;}
+  .prob-g{grid-template-columns:1fr;gap:28px;}
+  .deliv-g{grid-template-columns:1fr 1fr;}
+  .foot-g{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){
+  h1.hero-h{font-size:2.2rem;letter-spacing:-1px;}
+  .svc-grid{grid-template-columns:1fr;}
+  .proof-g{grid-template-columns:1fr;}
+  .proc-g{grid-template-columns:1fr;}
+  .proc-step{border-right:none!important;border-bottom:1px solid var(--border2);}
+  .proc-step:last-child{border-bottom:none;}
+  .stat-bar{flex-wrap:wrap;}
+  .stat{flex:1 1 45%;min-width:0;border-bottom:1px solid var(--border2);}
+  .stat:nth-child(odd){border-right:1px solid var(--border2);}
+  .stat:nth-last-child(-n+2){border-bottom:none;}
+  .fr{grid-template-columns:1fr;}
+  .audit-box{padding:24px 16px;}
+  .foot-g{grid-template-columns:1fr;}
+  .sw{padding:60px 5%;}
+  .deliv-g{grid-template-columns:1fr 1fr;}
+  .depth-g{grid-template-columns:1fr;}
+  .svc-hero{padding:44px 5% 36px;}
+  .trust-chips{gap:6px;}
+  .tc{font-size:.7rem;padding:5px 10px;}
+  .h-pill{font-size:.68rem;padding:5px 12px;}
+}
+@media(max-width:380px){
+  h1.hero-h{font-size:2rem;}
+  .deliv-g{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav id="nav">
+<nav id="mainNav">
   <div class="nav-logo" onclick="goHome()">
     <div class="logo-mark">M</div>
     <div class="logo-name">Mad Marketing <em>Verse</em></div>
   </div>
   <ul class="nav-links">
-    <li><a onclick="goHome();scrollTo('services-section')">Services</a></li>
-    <li><a onclick="goHome();scrollTo('why-section')">Why Us</a></li>
-    <li><a onclick="goHome();scrollTo('process-section')">Process</a></li>
-    <li><a onclick="goHome();scrollTo('audit-section')">Free Audit</a></li>
+    <li><a onclick="goToSection('services-section')">Services</a></li>
+    <li><a onclick="goToSection('why-section')">Why Us</a></li>
+    <li><a onclick="goToSection('process-section')">Process</a></li>
+    <li><a onclick="goToSection('audit-section')">Free Audit</a></li>
   </ul>
-  <button class="nav-cta" onclick="goHome();scrollTo('audit-section')">Get Free Audit →</button>
-  <button class="hbg" onclick="toggleNav()">☰</button>
+  <button class="nav-cta" onclick="goToSection('audit-section')">Get Free Audit →</button>
+  <button class="hbg" onclick="toggleMob()" aria-label="Menu">☰</button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <a onclick="goToSection('services-section');closeMob()">Services</a>
+  <a onclick="goToSection('why-section');closeMob()">Why Us</a>
+  <a onclick="goToSection('process-section');closeMob()">Process</a>
+  <a onclick="goToSection('audit-section');closeMob()">Free Audit</a>
+  <button class="mob-audit" onclick="goToSection('audit-section');closeMob()">Get Free Audit →</button>
+</div>
 
 <!-- ═══════════ HOME PAGE ═══════════ -->
 <div id="page-home" class="page active">
 
-  <!-- HERO -->
   <section id="hero-section">
-    <div class="h-bg"></div>
-    <div class="h-grid"></div>
+    <div class="h-bg"></div><div class="h-grid"></div>
     <div class="h-wrap fade">
       <div class="h-pill"><div class="h-dot"></div>Amazon-Exclusive Growth Agency · 6+ Years</div>
       <h1 class="hero-h">
-        We Audit First.<br/>
-        We Show You The Gaps.<br/>
-        <em>Then You Decide.</em>
+        We Build Brands That Don't<br/>Just Compete on Amazon —<br/><em>They Dominate It.</em>
       </h1>
       <p class="hero-p">
-        That's the confidence we have in our work. Mad Marketing Verse has spent <strong>6 years managing Amazon accounts</strong> across every category. We know what's breaking your growth — and we'll show you, completely free, before you commit to anything.
+        Mad Marketing Verse is a specialist Amazon agency with <strong>over 6 years of hands-on experience</strong> scaling US brands across every category. We know what moves the needle — and we'll show you exactly where yours is stuck, completely free, before you commit to anything.
       </p>
       <div class="btn-row">
-        <button class="btn-gold" onclick="scrollTo('audit-section')">Get Your Free Audit</button>
-        <button class="btn-ghost" onclick="scrollTo('services-section')">See What We Do</button>
+        <button class="btn-gold" onclick="goToSection('audit-section')">Get Your Free Audit</button>
+        <button class="btn-ghost" onclick="goToSection('services-section')">See Our Services</button>
       </div>
       <div class="stat-bar">
         <div class="stat"><div class="stat-n">6+</div><div class="stat-l">Years on Amazon</div></div>
         <div class="stat"><div class="stat-n">Full</div><div class="stat-l">Service Coverage</div></div>
-        <div class="stat"><div class="stat-n">₹0</div><div class="stat-l">Audit Cost</div></div>
+        <div class="stat"><div class="stat-n">$0</div><div class="stat-l">Audit Cost</div></div>
         <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Amazon Focused</div></div>
       </div>
     </div>
   </section>
 
-  <!-- TRUST STRIP -->
   <div id="trust">
     <div class="trust-in">
       <span class="trust-lbl">We Handle</span>
@@ -297,103 +338,91 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:56px 6% 
     </div>
   </div>
 
-  <!-- SERVICES -->
   <section id="services-section" class="sw" style="background:var(--bg2);">
     <div class="ctr fade">
       <div class="gold-line"></div>
       <span class="lbl">What We Do</span>
       <h2 class="sh">Everything Amazon. Nothing Else.</h2>
-      <p class="ss">Every service has its own dedicated page. Click any card to see exactly how we approach it — our process, our thinking, and what you can expect.</p>
+      <p class="ss">Click any service to see a dedicated page — our exact process, what we look for, and what you'll get.</p>
     </div>
     <div class="svc-grid fade">
-
       <div class="svc-card" onclick="showService('ppc')">
         <div class="svc-top"><div class="svc-ico">📢</div><span class="svc-badge">Ads</span></div>
         <div class="svc-title">Amazon Advertising (PPC)</div>
-        <p class="svc-desc">Profitable campaigns across Sponsored Products, Brands, and DSP — optimised every week, not once a month.</p>
+        <p class="svc-desc">Profitable campaigns built around your margin — optimised every week, not once a quarter.</p>
         <ul class="svc-bullets"><li>ACoS reduction & ROAS growth</li><li>Weekly bid & keyword optimisation</li><li>Full-funnel campaign architecture</li></ul>
-        <button class="svc-link">Deep dive into our PPC approach →</button>
+        <button class="svc-link">Deep dive into our approach →</button>
       </div>
-
       <div class="svc-card" onclick="showService('listing')">
         <div class="svc-top"><div class="svc-ico">📝</div><span class="svc-badge">Listings</span></div>
         <div class="svc-title">Listing Optimisation</div>
-        <p class="svc-desc">Copy that ranks for the algorithm and converts for the buyer — because both have to say yes.</p>
+        <p class="svc-desc">Copy that ranks for the algorithm and converts for the buyer — both have to say yes.</p>
         <ul class="svc-bullets"><li>Keyword research & indexing audit</li><li>Buyer psychology-led copywriting</li><li>Measurable CVR improvement</li></ul>
         <button class="svc-link">See how we rewrite listings →</button>
       </div>
-
       <div class="svc-card" onclick="showService('seo')">
         <div class="svc-top"><div class="svc-ico">🔍</div><span class="svc-badge">SEO</span></div>
         <div class="svc-title">Amazon SEO</div>
-        <p class="svc-desc">Organic rank that compounds over time and reduces your dependence on paid traffic.</p>
+        <p class="svc-desc">Organic rank that compounds over time and cuts your dependence on paid traffic.</p>
         <ul class="svc-bullets"><li>Keyword universe mapping</li><li>Competitor ASIN reverse-mining</li><li>Ranking signal architecture</li></ul>
         <button class="svc-link">Explore our SEO methodology →</button>
       </div>
-
       <div class="svc-card" onclick="showService('aplus')">
         <div class="svc-top"><div class="svc-ico">🎨</div><span class="svc-badge">Content</span></div>
         <div class="svc-title">A+ Content & Brand Store</div>
-        <p class="svc-desc">Visual content that converts undecided shoppers — not just content that looks nice.</p>
+        <p class="svc-desc">Visual content built to convert undecided shoppers — not just look good in a portfolio.</p>
         <ul class="svc-bullets"><li>Module strategy & copywriting briefs</li><li>Brand Store architecture</li><li>Mobile-first design direction</li></ul>
-        <button class="svc-link">See how we build A+ content →</button>
+        <button class="svc-link">See how we build A+ →</button>
       </div>
-
       <div class="svc-card" onclick="showService('images')">
         <div class="svc-top"><div class="svc-ico">📸</div><span class="svc-badge">Creative</span></div>
         <div class="svc-title">Product Image Strategy</div>
-        <p class="svc-desc">Your image stack audited and rebuilt — your main image is your first and sometimes only impression.</p>
+        <p class="svc-desc">Your image stack audited and rebuilt — your main image is your first impression.</p>
         <ul class="svc-bullets"><li>CTR audit vs top competitors</li><li>Infographic & lifestyle briefs</li><li>Video thumbnail strategy</li></ul>
         <button class="svc-link">Understand our image audit →</button>
       </div>
-
       <div class="svc-card" onclick="showService('brand')">
         <div class="svc-top"><div class="svc-ico">💎</div><span class="svc-badge">Strategy</span></div>
         <div class="svc-title">Brand Consulting</div>
-        <p class="svc-desc">Positioning, pricing, and differentiation strategy that turns a product into a brand.</p>
+        <p class="svc-desc">Positioning, pricing, and differentiation that turns a product into a brand people return to.</p>
         <ul class="svc-bullets"><li>Competitive positioning analysis</li><li>Price-tier & margin strategy</li><li>Product launch roadmaps</li></ul>
         <button class="svc-link">Explore brand consulting →</button>
       </div>
-
       <div class="svc-card" onclick="showService('fba')">
         <div class="svc-top"><div class="svc-ico">📦</div><span class="svc-badge">Operations</span></div>
         <div class="svc-title">FBA & Inventory Management</div>
-        <p class="svc-desc">Systems that keep your IPI healthy, your Buy Box intact, and your shelves never empty.</p>
+        <p class="svc-desc">Systems that keep your IPI healthy, Buy Box intact, and shelves never empty.</p>
         <ul class="svc-bullets"><li>Demand forecasting & replenishment</li><li>IPI score management</li><li>Stranded inventory resolution</li></ul>
         <button class="svc-link">See how we manage FBA →</button>
       </div>
-
       <div class="svc-card" onclick="showService('protection')">
         <div class="svc-top"><div class="svc-ico">🛡️</div><span class="svc-badge">Protection</span></div>
         <div class="svc-title">Brand Registry & Protection</div>
-        <p class="svc-desc">We guard the brand equity you've built — from hijackers to counterfeit listings.</p>
+        <p class="svc-desc">We guard the equity you've built — from hijackers to counterfeit listings.</p>
         <ul class="svc-bullets"><li>Brand Registry enrolment</li><li>Hijacker monitoring & removal</li><li>IP complaint management</li></ul>
         <button class="svc-link">See our protection approach →</button>
       </div>
-
       <div class="svc-card" onclick="showService('reporting')">
         <div class="svc-top"><div class="svc-ico">📊</div><span class="svc-badge">Reporting</span></div>
         <div class="svc-title">Analytics & Reporting</div>
-        <p class="svc-desc">Reports built around decisions, not aesthetics. Every report ends with a clear action list.</p>
+        <p class="svc-desc">Reports built around decisions. Every bi-weekly ends with a clear action list.</p>
         <ul class="svc-bullets"><li>Custom KPI dashboards</li><li>Bi-weekly performance walkthroughs</li><li>Competitive benchmarking</li></ul>
         <button class="svc-link">See how we report →</button>
       </div>
-
     </div>
   </section>
 
-  <!-- WHY US -->
   <section id="why-section" class="sw">
     <div class="why-g">
       <div class="fade">
         <div class="gold-line"></div>
         <span class="lbl">Why Mad Marketing Verse</span>
         <h2 class="sh">We've Operated Through Every Amazon Era.</h2>
-        <p class="ss">Six years means we've been through every algorithm overhaul, every policy change, every new ad format. We've built playbooks that outlast trends.</p>
+        <p class="ss">Six years means we've lived through every algorithm overhaul, every policy change, every new ad format. We've built playbooks that outlast all of them.</p>
         <ul class="why-list">
-          <li class="why-item"><div class="why-num">01</div><div><div class="why-h">Amazon-Only. No Distractions.</div><div class="why-p">We don't manage Meta or Google campaigns on the side. Every team member, every process, every tool is Amazon-specific.</div></div></li>
+          <li class="why-item"><div class="why-num">01</div><div><div class="why-h">Amazon-Only. No Distractions.</div><div class="why-p">We don't split attention across Meta or Google. Every team member, every process, every tool is Amazon-specific.</div></div></li>
           <li class="why-item"><div class="why-num">02</div><div><div class="why-h">We Look at the Whole Account</div><div class="why-p">Ads, listings, images, reviews, pricing, inventory — we diagnose the entire account, not just the part you showed us.</div></div></li>
-          <li class="why-item"><div class="why-num">03</div><div><div class="why-h">Audit Before Any Commitment</div><div class="why-p">We show you exactly what's broken and what the growth opportunity looks like before you spend a rupee. That's confidence in our own work.</div></div></li>
+          <li class="why-item"><div class="why-num">03</div><div><div class="why-h">Audit Before Any Commitment</div><div class="why-p">We show you what's broken and what the growth opportunity looks like before you spend a dollar. That's how confident we are in our work.</div></div></li>
           <li class="why-item"><div class="why-num">04</div><div><div class="why-h">Accountability in Every Report</div><div class="why-p">Every report ends with a clear action list. No vanity numbers, no congratulations slides — just what happened, why, and what's next.</div></div></li>
         </ul>
       </div>
@@ -404,47 +433,44 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:56px 6% 
         <div class="metric"><div class="m-row"><span class="m-name">Organic Rank Gains</span><span class="m-val">↑ 74%</span></div><div class="m-bar"><div class="m-fill" style="width:74%"></div></div></div>
         <div class="metric"><div class="m-row"><span class="m-name">Listing Conversion Rate</span><span class="m-val">↑ 65%</span></div><div class="m-bar"><div class="m-fill" style="width:65%"></div></div></div>
         <div class="metric"><div class="m-row"><span class="m-name">ACoS Reduction</span><span class="m-val">↓ 38%</span></div><div class="m-bar"><div class="m-fill" style="width:60%"></div></div></div>
-        <div class="panel-note">Averages across managed accounts. Results vary by category, starting baseline, and competitive intensity.</div>
+        <div class="panel-note">Averages across managed accounts. Results vary by category, starting baseline, and competition level.</div>
       </div>
     </div>
   </section>
 
-  <!-- PROOF NUMBERS -->
   <section id="proof-section" class="sw" style="background:var(--bg2);">
     <div class="ctr fade">
       <span class="lbl">Our Track Record</span>
       <h2 class="sh">Numbers That Earn Your Trust.</h2>
-      <p class="ss">We don't ask you to take our word for it. Here's what 6 years of Amazon management looks like in practice.</p>
+      <p class="ss">We don't ask you to take our word for it. Here's what 6 years of Amazon management looks like.</p>
     </div>
     <div class="proof-g fade">
-      <div class="proof-card"><div class="proof-num">6+</div><div class="proof-title">Years of Active Amazon Management</div><div class="proof-desc">Across every major category — electronics, home, wellness, fashion, FMCG, and more.</div></div>
-      <div class="proof-card"><div class="proof-num">100%</div><div class="proof-title">Amazon-Exclusive Focus</div><div class="proof-desc">Every specialist on our team works only on Amazon. No divided attention, no generalist gaps.</div></div>
-      <div class="proof-card"><div class="proof-num">₹0</div><div class="proof-title">Cost to Get Started</div><div class="proof-desc">Our free audit is genuine — a real deep-dive into your account with findings you can act on, even without us.</div></div>
+      <div class="proof-card"><div class="proof-num">6+</div><div class="proof-title">Years of Active Amazon Management</div><div class="proof-desc">Across electronics, home goods, wellness, fashion, FMCG, and more — every major US Amazon category.</div></div>
+      <div class="proof-card"><div class="proof-num">100%</div><div class="proof-title">Amazon-Exclusive Focus</div><div class="proof-desc">Every specialist on our team works only on Amazon. No divided attention, no generalist gaps in your account.</div></div>
+      <div class="proof-card"><div class="proof-num">$0</div><div class="proof-title">Cost to Get Started</div><div class="proof-desc">Our free audit is a real, thorough analysis of your account — with findings you can act on even without us.</div></div>
     </div>
   </section>
 
-  <!-- PROCESS -->
   <section id="process-section" class="sw">
     <div class="ctr fade">
       <span class="lbl">How It Works</span>
       <h2 class="sh">Audit to Growth in 4 Steps.</h2>
-      <p class="ss">No long contracts to sign first, no ambiguous onboarding. We move fast because Amazon doesn't wait.</p>
+      <p class="ss">No long contracts before you see value. No ambiguous onboarding. We move fast because Amazon doesn't wait.</p>
     </div>
     <div class="proc-g fade">
-      <div class="proc-step"><div class="pnum">01</div><div class="pt">Free Audit</div><p class="pp">We analyse your listings, ads, reviews, and competitive position — thoroughly and at no cost to you.</p></div>
-      <div class="proc-step"><div class="pnum">02</div><div class="pt">Strategy Call</div><p class="pp">We present our findings and a prioritised growth roadmap built for your specific category and goals.</p></div>
-      <div class="proc-step"><div class="pnum">03</div><div class="pt">Onboarding</div><p class="pp">Structured and fast. Most brands are fully live within the first week. No unnecessary back-and-forth.</p></div>
-      <div class="proc-step" style="border-right:none;"><div class="pnum">04</div><div class="pt">Execution</div><p class="pp">We execute, optimise weekly, and report bi-weekly with clear KPIs and a next-action list every time.</p></div>
+      <div class="proc-step"><div class="pnum">01</div><div class="pt">Free Audit</div><p class="pp">We analyse your listings, ads, reviews, and competitive position — thoroughly and at no cost.</p></div>
+      <div class="proc-step"><div class="pnum">02</div><div class="pt">Strategy Call</div><p class="pp">We present findings and a prioritised growth roadmap built for your specific category and goals.</p></div>
+      <div class="proc-step"><div class="pnum">03</div><div class="pt">Onboarding</div><p class="pp">Structured and fast. Most brands are live within the first week. No unnecessary back-and-forth.</p></div>
+      <div class="proc-step"><div class="pnum">04</div><div class="pt">Execution</div><p class="pp">We execute, optimise weekly, and report bi-weekly with clear KPIs and a next-action list every time.</p></div>
     </div>
   </section>
 
-  <!-- AUDIT FORM -->
   <section id="audit-section" class="sw" style="background:var(--bg2);">
     <div class="audit-w fade">
-      <div class="gold-line"></div>
+      <div class="gold-line" style="margin:0 auto 12px;"></div>
       <span class="lbl">Free Audit</span>
-      <h2 class="sh">Find Out What Amazon<br/>Owes Your Brand.</h2>
-      <p class="ss" style="margin:0 auto;">We'll audit your account and show you exactly what's holding you back and what the real growth opportunity looks like. Free. No obligation.</p>
+      <h2 class="sh">Find Out What's Holding Your<br/>Amazon Brand Back.</h2>
+      <p class="ss" style="margin:0 auto;">We'll audit your account and show you exactly what's costing you revenue and what the real growth opportunity looks like. Free. No obligation.</p>
       <div class="audit-box">
         <form id="auditForm" onsubmit="submitForm(event)">
           <div class="fr">
@@ -453,15 +479,15 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:56px 6% 
           </div>
           <div class="fr">
             <div class="fg"><label>Email *</label><input type="email" placeholder="you@brand.com" required/></div>
-            <div class="fg"><label>Phone / WhatsApp</label><input type="tel" id="phoneInput" placeholder="+91 98765 43210"/></div>
+            <div class="fg"><label>Phone / WhatsApp</label><input type="tel" id="phoneInput" placeholder="+1 (555) 000-0000"/></div>
           </div>
           <div class="fr">
             <div class="fg">
               <label>Marketplace *</label>
               <select id="mktSelect" onchange="updateCurrency()" required>
                 <option value="" disabled selected>Select marketplace</option>
+                <option value="US" selected>Amazon US (.com)</option>
                 <option value="IN">Amazon India (.in)</option>
-                <option value="US">Amazon US (.com)</option>
                 <option value="UK">Amazon UK (.co.uk)</option>
                 <option value="UAE">Amazon UAE (.ae)</option>
                 <option value="CA">Amazon Canada (.ca)</option>
@@ -471,28 +497,27 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:56px 6% 
             </div>
             <div class="fg">
               <label>Monthly Revenue</label>
-              <select id="revSelect"><option value="" disabled selected>Select marketplace first</option></select>
+              <select id="revSelect"><option value="" disabled selected>Select range</option><option>Below $5K/mo</option><option>$5K–$25K/mo</option><option>$25K–$100K/mo</option><option>Above $100K/mo</option><option>Not yet selling</option></select>
             </div>
           </div>
-          <div class="fg"><label>Biggest Amazon Challenge?</label><textarea placeholder="e.g. High ACoS, poor organic rank, listing issues, hijackers, low conversion..."></textarea></div>
+          <div class="fg"><label>Biggest Amazon Challenge?</label><textarea placeholder="e.g. High ACoS, low organic rank, listing issues, hijackers, low conversion rate..."></textarea></div>
           <button type="submit" class="fsub">Claim My Free Audit →</button>
-          <p class="fpv">🔒 100% free. No credit card. We respond within <span>24 business hours.</span></p>
+          <p class="fpv">🔒 Completely free. No credit card required. We respond within <span>24 business hours.</span></p>
         </form>
         <div id="fsuccess">
           <div class="fchk">✓</div>
           <div class="fh">Audit Request Submitted.</div>
-          <p class="fp">Our Amazon specialists will reach out within 24 business hours to schedule your free audit call.</p>
+          <p class="fp">Our Amazon specialists will reach out within 24 business hours to schedule your free audit call. We look forward to showing you what's possible.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="foot-g">
       <div>
         <div class="foot-brand">Mad Marketing <span>Verse</span></div>
-        <p class="foot-desc">A specialist Amazon growth agency. We help ambitious brands dominate their categories through strategy, creative, and performance management.</p>
+        <p class="foot-desc">A specialist Amazon growth agency helping US brands dominate their categories through strategy, creative, and performance management.</p>
       </div>
       <div class="foot-col">
         <span class="fct">Services</span>
@@ -505,9 +530,10 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:56px 6% 
       </div>
       <div class="foot-col">
         <span class="fct">Company</span>
-        <a onclick="goHome();scrollTo('why-section')">Why Us</a>
-        <a onclick="goHome();scrollTo('process-section')">Our Process</a>
-        <a onclick="goHome();scrollTo('audit-section')">Free Audit</a>
+        <a onclick="goToSection('why-section')">Why Us</a>
+        <a onclick="goToSection('process-section')">Our Process</a>
+        <a onclick="goToSection('proof-section')">Track Record</a>
+        <a onclick="goToSection('audit-section')">Free Audit</a>
       </div>
     </div>
     <div class="foot-bot">
@@ -516,417 +542,234 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:56px 6% 
     </div>
   </footer>
 
-</div><!-- end page-home -->
+</div><!-- /page-home -->
 
 <!-- ═══════════ SERVICE PAGE ═══════════ -->
 <div id="page-service" class="page">
   <div class="svc-page">
     <div class="svc-hero">
       <div class="svc-hero-bg"></div>
-      <div style="max-width:1100px;margin:0 auto;position:relative;">
+      <div class="sp-inner">
         <button class="back-btn" onclick="goHome()">← Back to all services</button>
         <span class="svc-hero-tag" id="sp-tag"></span>
         <h2 class="svc-hero-h" id="sp-h"></h2>
         <p class="svc-hero-p" id="sp-p"></p>
       </div>
     </div>
-    <div class="svc-problem"><div class="prob-g" style="max-width:1100px;margin:0 auto;"><div id="sp-prob-left"></div><div class="prob-cards" id="sp-prob-cards"></div></div></div>
-    <div class="svc-approach"><div style="max-width:1100px;margin:0 auto;"><div class="approach-title" id="sp-approach-t"></div><div class="approach-sub" id="sp-approach-sub"></div><div class="steps-g" id="sp-steps"></div></div></div>
-    <div class="svc-depth"><div class="depth-g" style="max-width:1100px;margin:0 auto;"><div><div class="depth-col-t">What We Analyse & Action</div><ul class="depth-list" id="sp-depth-list"></ul></div><div class="insight-box" id="sp-insight"></div></div></div>
-    <div class="svc-deliver"><div style="max-width:1100px;margin:0 auto;"><span class="lbl">What You Get</span><h3 class="sh" style="font-size:1.6rem;">Tangible Deliverables. Every Engagement.</h3><div class="deliv-g" id="sp-deliverables"></div></div></div>
-    <div class="svc-cta">
+    <div class="svc-problem">
+      <div class="sp-inner">
+        <div class="prob-g">
+          <div id="sp-prob-left"></div>
+          <div class="prob-cards" id="sp-prob-cards"></div>
+        </div>
+      </div>
+    </div>
+    <div class="svc-approach">
+      <div class="sp-inner">
+        <div class="approach-title" id="sp-approach-t"></div>
+        <div class="approach-sub" id="sp-approach-sub"></div>
+        <div class="steps-g" id="sp-steps"></div>
+      </div>
+    </div>
+    <div class="svc-depth">
+      <div class="sp-inner">
+        <div class="depth-g">
+          <div>
+            <div class="depth-col-t">What We Analyse & Action</div>
+            <ul class="depth-list" id="sp-depth-list"></ul>
+          </div>
+          <div class="insight-box" id="sp-insight"></div>
+        </div>
+      </div>
+    </div>
+    <div class="svc-deliver">
+      <div class="sp-inner">
+        <span class="lbl">What You Get</span>
+        <h3 class="sh" style="font-size:clamp(1.5rem,2.5vw,1.9rem);">Tangible Deliverables Every Engagement.</h3>
+        <div class="deliv-g" id="sp-deliverables"></div>
+      </div>
+    </div>
+    <div class="svc-cta-sec">
       <h3 class="svc-cta-h" id="sp-cta-h"></h3>
       <p class="svc-cta-p" id="sp-cta-p"></p>
-      <button class="btn-gold" onclick="goHome();scrollTo('audit-section')">Get My Free Audit →</button>
+      <button class="btn-gold" onclick="goHome();goToSection('audit-section')">Get My Free Audit →</button>
     </div>
-    <footer style="background:var(--bg);border-top:1px solid var(--border2);padding:32px 6%;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+    <footer style="background:var(--bg);border-top:1px solid var(--border2);padding:24px 5%;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:center;">
       <span class="foot-c">© 2024 Mad Marketing Verse.</span>
-      <button class="back-btn" onclick="goHome()">← Return to homepage</button>
+      <button class="back-btn" onclick="goHome()" style="margin-bottom:0;">← Return to homepage</button>
     </footer>
   </div>
 </div>
 
 <script>
-// ── FADE OBSERVER ──────────────────────────
-const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on');}),{threshold:.08});
-function observeFades(){document.querySelectorAll('.fade:not(.on)').forEach(el=>obs.observe(el));}
+// ── FADE OBSERVER ──────────────────────
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on');}),{threshold:.07});
+function observeFades(){document.querySelectorAll('#page-home .fade:not(.on)').forEach(el=>obs.observe(el));}
 observeFades();
 
-// ── NAV SCROLL ─────────────────────────────
-window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>30);});
+// ── NAV SCROLL ─────────────────────────
+window.addEventListener('scroll',()=>{document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>30);});
 
-// ── MOBILE NAV ─────────────────────────────
-function toggleNav(){
-  const l=document.querySelector('.nav-links');
-  const o=l.style.display==='flex';
-  l.style.cssText=o?'':'display:flex;flex-direction:column;position:fixed;top:70px;left:0;right:0;background:#0A0D14;padding:24px 6%;gap:20px;border-bottom:1px solid rgba(255,255,255,.06);z-index:299;';
-}
+// ── MOBILE NAV ─────────────────────────
+function toggleMob(){document.getElementById('mobMenu').classList.toggle('open');}
+function closeMob(){document.getElementById('mobMenu').classList.remove('open');}
 
-// ── PAGE ROUTING ───────────────────────────
+// ── PAGE ROUTING ───────────────────────
 function showPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-  window.scrollTo(0,0);
-  observeFades();
+  document.documentElement.scrollTop=0;
+  document.body.scrollTop=0;
 }
-function goHome(){showPage('page-home');}
-function scrollTo(id){
-  setTimeout(()=>{const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},50);
+function goHome(){
+  showPage('page-home');
+  setTimeout(observeFades,100);
 }
 
-// ── CURRENCY MAP ───────────────────────────
-const CM={IN:['Below ₹5L/mo','₹5L–₹20L/mo','₹20L–₹1Cr/mo','Above ₹1Cr/mo','Not yet selling'],US:['Below $5K/mo','$5K–$25K/mo','$25K–$100K/mo','Above $100K/mo','Not yet selling'],UK:['Below £5K/mo','£5K–£20K/mo','£20K–£80K/mo','Above £80K/mo','Not yet selling'],UAE:['Below AED 20K/mo','AED 20–100K/mo','AED 100–400K/mo','Above AED 400K/mo','Not yet selling'],CA:['Below CA$5K/mo','CA$5–25K/mo','CA$25–100K/mo','Above CA$100K/mo','Not yet selling'],DE:['Below €5K/mo','€5–20K/mo','€20–80K/mo','Above €80K/mo','Not yet selling'],MULTI:['Below $5K equiv/mo','$5–25K equiv/mo','$25–100K equiv/mo','Above $100K equiv/mo','Not yet selling']};
-const PM={IN:'+91',US:'+1',UK:'+44',UAE:'+971',CA:'+1',DE:'+49',MULTI:''};
-function updateCurrency(){const s=document.getElementById('mktSelect').value;const r=document.getElementById('revSelect');if(!s)return;r.innerHTML='<option value="" disabled selected>Select range</option>';CM[s].forEach(x=>{const o=document.createElement('option');o.textContent=x;r.appendChild(o);});if(PM[s])document.getElementById('phoneInput').placeholder=PM[s]+' — your number';}
-function submitForm(e){e.preventDefault();document.getElementById('auditForm').style.display='none';document.getElementById('fsuccess').style.display='block';}
-
-// ── SERVICE DATA ───────────────────────────
-const SVC={
-  ppc:{
-    tag:'Amazon Advertising (PPC)',
-    h:'Your Ads Should Pay For Themselves — And Then Some.',
-    p:'Most brands overspend on ads not because they\'re bidding wrong, but because their campaign structure is wrong from the start. We rebuild it around profit, not spend.',
-    probTitle:'What Most Brands Get Wrong With Amazon Ads',
-    probP:'The biggest PPC mistakes aren\'t in the bids — they\'re in the architecture. Broad campaigns with no segmentation, no negative keyword discipline, and no connection to the actual margin of each product.',
-    probCards:[
-      {ico:'⚠️',t:'Single Campaign for All Products',p:'Every product mixed together means winners fund losers. We separate by profitability tier.'},
-      {ico:'⚠️',t:'Ignoring Search Term Reports',p:'The STA is a goldmine. Most accounts mine it once. We work it every week.'},
-      {ico:'⚠️',t:'Optimising for ACoS, Not TACoS',p:'ACoS misses organic impact. We track TACoS to see the real cost of acquiring a customer.'}
-    ],
-    approachT:'Our PPC Management Framework',
-    approachSub:'Built around your margin, not just your spend.',
-    steps:[
-      {n:'01',t:'Profit-First Audit',p:'Before we touch a bid, we understand your margin per ASIN. Ad strategy without margin context is guesswork.'},
-      {n:'02',t:'Campaign Restructure',p:'We separate branded from non-branded, high-margin from low, and build dedicated campaigns for each funnel stage.'},
-      {n:'03',t:'Weekly Optimisation Cycles',p:'Bid adjustments, negative keyword additions, new keyword expansion — on a fixed weekly cadence, not when we remember.'},
-      {n:'04',t:'TACoS-Led Reporting',p:'Every report shows TACoS alongside ACoS. We want you to see the real cost of growth, not just the paid portion.'}
-    ],
-    depthItems:[
-      {t:'Keyword Harvest & Expansion',p:'Mining converting search terms weekly and adding them as exact match targets to lower CPCs.'},
-      {t:'Placement Bid Modifiers',p:'Top-of-search vs product pages behave differently. We bid accordingly, not uniformly.'},
-      {t:'Dayparting Analysis',p:'When does your category convert? We adjust budgets around peak windows.'},
-      {t:'DSP & Sponsored Display',p:'For brands with budget, we layer retargeting and category targeting to defend against competitors.'}
-    ],
-    insight:'label:Our Philosophy',
-    insightQ:'"An ad that sells at 20% ACoS but destroys your margin is a bad ad. An ad that looks expensive but builds organic rank is often the best investment you\'ll make."',
-    deliverables:[
-      {ico:'📋',t:'Campaign Audit Report',p:'Full breakdown of wasted spend, structural gaps, and quick wins.'},
-      {ico:'📈',t:'Bi-Weekly Ad Performance Report',p:'ROAS, ACoS, TACoS, and conversion data with change log.'},
-      {ico:'🗂️',t:'Keyword Expansion Log',p:'Every new keyword added, every negative added, and why.'},
-      {ico:'🎯',t:'Monthly Budget Allocation Plan',p:'Recommended spend per campaign tier based on performance.'}
-    ],
-    ctaH:'Ready to Stop Guessing with Your Ad Budget?',
-    ctaP:'Start with a free audit. We\'ll tell you exactly where your ad spend is leaking and what a restructured strategy could return.'
-  },
-  listing:{
-    tag:'Listing Optimisation',
-    h:'Your Listing Is Your Salesperson. Most Listings Are Mumbling.',
-    p:'A keyword-stuffed title might rank. A well-written, strategically structured listing ranks AND converts. The difference compounds over time.',
-    probTitle:'Why Most Listings Underperform',
-    probP:'Brands focus on getting keywords in. They forget that the algorithm rewards conversion rate too. A listing that ranks but doesn\'t convert eventually loses rank.',
-    probCards:[
-      {ico:'⚠️',t:'Keyword Stuffing Over Readability',p:'Titles stuffed with commas and variants confuse buyers. Clear, readable titles convert better and often rank just as well.'},
-      {ico:'⚠️',t:'Features Over Benefits',p:'"450W motor" means nothing. "Blends ice in 8 seconds" means something. Buyers buy outcomes, not specs.'},
-      {ico:'⚠️',t:'Ignoring Mobile Rendering',p:'60%+ of Amazon searches are on mobile. Most listings are written for desktop. We write for the thumb-scroll.'}
-    ],
-    approachT:'Our Listing Optimisation Process',
-    approachSub:'Research-led, benefit-first, and built to rank and convert simultaneously.',
-    steps:[
-      {n:'01',t:'Keyword & Competitor Research',p:'We pull the keyword universe for your ASIN, map search volumes, and reverse-mine your top 3 competitors.'},
-      {n:'02',t:'Indexing Audit',p:'We check which keywords your listing is currently indexed for and identify the gaps costing you organic traffic.'},
-      {n:'03',t:'Rewrite & Optimisation',p:'Title, bullets, description, and backend — all rewritten with keyword priority, buyer psychology, and mobile rendering in mind.'},
-      {n:'04',t:'Track & Iterate',p:'We monitor rank movement and conversion rate post-live, and refresh when search trends shift.'}
-    ],
-    depthItems:[
-      {t:'Title Architecture',p:'Primary keyword first, key benefit second, differentiator third. A formula that ranks and clicks.'},
-      {t:'Bullet Hierarchy',p:'First bullet = biggest benefit, last bullet = trust signal. Every bullet earns its position.'},
-      {t:'Backend Search Terms',p:'No keyword duplication, no brand names — maximised for indexing with the space Amazon gives you.'},
-      {t:'Competitor Gap Targeting',p:'Keywords your competitors rank for that you don\'t index for yet. These are fast-ranking opportunities.'}
-    ],
-    insight:'label:Why This Matters',
-    insightQ:'"A 1% improvement in conversion rate on an ASIN doing 100 units/day is 1 extra sale every day — forever. Listing optimisation is the highest-ROI activity on Amazon when done right."',
-    deliverables:[
-      {ico:'📄',t:'Before/After Listing Comparison',p:'Every change documented with rationale.'},
-      {ico:'🔑',t:'Keyword Tracking Sheet',p:'Target keywords with current rank and movement over time.'},
-      {ico:'📊',t:'CVR Improvement Report',p:'Conversion rate tracked before and 30/60/90 days after.'},
-      {ico:'🔄',t:'Quarterly Refresh',p:'Listings revisited as search trends and competitor positioning shifts.'}
-    ],
-    ctaH:'Want to See What\'s Wrong With Your Listings?',
-    ctaP:'Our free audit includes a listing health check. You\'ll know exactly what\'s costing you rank and conversions before we start.'
-  },
-  seo:{
-    tag:'Amazon SEO',
-    h:'Paid Traffic Is Rented. Organic Rank Is Owned.',
-    p:'Every rupee you spend on ads is gone the moment you pause a campaign. Organic rank stays, compounds, and reduces your cost of acquiring every sale over time.',
-    probTitle:'Why Most Amazon SEO Fails',
-    probP:'Brands treat Amazon SEO as a one-time listing task. Real SEO is continuous — tracking rank movement, responding to algorithm shifts, and capitalising on seasonal keyword spikes.',
-    probCards:[
-      {ico:'⚠️',t:'Treating It Like a One-Time Fix',p:'Amazon\'s algorithm re-indexes constantly. Listings need ongoing keyword maintenance, not a single optimisation pass.'},
-      {ico:'⚠️',t:'Focusing Only on Seed Keywords',p:'Head keywords are competitive and expensive to rank for. Long-tail and mid-tail keywords drive quality traffic with less competition.'},
-      {ico:'⚠️',t:'Ignoring Velocity Signals',p:'Amazon ranks products that sell. SEO without a strategy to drive early velocity often stalls before it starts.'}
-    ],
-    approachT:'Our Amazon SEO Methodology',
-    approachSub:'Built for sustainable organic rank, not short-term keyword spikes.',
-    steps:[
-      {n:'01',t:'Keyword Universe Mapping',p:'We build a complete keyword map: head terms, mid-tail, long-tail, and category-specific terms with search frequency ranks.'},
-      {n:'02',t:'Indexing Gap Analysis',p:'We identify every relevant keyword your ASIN isn\'t currently indexed for — these are immediate ranking opportunities.'},
-      {n:'03',t:'On-Listing & Backend Optimisation',p:'Title, bullets, backend search terms, and subject matter fields all optimised to maximise indexing surface.'},
-      {n:'04',t:'Velocity & External Traffic Strategy',p:'For competitive keywords, we build a rank velocity plan using lightning deals, external traffic, and search-find-buy tactics.'}
-    ],
-    depthItems:[
-      {t:'Search Frequency Rank Tracking',p:'We monitor SFR movement for your 20 most important keywords monthly.'},
-      {t:'Reverse ASIN Mining',p:'Every top competitor ASIN mined for keywords you\'re missing. This alone often reveals 50+ new indexing opportunities.'},
-      {t:'Category-Specific Signals',p:'Every category has different ranking signals. Electronics ranking factors differ from home goods. We adapt.'},
-      {t:'A9/A10 Algorithm Alignment',p:'Purchase rate, session rate, CTR, and review velocity all factor into rank. We address all of them.'}
-    ],
-    insight:'label:The Compounding Effect',
-    insightQ:'"A brand that ranks organically for 50 mid-tail keywords at position 3 generates more revenue than one that ranks #1 for a single head term — with zero ongoing ad spend."',
-    deliverables:[
-      {ico:'🗺️',t:'Keyword Universe Map',p:'Full keyword list with search volume, competition, and priority tier.'},
-      {ico:'📈',t:'Monthly Rank Movement Report',p:'Every target keyword tracked and reported each month.'},
-      {ico:'🔍',t:'Indexing Audit Report',p:'Current indexed keywords vs opportunity gap.'},
-      {ico:'📋',t:'SEO Action Roadmap',p:'Prioritised list of SEO actions with expected rank impact and timeline.'}
-    ],
-    ctaH:'Want to Know Where You\'re Missing Organic Rank?',
-    ctaP:'Our free audit includes an SEO gap analysis. You\'ll see exactly which keywords you should be ranking for but aren\'t.'
-  },
-  aplus:{
-    tag:'A+ Content & Brand Store',
-    h:'Your A+ Content Is The Moment A Shopper Decides To Trust You.',
-    p:'Most A+ content is built to look good in a portfolio. We build it to convert undecided buyers — there\'s a meaningful difference.',
-    probTitle:'What Goes Wrong With A+ Content',
-    probP:'Brands invest in beautiful A+ modules and see no conversion lift because the content answers the wrong questions, in the wrong order, for the wrong audience.',
-    probCards:[
-      {ico:'⚠️',t:'Visuals Without Strategy',p:'Aesthetically pleasing modules that don\'t address objections or communicate key differentiators don\'t move purchase decisions.'},
-      {ico:'⚠️',t:'Desktop-First Design',p:'Most shoppers view A+ on mobile. If your modules weren\'t designed for small screens, they lose impact significantly.'},
-      {ico:'⚠️',t:'No Brand Story',p:'A+ is the only place to tell your brand\'s story on Amazon. Most brands leave this opportunity completely on the table.'}
-    ],
-    approachT:'How We Build A+ Content',
-    approachSub:'Structured to guide the buyer from interest to confidence to purchase.',
-    steps:[
-      {n:'01',t:'Buyer Objection Mapping',p:'We identify the top 3–5 reasons a buyer in your category abandons a purchase. A+ must answer each of them.'},
-      {n:'02',t:'Module Strategy',p:'Each A+ module is assigned a purpose: brand intro, comparison, key benefit, social proof, usage scenario. No filler.'},
-      {n:'03',t:'Copywriting & Design Brief',p:'We write all text and produce full design briefs for every module. Ready to hand directly to any designer.'},
-      {n:'04',t:'Brand Store Architecture',p:'Navigation structure, page hierarchy, and featured product placement — built to keep high-intent shoppers engaged.'}
-    ],
-    depthItems:[
-      {t:'Objection-First Copywriting',p:'Every text block answers a real buyer question or eliminates a real purchase barrier.'},
-      {t:'Comparison Module Strategy',p:'Feature comparisons done right increase average order value by helping buyers choose the right variant.'},
-      {t:'Mobile Rendering Review',p:'Every module previewed and adjusted for mobile before going live.'},
-      {t:'Brand Store Analytics',p:'Post-launch: traffic, attributed sales, and pages per visit tracked to identify what\'s working.'}
-    ],
-    insight:'label:What the Data Shows',
-    insightQ:'"Premium A+ content increases conversion rates by 3–10% on average, according to Amazon\'s own data. On a high-volume ASIN, that\'s one of the highest-ROI investments you can make."',
-    deliverables:[
-      {ico:'📐',t:'A+ Module Strategy Document',p:'Every module mapped to a buyer objective with priority order.'},
-      {ico:'✍️',t:'Complete Copywriting',p:'All text written and ready for design — no gaps for your team to fill.'},
-      {ico:'🖼️',t:'Design Briefs Per Module',p:'Detailed visual direction including layout, tone, and image guidance.'},
-      {ico:'🏪',t:'Brand Store Wireframe',p:'Full page-by-page wireframe for your Brand Store build.'}
-    ],
-    ctaH:'Ready to Turn Your A+ Content Into a Conversion Asset?',
-    ctaP:'Our audit includes a review of your existing A+ and Brand Store. We\'ll tell you exactly what\'s missing and what it\'s costing you.'
-  },
-  images:{
-    tag:'Product Image Strategy',
-    h:'Your Main Image Gets You The Click. Everything Else Gets You The Sale.',
-    p:'On a search results page, buyers see your main image before they see anything else. If it doesn\'t stop them, nothing else matters. We build image stacks that work from the first frame.',
-    probTitle:'Why Image Stacks Underperform',
-    probP:'Most brands invest in photography without an image strategy. The result: beautiful photos that don\'t communicate what buyers need to see in the moment they\'re deciding.',
-    probCards:[
-      {ico:'⚠️',t:'Main Image Doesn\'t Differentiate',p:'If your main image looks like every other listing in the category, click-through rate suffers — regardless of how good the product is.'},
-      {ico:'⚠️',t:'Infographics With Too Much Information',p:'Infographics cluttered with 15 callouts are ignored. 3 clear, high-impact benefits beat 15 buried ones every time.'},
-      {ico:'⚠️',t:'No Image Sequence Logic',p:'Images should tell a story: what it is → why it\'s better → who it\'s for → how it works → trust signal. Most stacks are random.'}
-    ],
-    approachT:'Our Image Audit & Strategy Process',
-    approachSub:'We don\'t just review images. We benchmark them against your category and build a brief that upgrades every frame.',
-    steps:[
-      {n:'01',t:'Category Benchmarking',p:'We analyse the main images of your top 10 competitors. What angles dominate? What differentiates the top-performers?'},
-      {n:'02',t:'CTR & Compliance Audit',p:'Main image compliance check, zoom quality, file size, and estimated CTR impact relative to category averages.'},
-      {n:'03',t:'Image Sequence Design',p:'We map every image slot to a purpose and sequence them in the order a buyer needs information to decide.'},
-      {n:'04',t:'Creative Brief Production',p:'Detailed briefs for every image: concept, layout, content, tone. Ready for any photographer or designer to execute.'}
-    ],
-    depthItems:[
-      {t:'Hero Shot Angle Analysis',p:'The angle and positioning of your main image affects CTR directly. We benchmark against what\'s winning in your category.'},
-      {t:'Infographic Hierarchy',p:'Which 3 benefits should be callouts? Determined by review analysis and competitor gap — not gut feel.'},
-      {t:'Lifestyle Image Audience Mapping',p:'Who exactly is using this product, in what context, at what moment? This defines the lifestyle image direction.'},
-      {t:'Video Thumbnail Strategy',p:'If you have video, the thumbnail determines whether it gets played. We brief thumbnails to maximise autoplay engagement.'}
-    ],
-    insight:'label:The First Image Test',
-    insightQ:'"We show clients\' main images alongside competitors in a 3-second flash test. If buyers can\'t identify why yours is better in 3 seconds, it needs to change."',
-    deliverables:[
-      {ico:'🔍',t:'Full Image Stack Audit',p:'Every image assessed against competitor benchmarks with a priority action list.'},
-      {ico:'📸',t:'Image Strategy Document',p:'Sequence map with each image\'s purpose, content, and priority order.'},
-      {ico:'📋',t:'Creative Briefs',p:'Detailed production briefs for every image, ready to hand to a photographer or designer.'},
-      {ico:'📊',t:'CTR Benchmark Report',p:'Your estimated CTR vs category averages with improvement opportunity sizing.'}
-    ],
-    ctaH:'Want to Know How Your Images Compare to the Category?',
-    ctaP:'Our free audit includes an image benchmarking review. You\'ll know within 48 hours where you\'re losing clicks.'
-  },
-  brand:{
-    tag:'Brand Consulting',
-    h:'Products Get Copied. Brands Get Loyal Customers.',
-    p:'On Amazon, a strong brand positioning makes every other lever — ads, SEO, listings — more effective. We help you define it, communicate it, and defend it.',
-    probTitle:'The Brand Strategy Mistakes We See Most',
-    probP:'Most brands on Amazon compete on price or features. Both are races to the bottom. The brands that win long-term own a positioning that makes price comparison less relevant.',
-    probCards:[
-      {ico:'⚠️',t:'No Clear Differentiation',p:'If your product description could apply to 20 other brands, you don\'t have a brand — you have a SKU. Differentiation is a strategy, not an accident.'},
-      {ico:'⚠️',t:'Pricing Without Strategy',p:'Being "competitive on price" is not a pricing strategy. It\'s a margin erosion strategy. We build price-tier positioning with intention.'},
-      {ico:'⚠️',t:'Ignoring the Review Signal',p:'Reviews are brand positioning data. Negative patterns in reviews reveal positioning failures. We read them systematically.'}
-    ],
-    approachT:'Our Brand Consulting Framework',
-    approachSub:'Grounded in category data, not marketing theory.',
-    steps:[
-      {n:'01',t:'Category & Competitor Audit',p:'Who is winning in your category and why? We map the positioning landscape before making any recommendation.'},
-      {n:'02',t:'Review Sentiment Analysis',p:'We mine 1-star and 5-star reviews across your category to find unmet needs and undefended positioning opportunities.'},
-      {n:'03',t:'Positioning & Differentiation Strategy',p:'Where should your brand sit in the category? What should it be known for? We build this with data, not opinions.'},
-      {n:'04',t:'Launch & Expansion Roadmap',p:'Which ASINs to launch next, in which price tier, targeting which customer segment — with competitive entry analysis.'}
-    ],
-    depthItems:[
-      {t:'Price Elasticity Analysis',p:'Where is your price ceiling in the category? Where is the value perception gap your competitors haven\'t filled?'},
-      {t:'Review Gap Mining',p:'What complaints does the category leader have that you can make your brand\'s strength?'},
-      {t:'Search Demand Mapping',p:'Which adjacent categories and keywords represent untapped demand for your brand?'},
-      {t:'Seasonal & Trend Analysis',p:'Category-level demand seasonality mapped to your launch and inventory planning calendar.'}
-    ],
-    insight:'label:What We\'ve Learned',
-    insightQ:'"The most successful Amazon brands we\'ve worked with didn\'t have better products. They had a clearer answer to the question: \'Why should a customer pay ₹300 more for mine?\'"',
-    deliverables:[
-      {ico:'🗺️',t:'Brand Positioning Document',p:'Category landscape, your current position, and recommended differentiation pillars.'},
-      {ico:'💰',t:'Pricing Strategy Report',p:'Price-tier analysis with margin implications and recommended positioning.'},
-      {ico:'🚀',t:'Product Launch Roadmap',p:'Keyword demand, competition analysis, and go-to-market plan for next ASIN.'},
-      {ico:'📊',t:'Quarterly Brand Health Review',p:'Competitive position, review sentiment, and market share tracking.'}
-    ],
-    ctaH:'Want an Honest Assessment of Your Brand\'s Amazon Position?',
-    ctaP:'Our free audit includes a brand positioning review. You\'ll see exactly where you stand relative to the category and what the growth opportunity looks like.'
-  },
-  fba:{
-    tag:'FBA & Inventory Management',
-    h:'Running Out of Stock Is the Most Expensive Mistake on Amazon.',
-    p:'An out-of-stock event doesn\'t just lose sales — it loses organic rank, it hands the category to a competitor, and it can take weeks to recover from. We prevent it.',
-    probTitle:'Why FBA Management Gets Neglected',
-    probP:'Inventory management is unglamorous. It doesn\'t have a dashboard that shows ROAS. But a single stock-out on a high-velocity ASIN can cost more in lost organic rank than a month of ad spend.',
-    probCards:[
-      {ico:'⚠️',t:'Reactive Replenishment',p:'Ordering when stock is already low means you\'re always one supplier delay away from a stock-out. We build lead time buffers into planning.'},
-      {ico:'⚠️',t:'IPI Score Neglect',p:'A poor IPI score reduces your FBA storage limits, which limits the inventory you can hold, which creates a self-fulfilling stock-out problem.'},
-      {ico:'⚠️',t:'No Excess Inventory Plan',p:'Excess inventory costs you storage fees and drags your IPI. It needs a clearance strategy, not just a prayer that it sells.'}
-    ],
-    approachT:'Our FBA & Inventory Management Process',
-    approachSub:'Weekly visibility, proactive planning, and no surprises.',
-    steps:[
-      {n:'01',t:'Health Baseline Audit',p:'IPI score, days of cover, stranded inventory, and excess stock — all mapped before we start managing.'},
-      {n:'02',t:'Demand Forecasting Model',p:'We build a rolling 90-day demand forecast per ASIN, updated monthly with actual velocity and seasonality adjustments.'},
-      {n:'03',t:'Replenishment Calendar',p:'A weekly replenishment plan with reorder triggers based on lead time, sales velocity, and safety stock requirements.'},
-      {n:'04',t:'IPI Optimisation Plan',p:'If your IPI is penalised, we build a prioritised plan to recover it — removing stranded stock, clearing excess, improving sell-through.'}
-    ],
-    depthItems:[
-      {t:'Days of Cover Monitoring',p:'Tracked weekly per ASIN. Alert thresholds set at 45, 30, and 14 days of cover remaining.'},
-      {t:'Lead Time Buffer Calculation',p:'Safety stock built around your specific supplier lead time plus Amazon processing time plus variance buffer.'},
-      {t:'Stranded Inventory Resolution',p:'We identify and resolve every stranded ASIN — relisting, removal order, or disposal recommendation.'},
-      {t:'Peak Period Planning',p:'Q4, sale events, and category peaks forecasted 8–12 weeks in advance with recommended stock builds.'}
-    ],
-    insight:'label:What Stock-Outs Really Cost',
-    insightQ:'"A 7-day stock-out on an ASIN ranking organically at page 1 can result in 3–6 weeks of rank recovery time. The revenue cost is 4x the stock-out itself."',
-    deliverables:[
-      {ico:'📅',t:'Weekly Inventory Status Report',p:'Days of cover per ASIN, reorder flags, and IPI score movement.'},
-      {ico:'📈',t:'90-Day Demand Forecast',p:'Rolling forecast updated monthly with confidence intervals.'},
-      {ico:'🗓️',t:'Replenishment Calendar',p:'Month-ahead shipment plan with quantity recommendations.'},
-      {ico:'⚡',t:'IPI Recovery Plan',p:'Prioritised actions to improve IPI score if currently penalised.'}
-    ],
-    ctaH:'Want to Know Your Real Inventory Risk Right Now?',
-    ctaP:'Our audit includes an FBA health check. We\'ll show you which ASINs are at risk of stock-out and what it would cost if they went down.'
-  },
-  protection:{
-    tag:'Brand Registry & Protection',
-    h:'You Built the Brand. We Make Sure No One Else Profits From It.',
-    p:'Hijackers, counterfeit listings, and Buy Box theft are not rare. On any growing brand with decent velocity, they\'re almost inevitable. We watch for them so you don\'t have to.',
-    probTitle:'The Brand Protection Threats You May Not See',
-    probP:'Most brand owners discover a hijacker from a customer complaint or a sudden Buy Box loss — by which point the damage is done. Proactive monitoring changes this completely.',
-    probCards:[
-      {ico:'⚠️',t:'Unreported Hijackers',p:'Sellers jumping on your listing go unnoticed for weeks if you\'re not monitoring. Every day costs you Buy Box share and brand trust.'},
-      {ico:'⚠️',t:'Counterfeit Listings',p:'Counterfeit products under your brand name destroy reviews and erode the equity you\'ve built. They require fast, correct escalation.'},
-      {ico:'⚠️',t:'Variation Abuse',p:'Sellers merging unrelated ASINs into your variations to piggyback your reviews is a growing problem we actively watch for.'}
-    ],
-    approachT:'Our Brand Protection Framework',
-    approachSub:'Enrol, monitor, act, and escalate — with no gaps.',
-    steps:[
-      {n:'01',t:'Brand Registry Setup',p:'Complete enrolment, verification, and Transparency programme assessment to give you the tools Amazon provides for brand owners.'},
-      {n:'02',t:'Monitoring Infrastructure',p:'Weekly automated monitoring across all your ASINs for new sellers, Buy Box changes, and review manipulation flags.'},
-      {n:'03',t:'Rapid Response Protocol',p:'When a threat is detected — hijacker, counterfeit, or listing abuse — we act within 24 hours with the correct Amazon escalation path.'},
-      {n:'04',t:'Case Management',p:'Every complaint filed, tracked, and followed to resolution. Nothing falls through the cracks.'}
-    ],
-    depthItems:[
-      {t:'Brand Registry Enrolment',p:'Trademark verification, ASIN attribution, and access to Brand Analytics, A+, and Vine.'},
-      {t:'Project Zero Setup',p:'Self-service counterfeit removal capability — faster than standard report processes.'},
-      {t:'IP Complaint Filing',p:'Structured IP complaints filed correctly to maximise acceptance rate and speed of resolution.'},
-      {t:'Buy Box Monitoring',p:'Daily Buy Box ownership tracked. Any unexpected change triggers an immediate investigation.'}
-    ],
-    insight:'label:Why Speed Matters',
-    insightQ:'"A hijacker active for 14 days on a 100-unit/day ASIN selling at a lower price costs you an estimated 30–40% of your Buy Box share during that period. Fast detection is everything."',
-    deliverables:[
-      {ico:'📋',t:'Monthly Brand Health Report',p:'Hijacker activity, counterfeit reports, Buy Box ownership rate.'},
-      {ico:'📁',t:'Case Log',p:'Every complaint filed, with status, resolution, and timeline.'},
-      {ico:'🛡️',t:'Registry Setup Documentation',p:'Full record of Brand Registry enrolment, permissions, and Transparency status.'},
-      {ico:'🔔',t:'Real-Time Alert System',p:'Immediate notification of any Buy Box loss or new seller detection on your ASINs.'}
-    ],
-    ctaH:'Want to Know How Exposed Your Brand Is Right Now?',
-    ctaP:'Our audit includes a brand protection vulnerability check. You may be surprised what we find — and how easy it is to fix.'
-  },
-  reporting:{
-    tag:'Analytics & Reporting',
-    h:'Most Agency Reports Are Built to Impress. Ours Are Built to Decide.',
-    p:'If your reporting call ends without a clear action list, you\'ve had a status update, not a performance review. We end every report with what happens next — and we own it.',
-    probTitle:'Why Most Amazon Reporting Fails Brands',
-    probP:'The problem isn\'t the data. It\'s the framing. Revenue up, ACoS flat, rank improving — these headlines tell you nothing about what to do next.',
-    probCards:[
-      {ico:'⚠️',t:'Vanity Metrics Over Decision Metrics',p:'Impressions and click volume are interesting. TACoS, margin per unit, and organic/paid revenue split are what drive decisions.'},
-      {ico:'⚠️',t:'No Change Log',p:'If you can\'t see what changed since the last report and why, you can\'t evaluate whether your agency is actually managing your account.'},
-      {ico:'⚠️',t:'Reports Sent, Not Reviewed',p:'A PDF sent by email with no walkthrough is not reporting. We do live calls, walk through every number, and take questions.'}
-    ],
-    approachT:'How We Structure Performance Reporting',
-    approachSub:'Built around decisions, not aesthetics.',
-    steps:[
-      {n:'01',t:'KPI Setup',p:'We start every engagement by agreeing the 5–7 KPIs that matter most for your brand\'s current stage and goals.'},
-      {n:'02',t:'Dashboard Build',p:'Live dashboard tracking your agreed KPIs in real time — no waiting for the bi-weekly report to know what\'s happening.'},
-      {n:'03',t:'Bi-Weekly Review Call',p:'We walk through performance together: what improved, what declined, what we changed, and what we\'re doing next.'},
-      {n:'04',t:'Action List Sign-Off',p:'Every call ends with a written next-2-week action list. Accountability is built into the structure.'}
-    ],
-    depthItems:[
-      {t:'TACoS Tracking',p:'Total advertising cost of sale — because organic impact of paid campaigns is invisible without it.'},
-      {t:'Margin Per Unit Visibility',p:'Revenue growth that erodes margin is not growth. We track contribution margin per ASIN alongside top-line metrics.'},
-      {t:'Organic vs Paid Revenue Split',p:'The ratio of organic to paid revenue tells the story of whether your SEO and listing investments are working.'},
-      {t:'Competitive Rank Benchmarking',p:'Your BSR, keyword rank, and review count relative to the top 3 competitors in your category — tracked monthly.'}
-    ],
-    insight:'label:Our Standard',
-    insightQ:'"If a brand owner reads our report and can\'t answer \'what are the three things happening in my account this week?\' in 60 seconds — we\'ve failed. That\'s the bar we hold ourselves to."',
-    deliverables:[
-      {ico:'📊',t:'Live KPI Dashboard',p:'Real-time view of your agreed metrics, always accessible.'},
-      {ico:'📋',t:'Bi-Weekly Performance Report',p:'Structured, jargon-free, with a change log and action list.'},
-      {ico:'📞',t:'Bi-Weekly Review Call',p:'Live walkthrough with your dedicated account specialist.'},
-      {ico:'📈',t:'Monthly Strategic Summary',p:'Trend analysis, competitive benchmarking, and strategic recommendations.'}
-    ],
-    ctaH:'Want Reporting That Actually Tells You What to Do Next?',
-    ctaP:'Start with a free audit. We\'ll show you what your account data is saying — and what it means for your growth strategy.'
+// ── SECTION SCROLL (renamed to avoid conflict with window.scrollTo) ──
+function goToSection(id){
+  if(!document.getElementById('page-home').classList.contains('active')){
+    showPage('page-home');
+    setTimeout(observeFades,100);
   }
+  setTimeout(()=>{
+    const el=document.getElementById(id);
+    if(el){const top=el.getBoundingClientRect().top+window.pageYOffset-80;window.scrollTo({top,behavior:'smooth'});}
+  },120);
+  closeMob();
+}
+
+// ── CURRENCY MAP ───────────────────────
+const CM={
+  US:['Below $5K/mo','$5K–$25K/mo','$25K–$100K/mo','Above $100K/mo','Not yet selling'],
+  IN:['Below ₹5L/mo','₹5L–₹20L/mo','₹20L–₹1Cr/mo','Above ₹1Cr/mo','Not yet selling'],
+  UK:['Below £5K/mo','£5K–£20K/mo','£20K–£80K/mo','Above £80K/mo','Not yet selling'],
+  UAE:['Below AED 20K/mo','AED 20–100K/mo','AED 100–400K/mo','Above AED 400K/mo','Not yet selling'],
+  CA:['Below CA$5K/mo','CA$5–25K/mo','CA$25–100K/mo','Above CA$100K/mo','Not yet selling'],
+  DE:['Below €5K/mo','€5–20K/mo','€20–80K/mo','Above €80K/mo','Not yet selling'],
+  MULTI:['Below $5K equiv/mo','$5–25K equiv/mo','$25–100K equiv/mo','Above $100K equiv/mo','Not yet selling']
+};
+const PM={US:'+1',IN:'+91',UK:'+44',UAE:'+971',CA:'+1',DE:'+49',MULTI:''};
+function updateCurrency(){
+  const s=document.getElementById('mktSelect').value;
+  const r=document.getElementById('revSelect');
+  if(!s)return;
+  r.innerHTML='<option value="" disabled selected>Select range</option>';
+  CM[s].forEach(x=>{const o=document.createElement('option');o.textContent=x;r.appendChild(o);});
+  if(PM[s])document.getElementById('phoneInput').placeholder=PM[s]+' — your number';
+}
+function submitForm(e){
+  e.preventDefault();
+  document.getElementById('auditForm').style.display='none';
+  document.getElementById('fsuccess').style.display='block';
+}
+
+// ── SERVICE DATA ───────────────────────
+const SVC={
+  ppc:{tag:'Amazon Advertising (PPC)',h:'Your Ads Should Pay For Themselves — And Then Some.',p:'Most brands overspend on ads not because the bids are wrong, but because the campaign structure is wrong from the start. We rebuild it around profit, not spend.',
+    probTitle:'What Most Brands Get Wrong With Amazon Ads',probP:'The biggest PPC mistakes aren\'t in the bids — they\'re in the architecture. Broad campaigns with no segmentation, no negative keyword discipline, and no connection to the actual margin of each product.',
+    probCards:[{ico:'⚠️',t:'Single Campaign for All Products',p:'Every product mixed together means winners fund losers. We separate by profitability tier.'},{ico:'⚠️',t:'Ignoring Search Term Reports',p:'The STA is a goldmine. Most accounts mine it once. We work it every week.'},{ico:'⚠️',t:'Optimising for ACoS, Not TACoS',p:'ACoS misses organic impact. We track TACoS to see the real cost of acquiring a customer.'}],
+    approachT:'Our PPC Management Framework',approachSub:'Built around your margin, not just your spend.',
+    steps:[{n:'01',t:'Profit-First Audit',p:'Before touching a bid, we understand your margin per ASIN. Ad strategy without margin context is guesswork.'},{n:'02',t:'Campaign Restructure',p:'We separate branded from non-branded, high-margin from low, and build dedicated campaigns for each funnel stage.'},{n:'03',t:'Weekly Optimisation',p:'Bid adjustments, negative keyword additions, new keyword expansion — on a fixed weekly cadence, not when we remember.'},{n:'04',t:'TACoS-Led Reporting',p:'Every report shows TACoS alongside ACoS. We want you to see the real cost of growth, not just the paid portion.'}],
+    depthItems:[{t:'Keyword Harvest & Expansion',p:'Mining converting search terms weekly and adding them as exact match targets to lower CPCs.'},{t:'Placement Bid Modifiers',p:'Top-of-search vs product pages behave differently. We bid accordingly, not uniformly.'},{t:'Dayparting Analysis',p:'When does your category convert? We adjust budgets around peak windows.'},{t:'DSP & Sponsored Display',p:'For brands with budget, we layer retargeting to defend against competitors and capture category browsers.'}],
+    insightQ:'"An ad that sells at 20% ACoS but destroys your margin is a bad ad. An ad that looks expensive but builds organic rank is often the best investment you\'ll make."',
+    deliverables:[{ico:'📋',t:'Campaign Audit Report',p:'Full breakdown of wasted spend, structural gaps, and quick wins.'},{ico:'📈',t:'Bi-Weekly Ad Performance Report',p:'ROAS, ACoS, TACoS, and conversion data with full change log.'},{ico:'🗂️',t:'Keyword Expansion Log',p:'Every new keyword added, every negative added, and why.'},{ico:'🎯',t:'Monthly Budget Allocation Plan',p:'Recommended spend per campaign tier based on live performance.'}],
+    ctaH:'Ready to Stop Guessing With Your Ad Budget?',ctaP:'Start with a free audit. We\'ll tell you exactly where your ad spend is leaking and what a restructured strategy could return.'},
+
+  listing:{tag:'Listing Optimisation',h:'Your Listing Is Your Salesperson. Most Listings Are Mumbling.',p:'A keyword-stuffed title might rank. A well-written, strategically structured listing ranks AND converts. The difference compounds every single day.',
+    probTitle:'Why Most Listings Underperform',probP:'Brands focus on getting keywords in. They forget that the algorithm rewards conversion rate too. A listing that ranks but doesn\'t convert eventually loses rank.',
+    probCards:[{ico:'⚠️',t:'Keyword Stuffing Over Readability',p:'Titles stuffed with commas and variants confuse buyers. Clear, readable titles convert better and often rank just as well.'},{ico:'⚠️',t:'Features Over Benefits',p:'"450W motor" means nothing. "Blends ice in 8 seconds" means something. Buyers buy outcomes, not specs.'},{ico:'⚠️',t:'Ignoring Mobile Rendering',p:'60%+ of Amazon searches are on mobile. Most listings are written for desktop. We write for the thumb-scroll.'}],
+    approachT:'Our Listing Optimisation Process',approachSub:'Research-led, benefit-first, and built to rank and convert simultaneously.',
+    steps:[{n:'01',t:'Keyword & Competitor Research',p:'We pull the keyword universe for your ASIN, map search volumes, and reverse-mine your top 3 competitors.'},{n:'02',t:'Indexing Audit',p:'We check which keywords your listing is indexed for and identify the gaps costing you organic traffic.'},{n:'03',t:'Full Rewrite',p:'Title, bullets, description, and backend — rewritten with keyword priority, buyer psychology, and mobile rendering in mind.'},{n:'04',t:'Track & Iterate',p:'We monitor rank movement and conversion rate post-live, and refresh when search trends shift.'}],
+    depthItems:[{t:'Title Architecture',p:'Primary keyword first, key benefit second, differentiator third. A formula that ranks and clicks.'},{t:'Bullet Hierarchy',p:'First bullet = biggest benefit, last bullet = trust signal. Every bullet earns its position.'},{t:'Backend Search Terms',p:'No keyword duplication — maximised for indexing with every character Amazon gives you.'},{t:'Competitor Gap Targeting',p:'Keywords your competitors rank for that you don\'t index for yet. Fast-ranking opportunities.'}],
+    insightQ:'"A 1% improvement in conversion rate on an ASIN doing 100 units/day is 1 extra sale every single day — forever. Listing optimisation is the highest-ROI activity on Amazon when done right."',
+    deliverables:[{ico:'📄',t:'Before/After Comparison',p:'Every change documented with clear rationale.'},{ico:'🔑',t:'Keyword Tracking Sheet',p:'Target keywords with current rank and movement tracked over time.'},{ico:'📊',t:'CVR Report',p:'Conversion rate tracked before and 30/60/90 days after changes.'},{ico:'🔄',t:'Quarterly Refresh',p:'Listings revisited as search trends and competitor positioning shifts.'}],
+    ctaH:'Want to See What\'s Wrong With Your Listings?',ctaP:'Our free audit includes a listing health check. You\'ll know exactly what\'s costing you rank and conversions.'},
+
+  seo:{tag:'Amazon SEO',h:'Paid Traffic Is Rented. Organic Rank Is Owned.',p:'Every dollar you spend on ads is gone the moment you pause a campaign. Organic rank stays, compounds, and reduces your cost of acquiring every sale over time.',
+    probTitle:'Why Most Amazon SEO Efforts Fail',probP:'Brands treat Amazon SEO as a one-time listing task. Real SEO is continuous — tracking rank movement, responding to algorithm shifts, and capitalising on seasonal keyword spikes.',
+    probCards:[{ico:'⚠️',t:'Treating It Like a One-Time Fix',p:'Amazon\'s algorithm re-indexes constantly. Listings need ongoing keyword maintenance, not a single optimisation pass.'},{ico:'⚠️',t:'Focusing Only on Head Keywords',p:'Head keywords are competitive. Long-tail and mid-tail keywords drive quality traffic with far less competition.'},{ico:'⚠️',t:'Ignoring Velocity Signals',p:'Amazon ranks products that sell. SEO without a strategy to drive early velocity often stalls before it starts.'}],
+    approachT:'Our Amazon SEO Methodology',approachSub:'Built for sustainable organic rank, not short-term spikes.',
+    steps:[{n:'01',t:'Keyword Universe Mapping',p:'We build a complete keyword map: head terms, mid-tail, long-tail, and category-specific terms with search frequency ranks.'},{n:'02',t:'Indexing Gap Analysis',p:'We identify every relevant keyword your ASIN isn\'t indexed for — these are immediate ranking opportunities.'},{n:'03',t:'On-Listing & Backend Optimisation',p:'Title, bullets, backend search terms, and subject matter fields all optimised for maximum indexing surface.'},{n:'04',t:'Velocity Strategy',p:'For competitive keywords, we build a rank velocity plan using targeted promos, external traffic, and search-find-buy tactics.'}],
+    depthItems:[{t:'Search Frequency Rank Tracking',p:'We monitor SFR movement for your 20 most important keywords monthly.'},{t:'Reverse ASIN Mining',p:'Every top competitor ASIN mined for keywords you\'re missing. Often reveals 50+ new indexing opportunities.'},{t:'Category-Specific Signals',p:'Electronics ranking factors differ from home goods. We adapt strategy to your specific category.'},{t:'A9/A10 Algorithm Alignment',p:'Purchase rate, session rate, CTR, and review velocity all factor into rank. We address all of them.'}],
+    insightQ:'"A brand ranking organically for 50 mid-tail keywords at position 3 generates more revenue than one ranking #1 for a single head term — with zero ongoing ad spend."',
+    deliverables:[{ico:'🗺️',t:'Keyword Universe Map',p:'Full keyword list with search volume, competition, and priority tier.'},{ico:'📈',t:'Monthly Rank Report',p:'Every target keyword tracked and reported each month.'},{ico:'🔍',t:'Indexing Audit',p:'Current indexed keywords vs the opportunity gap.'},{ico:'📋',t:'SEO Roadmap',p:'Prioritised SEO actions with expected rank impact and timeline.'}],
+    ctaH:'Want to Know Where You\'re Missing Organic Rank?',ctaP:'Our free audit includes an SEO gap analysis. You\'ll see exactly which keywords you should be ranking for — but aren\'t.'},
+
+  aplus:{tag:'A+ Content & Brand Store',h:'Your A+ Content Is the Moment a Shopper Decides to Trust You.',p:'Most A+ content is built to look good in a portfolio. We build it to convert undecided buyers — there\'s a meaningful difference in how you approach each.',
+    probTitle:'What Goes Wrong With A+ Content',probP:'Brands invest in beautiful A+ modules and see no conversion lift because the content answers the wrong questions, in the wrong order, for the wrong audience.',
+    probCards:[{ico:'⚠️',t:'Visuals Without Strategy',p:'Aesthetically pleasing modules that don\'t address objections or communicate differentiators don\'t move purchase decisions.'},{ico:'⚠️',t:'Desktop-First Design',p:'Most shoppers view A+ on mobile. If your modules weren\'t designed for small screens, they lose impact significantly.'},{ico:'⚠️',t:'No Brand Story',p:'A+ is the only place to tell your brand\'s story on Amazon. Most brands leave this opportunity entirely on the table.'}],
+    approachT:'How We Build A+ Content',approachSub:'Structured to guide the buyer from interest to confidence to purchase.',
+    steps:[{n:'01',t:'Buyer Objection Mapping',p:'We identify the top 3–5 reasons a buyer in your category abandons a purchase. A+ must answer each of them.'},{n:'02',t:'Module Strategy',p:'Each A+ module is assigned a purpose: brand intro, comparison, key benefit, social proof. No filler modules.'},{n:'03',t:'Copywriting & Design Brief',p:'We write all text and produce full design briefs for every module. Ready to hand directly to any designer.'},{n:'04',t:'Brand Store Architecture',p:'Navigation structure, page hierarchy, and featured product placement built to keep high-intent shoppers engaged.'}],
+    depthItems:[{t:'Objection-First Copywriting',p:'Every text block answers a real buyer question or eliminates a real purchase barrier.'},{t:'Comparison Module Strategy',p:'Feature comparisons done right increase average order value by helping buyers choose the right variant.'},{t:'Mobile Rendering Review',p:'Every module previewed and adjusted for mobile before going live.'},{t:'Brand Store Analytics',p:'Post-launch traffic, attributed sales, and pages per visit tracked monthly.'}],
+    insightQ:'"Premium A+ content increases conversion rates by 3–10% on average, per Amazon\'s own data. On a high-volume ASIN, that\'s one of the highest-ROI investments you can make."',
+    deliverables:[{ico:'📐',t:'A+ Module Strategy',p:'Every module mapped to a buyer objective with priority order.'},{ico:'✍️',t:'Complete Copywriting',p:'All text written and ready for design — no gaps for your team to fill.'},{ico:'🖼️',t:'Design Briefs',p:'Detailed visual direction for every module including layout and tone.'},{ico:'🏪',t:'Brand Store Wireframe',p:'Full page-by-page wireframe for your Brand Store build.'}],
+    ctaH:'Ready to Turn Your A+ Content Into a Conversion Asset?',ctaP:'Our audit includes a review of your existing A+ and Brand Store. We\'ll tell you what\'s missing and what it\'s costing you.'},
+
+  images:{tag:'Product Image Strategy',h:'Your Main Image Gets You the Click. Everything Else Gets You the Sale.',p:'On a search results page, buyers see your main image before anything else. If it doesn\'t stop them, nothing else matters. We build image stacks that work from the first frame.',
+    probTitle:'Why Image Stacks Underperform',probP:'Most brands invest in photography without an image strategy. The result: beautiful photos that don\'t communicate what buyers need to see in the moment they\'re deciding.',
+    probCards:[{ico:'⚠️',t:'Main Image Doesn\'t Differentiate',p:'If your main image looks like every other listing in the category, CTR suffers regardless of how good the product is.'},{ico:'⚠️',t:'Cluttered Infographics',p:'Infographics with 15 callouts are ignored. 3 clear, high-impact benefits beat 15 buried ones every time.'},{ico:'⚠️',t:'No Image Sequence Logic',p:'Images should tell a story: what it is → why it\'s better → who it\'s for → how it works → trust signal. Most stacks are random.'}],
+    approachT:'Our Image Audit & Strategy Process',approachSub:'We benchmark against your category and build a brief that upgrades every frame.',
+    steps:[{n:'01',t:'Category Benchmarking',p:'We analyse main images of your top 10 competitors. What angles dominate? What differentiates the top-performers?'},{n:'02',t:'CTR & Compliance Audit',p:'Main image compliance check, zoom quality, and estimated CTR impact relative to category averages.'},{n:'03',t:'Image Sequence Design',p:'We map every image slot to a purpose and sequence them in the order a buyer needs information to decide.'},{n:'04',t:'Creative Brief Production',p:'Detailed briefs for every image: concept, layout, content, tone. Ready for any photographer or designer.'}],
+    depthItems:[{t:'Hero Shot Angle Analysis',p:'The angle and position of your main image affects CTR directly. We benchmark against category winners.'},{t:'Infographic Hierarchy',p:'Which 3 benefits should be callouts? Determined by review analysis and competitor gap — not gut feel.'},{t:'Lifestyle Image Audience Mapping',p:'Who exactly is using this product, in what context, at what moment? This defines lifestyle direction.'},{t:'Video Thumbnail Strategy',p:'If you have video, the thumbnail determines whether it gets played. We brief thumbnails for maximum engagement.'}],
+    insightQ:'"We show clients\' main images alongside competitors in a 3-second flash test. If buyers can\'t identify why yours is better in 3 seconds, it needs to change."',
+    deliverables:[{ico:'🔍',t:'Full Image Audit',p:'Every image assessed against competitor benchmarks with a priority action list.'},{ico:'📸',t:'Image Strategy Document',p:'Sequence map with each image\'s purpose, content, and priority order.'},{ico:'📋',t:'Creative Briefs',p:'Production briefs for every image — ready to hand to a photographer or designer.'},{ico:'📊',t:'CTR Benchmark Report',p:'Your estimated CTR vs category averages with improvement opportunity sizing.'}],
+    ctaH:'Want to Know How Your Images Compare to the Category?',ctaP:'Our free audit includes an image benchmarking review. You\'ll know where you\'re losing clicks before we start.'},
+
+  brand:{tag:'Brand Consulting',h:'Products Get Copied. Brands Get Loyal Customers.',p:'On Amazon, strong brand positioning makes every other lever — ads, SEO, listings — more effective. We help you define it, communicate it, and defend it.',
+    probTitle:'The Brand Strategy Mistakes We See Most',probP:'Most brands compete on price or features. Both are races to the bottom. The brands that win long-term own a positioning that makes price comparison less relevant.',
+    probCards:[{ico:'⚠️',t:'No Clear Differentiation',p:'If your product description could apply to 20 other brands, you don\'t have a brand — you have a SKU. Differentiation is a strategy, not an accident.'},{ico:'⚠️',t:'Pricing Without Strategy',p:'"Competitive on price" is not a pricing strategy. It\'s a margin erosion strategy. We build price-tier positioning with intention.'},{ico:'⚠️',t:'Ignoring Review Signals',p:'Reviews are brand positioning data. Negative patterns reveal positioning failures. We read them systematically.'}],
+    approachT:'Our Brand Consulting Framework',approachSub:'Grounded in category data, not marketing theory.',
+    steps:[{n:'01',t:'Category & Competitor Audit',p:'Who is winning in your category and why? We map the positioning landscape before making any recommendation.'},{n:'02',t:'Review Sentiment Analysis',p:'We mine 1-star and 5-star reviews across your category to find unmet needs and open positioning opportunities.'},{n:'03',t:'Positioning Strategy',p:'Where should your brand sit in the category? What should it be known for? We build this with data, not opinions.'},{n:'04',t:'Launch & Expansion Roadmap',p:'Which ASINs to launch next, in which price tier, targeting which customer segment — with full competitive entry analysis.'}],
+    depthItems:[{t:'Price Elasticity Analysis',p:'Where is your price ceiling in the category? Where is the value perception gap your competitors haven\'t filled?'},{t:'Review Gap Mining',p:'What complaints does the category leader have that you can make your brand\'s strength?'},{t:'Search Demand Mapping',p:'Which adjacent categories and keywords represent untapped demand for your brand?'},{t:'Seasonal & Trend Analysis',p:'Category-level demand seasonality mapped to your launch and inventory planning calendar.'}],
+    insightQ:'"The most successful Amazon brands we\'ve worked with didn\'t have better products. They had a clearer answer to the question: \'Why should a customer pay $15 more for mine?\'"',
+    deliverables:[{ico:'🗺️',t:'Brand Positioning Document',p:'Category landscape, your current position, and recommended differentiation pillars.'},{ico:'💰',t:'Pricing Strategy Report',p:'Price-tier analysis with margin implications and recommended positioning.'},{ico:'🚀',t:'Product Launch Roadmap',p:'Keyword demand, competition analysis, and go-to-market plan for next ASIN.'},{ico:'📊',t:'Quarterly Brand Health Review',p:'Competitive position, review sentiment, and market share tracking.'}],
+    ctaH:'Want an Honest Assessment of Your Brand\'s Amazon Position?',ctaP:'Our free audit includes a brand positioning review. You\'ll see where you stand relative to the category and what the growth opportunity looks like.'},
+
+  fba:{tag:'FBA & Inventory Management',h:'Running Out of Stock Is the Most Expensive Mistake on Amazon.',p:'A stock-out doesn\'t just lose sales — it loses organic rank and hands the category to a competitor. Recovery can take weeks. We prevent it.',
+    probTitle:'Why FBA Management Gets Neglected',probP:'Inventory management is unglamorous. It doesn\'t have a dashboard that shows ROAS. But a single stock-out on a high-velocity ASIN can cost more in lost rank than a month of ad spend.',
+    probCards:[{ico:'⚠️',t:'Reactive Replenishment',p:'Ordering when stock is already low means you\'re always one supplier delay away from a stock-out. We build lead time buffers into planning.'},{ico:'⚠️',t:'IPI Score Neglect',p:'A poor IPI score reduces your FBA storage limits — which limits inventory — which creates a self-fulfilling stock-out problem.'},{ico:'⚠️',t:'No Excess Inventory Plan',p:'Excess inventory costs you storage fees and drags IPI. It needs a clearance strategy, not a hope that it sells.'}],
+    approachT:'Our FBA & Inventory Management Process',approachSub:'Weekly visibility, proactive planning, and no surprises.',
+    steps:[{n:'01',t:'Health Baseline Audit',p:'IPI score, days of cover, stranded inventory, and excess stock — all mapped before we start managing.'},{n:'02',t:'Demand Forecasting Model',p:'We build a rolling 90-day demand forecast per ASIN, updated monthly with actual velocity and seasonality.'},{n:'03',t:'Replenishment Calendar',p:'A weekly replenishment plan with reorder triggers based on lead time, sales velocity, and safety stock.'},{n:'04',t:'IPI Optimisation',p:'If your IPI is penalised, we build a prioritised plan to recover it — removing stranded stock, clearing excess, improving sell-through.'}],
+    depthItems:[{t:'Days of Cover Monitoring',p:'Tracked weekly per ASIN. Alert thresholds at 45, 30, and 14 days of cover remaining.'},{t:'Lead Time Buffer Calculation',p:'Safety stock built around your specific supplier lead time plus Amazon processing time plus variance buffer.'},{t:'Stranded Inventory Resolution',p:'We identify and resolve every stranded ASIN — relisting, removal order, or disposal recommendation.'},{t:'Peak Period Planning',p:'Q4, Prime Day, and sale events forecasted 8–12 weeks in advance with recommended stock builds.'}],
+    insightQ:'"A 7-day stock-out on a page-1 ASIN can result in 3–6 weeks of rank recovery time. The revenue cost is 4x the stock-out period itself."',
+    deliverables:[{ico:'📅',t:'Weekly Inventory Status',p:'Days of cover per ASIN, reorder flags, and IPI score movement.'},{ico:'📈',t:'90-Day Demand Forecast',p:'Rolling forecast updated monthly with confidence intervals.'},{ico:'🗓️',t:'Replenishment Calendar',p:'Month-ahead shipment plan with quantity recommendations per ASIN.'},{ico:'⚡',t:'IPI Recovery Plan',p:'Prioritised actions to improve IPI score if currently penalised.'}],
+    ctaH:'Want to Know Your Real Inventory Risk Right Now?',ctaP:'Our audit includes an FBA health check. We\'ll show you which ASINs are at risk and what it would cost if they went out of stock.'},
+
+  protection:{tag:'Brand Registry & Protection',h:'You Built the Brand. We Make Sure No One Else Profits From It.',p:'Hijackers, counterfeit listings, and Buy Box theft are not rare on growing brands. We watch for them proactively so you don\'t have to find out from a customer complaint.',
+    probTitle:'The Brand Protection Threats You May Not See',probP:'Most brand owners discover a hijacker from a customer complaint or a sudden Buy Box loss — by which point the damage is done. Proactive monitoring changes this entirely.',
+    probCards:[{ico:'⚠️',t:'Unreported Hijackers',p:'Sellers jumping on your listing go unnoticed for weeks without monitoring. Every day costs you Buy Box share and brand trust.'},{ico:'⚠️',t:'Counterfeit Listings',p:'Counterfeit products under your brand name destroy reviews and erode the equity you\'ve built. They require fast, correct escalation.'},{ico:'⚠️',t:'Variation Abuse',p:'Sellers merging unrelated ASINs into your variations to piggyback your reviews — a growing problem we actively watch for.'}],
+    approachT:'Our Brand Protection Framework',approachSub:'Enrol, monitor, act, and escalate — with no gaps.',
+    steps:[{n:'01',t:'Brand Registry Setup',p:'Complete enrolment, verification, and Transparency programme assessment to give you the full suite of Amazon brand owner tools.'},{n:'02',t:'Monitoring Infrastructure',p:'Weekly automated monitoring across all your ASINs for new sellers, Buy Box changes, and review manipulation flags.'},{n:'03',t:'Rapid Response',p:'When a threat is detected, we act within 24 hours with the correct Amazon escalation path — no waiting, no delays.'},{n:'04',t:'Case Management',p:'Every complaint filed, tracked, and followed through to resolution. Nothing falls through the cracks.'}],
+    depthItems:[{t:'Brand Registry Enrolment',p:'Trademark verification, ASIN attribution, and access to Brand Analytics, A+, and Vine.'},{t:'Project Zero Setup',p:'Self-service counterfeit removal — faster than standard Amazon report processes.'},{t:'IP Complaint Filing',p:'Structured IP complaints filed correctly to maximise acceptance rate and speed of resolution.'},{t:'Buy Box Monitoring',p:'Daily Buy Box ownership tracked. Any unexpected change triggers immediate investigation.'}],
+    insightQ:'"A hijacker active for 14 days on a 100-unit/day ASIN at a lower price costs you an estimated 30–40% Buy Box share during that period. Fast detection is everything."',
+    deliverables:[{ico:'📋',t:'Monthly Brand Health Report',p:'Hijacker activity, counterfeit reports, Buy Box ownership rate.'},{ico:'📁',t:'Case Log',p:'Every complaint filed, with status, resolution timeline, and outcome.'},{ico:'🛡️',t:'Registry Documentation',p:'Full record of Brand Registry enrolment, permissions, and Transparency status.'},{ico:'🔔',t:'Real-Time Alerts',p:'Immediate notification of any Buy Box loss or new seller detection.'}],
+    ctaH:'Want to Know How Exposed Your Brand Is Right Now?',ctaP:'Our audit includes a brand protection vulnerability check. You may be surprised what we find — and how quickly it can be fixed.'},
+
+  reporting:{tag:'Analytics & Reporting',h:'Most Agency Reports Are Built to Impress. Ours Are Built to Decide.',p:'If your reporting call ends without a clear action list, you\'ve had a status update, not a performance review. We end every report with what happens next — and we own it.',
+    probTitle:'Why Most Amazon Reporting Fails Brands',probP:'The problem isn\'t the data. It\'s the framing. Revenue up, ACoS flat, rank improving — these headlines tell you nothing about what to do next.',
+    probCards:[{ico:'⚠️',t:'Vanity Metrics Over Decision Metrics',p:'Impressions and click volume are interesting. TACoS, margin per unit, and organic/paid revenue split are what drive decisions.'},{ico:'⚠️',t:'No Change Log',p:'If you can\'t see what changed since the last report and why, you can\'t evaluate whether your agency is managing your account.'},{ico:'⚠️',t:'Reports Sent, Not Reviewed',p:'A PDF sent by email with no walkthrough is not reporting. We do live calls, walk through every number, and take questions.'}],
+    approachT:'How We Structure Performance Reporting',approachSub:'Built around decisions, not aesthetics.',
+    steps:[{n:'01',t:'KPI Setup',p:'We start by agreeing the 5–7 KPIs that matter most for your brand\'s current stage and goals. No generic dashboards.'},{n:'02',t:'Dashboard Build',p:'Live dashboard tracking your agreed KPIs in real time — no waiting for the bi-weekly report to know what\'s happening.'},{n:'03',t:'Bi-Weekly Review Call',p:'We walk through performance together: what improved, what declined, what we changed, and what\'s next.'},{n:'04',t:'Action List Sign-Off',p:'Every call ends with a written next-2-week action list. Accountability is built into the structure.'}],
+    depthItems:[{t:'TACoS Tracking',p:'Total advertising cost of sale — because organic impact of paid campaigns is invisible without it.'},{t:'Margin Per Unit Visibility',p:'Revenue growth that erodes margin is not growth. We track contribution margin per ASIN alongside top-line metrics.'},{t:'Organic vs Paid Revenue Split',p:'The ratio tells the story of whether your SEO and listing investments are working.'},{t:'Competitive Benchmarking',p:'Your BSR, keyword rank, and review count relative to the top 3 competitors — tracked monthly.'}],
+    insightQ:'"If a brand owner reads our report and can\'t answer \'what are the three most important things happening in my account right now?\' in 60 seconds — we\'ve failed. That\'s the bar we hold ourselves to."',
+    deliverables:[{ico:'📊',t:'Live KPI Dashboard',p:'Real-time view of your agreed metrics, always accessible.'},{ico:'📋',t:'Bi-Weekly Report',p:'Structured, jargon-free, with a change log and clear action list.'},{ico:'📞',t:'Bi-Weekly Review Call',p:'Live walkthrough with your dedicated account specialist.'},{ico:'📈',t:'Monthly Strategic Summary',p:'Trend analysis, competitive benchmarking, and strategic recommendations.'}],
+    ctaH:'Want Reporting That Actually Tells You What to Do Next?',ctaP:'Start with a free audit. We\'ll show you what your account data is saying and what it means for your growth strategy.'}
 };
 
 function showService(id){
-  const d=SVC[id];
-  if(!d)return;
+  const d=SVC[id];if(!d)return;
   document.getElementById('sp-tag').textContent=d.tag;
   document.getElementById('sp-h').textContent=d.h;
   document.getElementById('sp-p').textContent=d.p;
-  // Problem
-  document.getElementById('sp-prob-left').innerHTML=`<h3 class="prob-title">${d.probTitle}</h3><p class="prob-p">${d.probP}</p>`;
+  document.getElementById('sp-prob-left').innerHTML=`<h3 class="prob-title">${d.probTitle}</h3><p class="prob-p" style="margin-top:12px;">${d.probP}</p>`;
   document.getElementById('sp-prob-cards').innerHTML=d.probCards.map(c=>`<div class="prob-card"><span class="prob-icon">${c.ico}</span><div><div class="prob-card-t">${c.t}</div><div class="prob-card-p">${c.p}</div></div></div>`).join('');
-  // Approach
   document.getElementById('sp-approach-t').textContent=d.approachT;
   document.getElementById('sp-approach-sub').textContent=d.approachSub;
   document.getElementById('sp-steps').innerHTML=d.steps.map(s=>`<div class="step-card" data-n="${s.n}"><div class="step-num">${s.n}</div><div class="step-t">${s.t}</div><p class="step-p">${s.p}</p></div>`).join('');
-  // Depth
   document.getElementById('sp-depth-list').innerHTML=d.depthItems.map(i=>`<li class="depth-item"><div class="depth-bullet"><span>✓</span></div><div><div class="depth-item-t">${i.t}</div><div class="depth-item-p">${i.p}</div></div></li>`).join('');
-  document.getElementById('sp-insight').innerHTML=`<div class="insight-label">${d.insightQ.startsWith('"')?'Our Philosophy':'Key Insight'}</div><div class="insight-quote">${d.insightQ}</div>`;
-  // Deliverables
+  document.getElementById('sp-insight').innerHTML=`<div class="insight-label">Our Philosophy</div><div class="insight-quote">${d.insightQ}</div>`;
   document.getElementById('sp-deliverables').innerHTML=d.deliverables.map(x=>`<div class="deliv-card"><div class="deliv-ico">${x.ico}</div><div class="deliv-t">${x.t}</div><div class="deliv-p">${x.p}</div></div>`).join('');
-  // CTA
   document.getElementById('sp-cta-h').textContent=d.ctaH;
   document.getElementById('sp-cta-p').textContent=d.ctaP;
   showPage('page-service');
