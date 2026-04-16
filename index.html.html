@@ -1,490 +1,426 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mad Marketing Verse | Amazon Growth Agency</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet"/>
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --dark: #080A0E;
-      --dark2: #0C0F16;
-      --dark3: #12161F;
-      --card: #161C28;
-      --gold: #D4A843;
-      --gold2: #ECC96A;
-      --text: #DDE1EC;
-      --muted: #727A90;
-      --border: rgba(212,168,67,0.12);
-      --border2: rgba(255,255,255,0.06);
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    :root{
+      --bg:#07080D;
+      --bg2:#0D0F1A;
+      --bg3:#131629;
+      --card:#161929;
+      --violet:#7C3AED;
+      --violet2:#9D5CF6;
+      --cyan:#06B6D4;
+      --grad:linear-gradient(135deg,#7C3AED,#06B6D4);
+      --text:#E2E4F0;
+      --muted:#6B7280;
+      --border:rgba(124,58,237,0.18);
+      --border2:rgba(255,255,255,0.07);
     }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--dark); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+    html{scroll-behavior:smooth;}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
 
-    nav {
-      position: fixed; top: 0; width: 100%; z-index: 100;
-      background: rgba(8,10,14,0.9); backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 6%; height: 68px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-logo { display: flex; align-items: center; gap: 10px; }
-    .nav-logo-mark {
-      width: 32px; height: 32px; border-radius: 8px;
-      background: linear-gradient(135deg, var(--gold), #a07820);
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 900; font-size: 0.9rem; color: #080A0E;
-    }
-    .nav-logo-text { font-size: 1.1rem; font-weight: 800; letter-spacing: -0.3px; color: #fff; }
-    .nav-logo-text span { color: var(--gold); }
-    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
-    .nav-links a { color: var(--muted); font-size: 0.875rem; font-weight: 500; text-decoration: none; transition: color 0.2s; }
-    .nav-links a:hover { color: #fff; }
-    .nav-cta {
-      background: var(--gold); color: #080A0E;
-      padding: 9px 20px; border-radius: 6px;
-      font-weight: 700; font-size: 0.85rem; text-decoration: none;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .nav-cta:hover { background: var(--gold2); transform: translateY(-1px); }
-    .hamburger { display: none; background: none; border: none; cursor: pointer; color: #fff; font-size: 1.3rem; }
-    @media(max-width:800px){ .nav-links { display: none; } .hamburger { display: block; } }
+    /* ── NAV ───────────────────────────────── */
+    nav{position:fixed;top:0;width:100%;z-index:200;height:68px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;background:rgba(7,8,13,0.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--border2);}
+    .logo{display:flex;align-items:center;gap:10px;}
+    .logo-mark{width:34px;height:34px;border-radius:8px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1rem;color:#fff;}
+    .logo-text{font-size:1.05rem;font-weight:800;color:#fff;letter-spacing:-0.3px;}
+    .logo-text span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{color:var(--muted);font-size:.875rem;font-weight:500;text-decoration:none;transition:color .2s;}
+    .nav-links a:hover{color:#fff;}
+    .nav-cta{padding:9px 20px;border-radius:6px;background:var(--grad);color:#fff;font-weight:700;font-size:.85rem;text-decoration:none;transition:opacity .2s,transform .2s;}
+    .nav-cta:hover{opacity:.9;transform:translateY(-1px);}
+    .hbg{display:none;background:none;border:none;color:#fff;font-size:1.4rem;cursor:pointer;}
+    @media(max-width:820px){.nav-links{display:none;}.hbg{display:block;}}
 
-    #hero {
-      min-height: 100vh; display: flex; align-items: center; justify-content: center;
-      text-align: center; padding: 110px 6% 80px; position: relative; overflow: hidden;
-    }
-    .hero-glow {
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 70% 50% at 50% 20%, rgba(212,168,67,0.08) 0%, transparent 65%);
-    }
-    .hero-content { position: relative; max-width: 860px; }
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 8px;
-      border: 1px solid var(--border); background: rgba(212,168,67,0.06);
-      padding: 6px 16px; border-radius: 100px; margin-bottom: 32px;
-      font-size: 0.78rem; font-weight: 600; color: var(--gold); letter-spacing: 0.8px; text-transform: uppercase;
-    }
-    .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
-    h1.hero-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 6.5vw, 5.2rem);
-      line-height: 1.08; letter-spacing: -1.5px; color: #fff; margin-bottom: 28px;
-    }
-    h1.hero-title em {
-      font-style: italic;
-      background: linear-gradient(135deg, var(--gold), var(--gold2));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .hero-sub {
-      font-size: 1.1rem; color: var(--muted); max-width: 560px;
-      margin: 0 auto 44px; line-height: 1.8; font-weight: 400;
-    }
-    .hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    .btn-gold {
-      background: var(--gold); color: #080A0E;
-      padding: 14px 32px; border-radius: 7px; font-weight: 700;
-      font-size: 0.95rem; text-decoration: none; transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-    }
-    .btn-gold:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(212,168,67,0.25); }
-    .btn-ghost {
-      border: 1px solid var(--border2); color: var(--text);
-      padding: 14px 32px; border-radius: 7px; font-weight: 600;
-      font-size: 0.95rem; text-decoration: none; transition: border-color 0.2s, background 0.2s;
-    }
-    .btn-ghost:hover { border-color: rgba(212,168,67,0.3); background: rgba(212,168,67,0.04); }
-    .hero-stats {
-      display: flex; margin-top: 72px;
-      border: 1px solid var(--border2); border-radius: 12px;
-      background: var(--dark2); overflow: hidden; max-width: 620px; margin-left: auto; margin-right: auto;
-    }
-    .hero-stat { flex: 1; padding: 24px 20px; text-align: center; border-right: 1px solid var(--border2); }
-    .hero-stat:last-child { border-right: none; }
-    .hero-stat-num { font-size: 1.8rem; font-weight: 800; color: var(--gold); line-height: 1; }
-    .hero-stat-label { font-size: 0.75rem; color: var(--muted); margin-top: 5px; font-weight: 500; }
+    /* ── HERO ──────────────────────────────── */
+    #hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 6% 80px;position:relative;overflow:hidden;}
+    .hero-orb1{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,.14) 0%,transparent 70%);top:-100px;left:-100px;pointer-events:none;}
+    .hero-orb2{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(6,182,212,.1) 0%,transparent 70%);bottom:-100px;right:-100px;pointer-events:none;}
+    .hero-wrap{position:relative;max-width:900px;}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:100px;border:1px solid var(--border);background:rgba(124,58,237,.08);font-size:.75rem;font-weight:700;color:var(--violet2);letter-spacing:.8px;text-transform:uppercase;margin-bottom:30px;}
+    .pill-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);}
+    h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,6vw,5rem);line-height:1.1;letter-spacing:-1.5px;color:#fff;margin-bottom:26px;}
+    h1 em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    .hero-sub{font-size:1.1rem;color:var(--muted);max-width:580px;margin:0 auto 44px;line-height:1.8;}
+    .ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+    .btn-main{padding:14px 32px;border-radius:7px;background:var(--grad);color:#fff;font-weight:700;font-size:.95rem;text-decoration:none;transition:opacity .2s,transform .2s,box-shadow .2s;}
+    .btn-main:hover{opacity:.9;transform:translateY(-2px);box-shadow:0 12px 32px rgba(124,58,237,.3);}
+    .btn-out{padding:14px 32px;border-radius:7px;border:1px solid var(--border2);color:var(--text);font-weight:600;font-size:.95rem;text-decoration:none;transition:border-color .2s,background .2s;}
+    .btn-out:hover{border-color:rgba(124,58,237,.4);background:rgba(124,58,237,.06);}
+    .stat-row{display:flex;margin-top:72px;border:1px solid var(--border2);border-radius:12px;background:var(--bg2);overflow:hidden;max-width:640px;margin-left:auto;margin-right:auto;}
+    .stat{flex:1;padding:22px 16px;text-align:center;border-right:1px solid var(--border2);}
+    .stat:last-child{border-right:none;}
+    .stat-n{font-size:1.75rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;}
+    .stat-l{font-size:.72rem;color:var(--muted);margin-top:5px;font-weight:500;}
 
-    .section-wrap { padding: 100px 6%; }
-    .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 12px; }
-    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 3.2vw, 2.6rem); color: #fff; line-height: 1.2; margin-bottom: 14px; }
-    .section-sub { font-size: 0.95rem; color: var(--muted); line-height: 1.8; max-width: 500px; }
-    .center { text-align: center; }
-    .center .section-sub { margin: 0 auto; }
+    /* ── SHARED ────────────────────────────── */
+    .sw{padding:96px 6%;}
+    .lbl{display:block;font-size:.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    .sh{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);color:#fff;line-height:1.2;margin-bottom:14px;}
+    .ss{font-size:.95rem;color:var(--muted);line-height:1.8;max-width:500px;}
+    .ctr{text-align:center;}.ctr .ss{margin:0 auto;}
+    .fade{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease;}
+    .fade.on{opacity:1;transform:none;}
 
-    #services { background: var(--dark2); }
-    .services-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 1px; background: var(--border2);
-      border: 1px solid var(--border2); border-radius: 14px; overflow: hidden; margin-top: 56px;
-    }
-    .service-card { background: var(--dark2); padding: 36px 30px; transition: background 0.25s; }
-    .service-card:hover { background: var(--card); }
-    .service-icon { font-size: 1.5rem; margin-bottom: 16px; display: block; }
-    .service-title { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
-    .service-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.75; }
-    .service-tag { display: inline-block; margin-top: 14px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); opacity: 0.7; }
+    /* ── SERVICES ──────────────────────────── */
+    #services{background:var(--bg2);}
+    .svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2px;background:var(--border2);border:1px solid var(--border2);border-radius:14px;overflow:hidden;margin-top:52px;}
+    .svc-card{background:var(--bg2);padding:32px 28px;transition:background .25s;cursor:pointer;}
+    .svc-card:hover{background:var(--card);}
+    .svc-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+    .svc-ico{font-size:1.4rem;}
+    .svc-tag{font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    .svc-title{font-size:1rem;font-weight:700;color:#fff;margin-bottom:10px;}
+    .svc-desc{font-size:.875rem;color:var(--muted);line-height:1.7;margin-bottom:14px;}
+    .svc-pts{list-style:none;}
+    .svc-pts li{font-size:.8rem;color:var(--muted);padding:3px 0;display:flex;gap:8px;align-items:flex-start;}
+    .svc-pts li::before{content:'→';color:var(--cyan);font-size:.75rem;margin-top:2px;flex-shrink:0;}
+    .svc-more{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:700;margin-top:16px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none;transition:gap .2s;}
+    .svc-more:hover{gap:10px;}
 
-    #why { background: var(--dark); }
-    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
-    @media(max-width:780px){ .why-grid { grid-template-columns: 1fr; gap: 40px; } }
-    .why-points { list-style: none; margin-top: 36px; }
-    .why-point { display: flex; gap: 16px; margin-bottom: 28px; align-items: flex-start; }
-    .why-num {
-      min-width: 28px; height: 28px; border-radius: 6px;
-      background: rgba(212,168,67,0.1); border: 1px solid rgba(212,168,67,0.2);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.72rem; font-weight: 800; color: var(--gold); margin-top: 2px;
-    }
-    .why-point-title { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
-    .why-point-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.7; }
-    .why-panel { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 36px; }
-    .why-panel-title { font-size: 0.72rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px; }
-    .metric-row { margin-bottom: 20px; }
-    .metric-row:last-child { margin-bottom: 0; }
-    .metric-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-    .metric-name { font-size: 0.85rem; color: var(--text); font-weight: 500; }
-    .metric-val { font-size: 0.85rem; font-weight: 700; color: var(--gold); }
-    .metric-bar { height: 3px; background: rgba(255,255,255,0.06); border-radius: 4px; }
-    .metric-fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold2)); border-radius: 4px; }
-    .why-note { margin-top: 24px; padding: 14px 16px; background: rgba(212,168,67,0.05); border: 1px solid rgba(212,168,67,0.15); border-radius: 8px; font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+    /* ── WHY ───────────────────────────────── */
+    #why{background:var(--bg);}
+    .why-g{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+    @media(max-width:780px){.why-g{grid-template-columns:1fr;gap:40px;}}
+    .why-pts{list-style:none;margin-top:32px;}
+    .why-pt{display:flex;gap:16px;margin-bottom:26px;align-items:flex-start;}
+    .why-n{min-width:28px;height:28px;border-radius:6px;background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.25);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;flex-shrink:0;margin-top:2px;}
+    .why-pt-h{font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px;}
+    .why-pt-p{font-size:.875rem;color:var(--muted);line-height:1.7;}
+    .why-panel{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:36px;}
+    .why-panel-t{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:22px;}
+    .mr{margin-bottom:18px;}
+    .mr:last-child{margin-bottom:0;}
+    .mr-top{display:flex;justify-content:space-between;margin-bottom:7px;}
+    .mr-name{font-size:.85rem;color:var(--text);}
+    .mr-val{font-size:.82rem;font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    .bar{height:3px;background:rgba(255,255,255,.06);border-radius:4px;}
+    .bar-fill{height:100%;background:var(--grad);border-radius:4px;}
+    .why-note{margin-top:22px;padding:13px 15px;background:rgba(124,58,237,.06);border:1px solid rgba(124,58,237,.15);border-radius:8px;font-size:.78rem;color:var(--muted);line-height:1.6;}
 
-    #process { background: var(--dark2); }
-    .process-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; margin-top: 56px; }
-    @media(max-width:680px){ .process-grid { grid-template-columns: 1fr 1fr; } }
-    .process-step { padding: 32px 24px; text-align: center; }
-    .step-circle {
-      width: 48px; height: 48px; border-radius: 50%; margin: 0 auto 20px;
-      background: var(--dark); border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 800; font-size: 0.9rem; color: var(--gold);
-    }
-    .step-title { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
-    .step-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.7; }
+    /* ── PROCESS ───────────────────────────── */
+    #process{background:var(--bg2);}
+    .proc-g{display:grid;grid-template-columns:repeat(4,1fr);margin-top:52px;}
+    @media(max-width:680px){.proc-g{grid-template-columns:1fr 1fr;}}
+    .proc-step{padding:30px 22px;text-align:center;}
+    .proc-num{width:46px;height:46px;border-radius:50%;margin:0 auto 18px;border:1px solid var(--border);background:var(--bg);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.88rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    .proc-t{font-size:.95rem;font-weight:700;color:#fff;margin-bottom:8px;}
+    .proc-p{font-size:.82rem;color:var(--muted);line-height:1.7;}
 
-    #testimonials { background: var(--dark); }
-    .testi-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 20px; margin-top: 56px; }
-    .testi-card { background: var(--card); border: 1px solid var(--border2); border-radius: 14px; padding: 30px 26px; transition: border-color 0.25s; }
-    .testi-card:hover { border-color: rgba(212,168,67,0.2); }
-    .testi-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 16px; }
-    .testi-quote { font-size: 0.9rem; color: var(--muted); line-height: 1.8; margin-bottom: 22px; font-style: italic; }
-    .testi-author { display: flex; align-items: center; gap: 12px; }
-    .testi-av {
-      width: 38px; height: 38px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--gold), #a07820);
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 800; font-size: 0.8rem; color: #080A0E; flex-shrink: 0;
-    }
-    .testi-name { font-size: 0.875rem; font-weight: 700; color: #fff; }
-    .testi-role { font-size: 0.75rem; color: var(--muted); }
+    /* ── AUDIT FORM ────────────────────────── */
+    #audit{background:var(--bg);}
+    .audit-w{max-width:680px;margin:0 auto;text-align:center;}
+    .audit-box{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:46px 42px;margin-top:42px;text-align:left;}
+    @media(max-width:600px){.audit-box{padding:26px 16px;}}
+    .fr{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    @media(max-width:520px){.fr{grid-template-columns:1fr;}}
+    .fg{margin-bottom:14px;}
+    .fg label{display:block;font-size:.72rem;font-weight:600;color:var(--muted);margin-bottom:6px;letter-spacing:.4px;text-transform:uppercase;}
+    .fg input,.fg select,.fg textarea{width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:8px;color:#fff;padding:11px 14px;font-size:.9rem;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;appearance:none;}
+    .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--violet);}
+    .fg select option{background:var(--bg2);}
+    .fg textarea{height:84px;resize:vertical;}
+    .fsub{width:100%;padding:14px;background:var(--grad);border:none;border-radius:8px;cursor:pointer;font-size:.95rem;font-weight:700;color:#fff;font-family:'Inter',sans-serif;transition:opacity .2s,transform .2s;margin-top:6px;}
+    .fsub:hover{opacity:.9;transform:translateY(-1px);}
+    .fprivacy{font-size:.72rem;color:var(--muted);text-align:center;margin-top:10px;}
+    .fprivacy span{color:var(--cyan);}
+    #fsuccess{display:none;text-align:center;padding:20px 0;}
+    .fcheck{width:58px;height:58px;border-radius:50%;margin:0 auto 14px;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.3);display:flex;align-items:center;justify-content:center;font-size:1.5rem;}
+    .fh{font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:8px;}
+    .fp{font-size:.875rem;color:var(--muted);line-height:1.7;}
 
-    #audit { background: var(--dark2); }
-    .audit-wrap { max-width: 680px; margin: 0 auto; text-align: center; }
-    .audit-box { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 48px 44px; margin-top: 44px; text-align: left; }
-    @media(max-width:600px){ .audit-box { padding: 28px 18px; } }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    @media(max-width:520px){ .form-row { grid-template-columns: 1fr; } }
-    .fg { margin-bottom: 14px; }
-    .fg label { display: block; font-size: 0.76rem; font-weight: 600; color: var(--muted); margin-bottom: 6px; letter-spacing: 0.4px; text-transform: uppercase; }
-    .fg input, .fg select, .fg textarea {
-      width: 100%; background: var(--dark3); border: 1px solid var(--border2);
-      border-radius: 8px; color: #fff; padding: 11px 14px;
-      font-size: 0.9rem; font-family: 'Inter', sans-serif;
-      outline: none; transition: border-color 0.2s; appearance: none;
-    }
-    .fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--gold); }
-    .fg select option { background: var(--dark2); }
-    .fg textarea { height: 86px; resize: vertical; }
-    .form-submit {
-      width: 100%; padding: 15px; background: var(--gold);
-      border: none; border-radius: 8px; cursor: pointer;
-      font-size: 0.95rem; font-weight: 700; color: #080A0E;
-      font-family: 'Inter', sans-serif;
-      transition: background 0.2s, transform 0.2s, box-shadow 0.2s; margin-top: 6px;
-    }
-    .form-submit:hover { background: var(--gold2); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(212,168,67,0.25); }
-    .form-privacy { font-size: 0.75rem; color: var(--muted); text-align: center; margin-top: 12px; }
-    .form-privacy span { color: var(--gold); }
-    #form-success { display: none; text-align: center; padding: 24px 0; }
-    .success-check { width: 60px; height: 60px; border-radius: 50%; margin: 0 auto 16px; background: rgba(212,168,67,0.1); border: 1px solid rgba(212,168,67,0.3); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; }
-    .success-h { font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
-    .success-p { font-size: 0.875rem; color: var(--muted); line-height: 1.7; }
+    /* ── FOOTER ────────────────────────────── */
+    footer{background:var(--bg);border-top:1px solid var(--border2);padding:52px 6% 28px;}
+    .foot-g{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:44px;}
+    @media(max-width:640px){.foot-g{grid-template-columns:1fr;gap:28px;}}
+    .foot-brand{font-size:1.05rem;font-weight:800;color:#fff;margin-bottom:10px;}
+    .foot-brand span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    .foot-desc{font-size:.84rem;color:var(--muted);line-height:1.75;max-width:260px;}
+    .foot-col-t{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:14px;display:block;}
+    .foot-col a{display:block;font-size:.84rem;color:var(--muted);text-decoration:none;margin-bottom:9px;transition:color .2s;}
+    .foot-col a:hover{color:#fff;}
+    .foot-bot{border-top:1px solid var(--border2);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+    .foot-c{font-size:.76rem;color:var(--muted);}
 
-    footer { background: var(--dark); border-top: 1px solid var(--border2); padding: 56px 6% 28px; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
-    @media(max-width:640px){ .footer-grid { grid-template-columns: 1fr; gap: 32px; } }
-    .footer-logo-text { font-size: 1.1rem; font-weight: 800; color: #fff; margin-bottom: 10px; }
-    .footer-logo-text span { color: var(--gold); }
-    .footer-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.75; max-width: 260px; }
-    .footer-col-title { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); margin-bottom: 16px; }
-    .footer-col a { display: block; font-size: 0.85rem; color: var(--muted); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
-    .footer-col a:hover { color: #fff; }
-    .footer-bottom { border-top: 1px solid var(--border2); padding-top: 22px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
-    .footer-copy { font-size: 0.78rem; color: var(--muted); }
-
-    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
-    .fade-in.visible { opacity: 1; transform: none; }
+    /* ── SERVICE MODAL ─────────────────────── */
+    .modal-bg{position:fixed;inset:0;background:rgba(7,8,13,.92);backdrop-filter:blur(6px);z-index:500;display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:40px 20px;}
+    .modal-bg.open{display:flex;}
+    .modal{background:var(--bg2);border:1px solid var(--border);border-radius:18px;max-width:720px;width:100%;padding:48px;position:relative;margin:auto;}
+    @media(max-width:600px){.modal{padding:28px 20px;}}
+    .modal-close{position:absolute;top:20px;right:20px;background:rgba(255,255,255,.06);border:none;color:var(--muted);font-size:1.1rem;cursor:pointer;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+    .modal-close:hover{background:rgba(255,255,255,.12);}
+    .modal-ico{font-size:2rem;margin-bottom:16px;}
+    .modal-tag{font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block;margin-bottom:8px;}
+    .modal-title{font-family:'Playfair Display',serif;font-size:1.8rem;color:#fff;margin-bottom:16px;}
+    .modal-intro{font-size:.95rem;color:var(--muted);line-height:1.8;margin-bottom:28px;}
+    .modal-section{margin-bottom:24px;}
+    .modal-section-t{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);margin-bottom:12px;}
+    .modal-pts{list-style:none;}
+    .modal-pts li{display:flex;gap:10px;font-size:.88rem;color:var(--muted);line-height:1.7;margin-bottom:10px;}
+    .modal-pts li::before{content:'▸';color:var(--violet2);flex-shrink:0;margin-top:2px;}
+    .modal-cta{display:inline-flex;align-items:center;gap:8px;margin-top:8px;padding:13px 28px;border-radius:7px;background:var(--grad);color:#fff;font-weight:700;font-size:.9rem;text-decoration:none;cursor:pointer;border:none;font-family:'Inter',sans-serif;transition:opacity .2s;}
+    .modal-cta:hover{opacity:.9;}
   </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav id="mainNav">
-  <div class="nav-logo">
-    <div class="nav-logo-mark">M</div>
-    <div class="nav-logo-text">Mad Marketing <span>Verse</span></div>
+  <div class="logo">
+    <div class="logo-mark">M</div>
+    <div class="logo-text">Mad Marketing <span>Verse</span></div>
   </div>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#why">Why Us</a></li>
     <li><a href="#process">Process</a></li>
-    <li><a href="#testimonials">Results</a></li>
     <li><a href="#audit">Free Audit</a></li>
   </ul>
   <a href="#audit" class="nav-cta">Get Free Audit →</a>
-  <button class="hamburger" onclick="toggleMenu()">☰</button>
+  <button class="hbg" onclick="toggleNav()">☰</button>
 </nav>
 
+<!-- HERO -->
 <section id="hero">
-  <div class="hero-glow"></div>
-  <div class="hero-content fade-in">
-    <div class="hero-eyebrow"><div class="eyebrow-dot"></div>Amazon-Exclusive Growth Agency · 6+ Years</div>
-    <h1 class="hero-title">
-      Your Brand Deserves<br/>
-      More Than <em>Average</em><br/>
-      Amazon Results.
+  <div class="hero-orb1"></div>
+  <div class="hero-orb2"></div>
+  <div class="hero-wrap fade">
+    <div class="pill"><div class="pill-dot"></div>Amazon-Exclusive · 6+ Years · Full-Service</div>
+    <h1>
+      We've Scaled Brands on Amazon.<br/>
+      We Know <em>Exactly</em> What Works.
     </h1>
     <p class="hero-sub">
-      We're Mad Marketing Verse — a specialist Amazon agency that handles everything from ads to listings, inventory to brand protection. Built for brands serious about scaling.
+      Mad Marketing Verse is a specialist Amazon agency built on 6 years of hands-on experience across ads, listings, brand strategy, and operations. We don't guess — we execute what we know drives results.
     </p>
-    <div class="hero-ctas">
-      <a href="#audit" class="btn-gold">Get Your Free Audit</a>
-      <a href="#services" class="btn-ghost">Explore Services</a>
+    <div class="ctas">
+      <a href="#audit" class="btn-main">Get Your Free Audit</a>
+      <a href="#services" class="btn-out">See Our Services</a>
     </div>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="hero-stat-num">6+</div><div class="hero-stat-label">Years on Amazon</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">Full</div><div class="hero-stat-label">Service Coverage</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">₹0</div><div class="hero-stat-label">Audit Cost</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">Amazon Focused</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="services" class="section-wrap">
-  <div class="center fade-in">
-    <span class="section-label">What We Do</span>
-    <h2 class="section-title">Everything Amazon. Nothing Else.</h2>
-    <p class="section-sub">We don't dabble in other platforms. Amazon is all we do — which means we do it better than anyone.</p>
-  </div>
-  <div class="services-grid fade-in">
-    <div class="service-card">
-      <span class="service-icon">📢</span>
-      <div class="service-title">Amazon Advertising (PPC)</div>
-      <p class="service-desc">Sponsored Products, Sponsored Brands, and DSP campaigns built to maximise ROAS and drive down ACoS — with weekly optimisation built in.</p>
-      <span class="service-tag">Ads</span>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">📝</span>
-      <div class="service-title">Listing Optimisation</div>
-      <p class="service-desc">Titles, bullets, and descriptions crafted for the A10 algorithm and the human buyer — because ranking means nothing without conversion.</p>
-      <span class="service-tag">Listings</span>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">🔍</span>
-      <div class="service-title">Amazon SEO</div>
-      <p class="service-desc">Deep keyword research and backend search term architecture that earns organic rank over time, reducing your dependence on paid traffic.</p>
-      <span class="service-tag">SEO</span>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">🎨</span>
-      <div class="service-title">A+ Content & Brand Store</div>
-      <p class="service-desc">Premium A+ modules and branded storefronts that turn browsers into buyers. Visual storytelling that builds trust at the point of decision.</p>
-      <span class="service-tag">Content</span>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">📸</span>
-      <div class="service-title">Product Image Strategy</div>
-      <p class="service-desc">We audit and recommend your full image stack — hero shots, infographics, lifestyle imagery, and video — because your first image is your first impression.</p>
-      <span class="service-tag">Creative</span>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">💎</span>
-      <div class="service-title">Brand Consulting</div>
-      <p class="service-desc">Strategic guidance on positioning, pricing, differentiation, and category entry. We help you build a brand Amazon customers recognise and trust.</p>
-      <span class="service-tag">Strategy</span>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">📦</span>
-      <div class="service-title">FBA & Inventory Management</div>
-      <p class="service-desc">Stock forecasting, replenishment planning, and IPI management — so you never lose the Buy Box to an out-of-stock situation again.</p>
-      <span class="service-tag">Operations</span>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">🛡️</span>
-      <div class="service-title">Brand Registry & Protection</div>
-      <p class="service-desc">Enrol in Brand Registry, remove hijackers, and fight counterfeits. We protect the brand equity you've spent years building.</p>
-      <span class="service-tag">Protection</span>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">⭐</span>
-      <div class="service-title">Reviews & Social Proof</div>
-      <p class="service-desc">Amazon Vine, compliant review strategies, and rating management — because social proof is the most powerful conversion lever on the platform.</p>
-      <span class="service-tag">Reputation</span>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">📊</span>
-      <div class="service-title">Analytics & Reporting</div>
-      <p class="service-desc">Bi-weekly performance reports with clean dashboards. No noise, no spin — just the numbers that matter and the actions behind them.</p>
-      <span class="service-tag">Reporting</span>
+    <div class="stat-row">
+      <div class="stat"><div class="stat-n">6+</div><div class="stat-l">Years on Amazon</div></div>
+      <div class="stat"><div class="stat-n">Full</div><div class="stat-l">Service Coverage</div></div>
+      <div class="stat"><div class="stat-n">₹0</div><div class="stat-l">Audit Cost</div></div>
+      <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Amazon Only</div></div>
     </div>
   </div>
 </section>
 
-<section id="why" class="section-wrap">
-  <div class="why-grid">
-    <div class="fade-in">
-      <span class="section-label">Why Mad Marketing Verse</span>
-      <h2 class="section-title">We've Operated Through Every Amazon Era.</h2>
-      <p class="section-sub">Six years on the platform means we've navigated every algorithm shift, policy overhaul, and category disruption — and built strategies that outlast them all.</p>
-      <ul class="why-points">
-        <li class="why-point">
-          <div class="why-num">01</div>
-          <div>
-            <div class="why-point-title">Amazon-Only Focus</div>
-            <div class="why-point-desc">We don't manage Facebook ads or Google Shopping on the side. Amazon is our entire practice — your account gets specialists, not generalists.</div>
-          </div>
+<!-- SERVICES -->
+<section id="services" class="sw">
+  <div class="ctr fade">
+    <span class="lbl">What We Do</span>
+    <h2 class="sh">Everything Amazon. Nothing Else.</h2>
+    <p class="ss">Click any service to understand exactly how we approach it and what you can expect.</p>
+  </div>
+  <div class="svc-grid fade">
+
+    <div class="svc-card" onclick="openModal('ppc')">
+      <div class="svc-head"><span class="svc-ico">📢</span><span class="svc-tag">Ads</span></div>
+      <div class="svc-title">Amazon Advertising (PPC)</div>
+      <p class="svc-desc">Data-driven Sponsored campaigns that lower ACoS and grow profitable revenue — optimised every week.</p>
+      <ul class="svc-pts">
+        <li>Sponsored Products, Brands & Display</li>
+        <li>Weekly bid & keyword optimisation</li>
+        <li>Funnel strategy from awareness to conversion</li>
+      </ul>
+      <span class="svc-more">How we do it →</span>
+    </div>
+
+    <div class="svc-card" onclick="openModal('listing')">
+      <div class="svc-head"><span class="svc-ico">📝</span><span class="svc-tag">Listings</span></div>
+      <div class="svc-title">Listing Optimisation</div>
+      <p class="svc-desc">Titles, bullets, and descriptions engineered to rank and convert — not just keyword-stuffed.</p>
+      <ul class="svc-pts">
+        <li>Keyword research & backend indexing</li>
+        <li>Buyer psychology-led copywriting</li>
+        <li>A/B testing of titles and bullets</li>
+      </ul>
+      <span class="svc-more">How we do it →</span>
+    </div>
+
+    <div class="svc-card" onclick="openModal('seo')">
+      <div class="svc-head"><span class="svc-ico">🔍</span><span class="svc-tag">SEO</span></div>
+      <div class="svc-title">Amazon SEO</div>
+      <p class="svc-desc">Organic rank strategies that compound over time and reduce your dependency on paid traffic.</p>
+      <ul class="svc-pts">
+        <li>Deep keyword gap analysis</li>
+        <li>Search term architecture & indexing audit</li>
+        <li>Category-specific ranking strategies</li>
+      </ul>
+      <span class="svc-more">How we do it →</span>
+    </div>
+
+    <div class="svc-card" onclick="openModal('aplus')">
+      <div class="svc-head"><span class="svc-ico">🎨</span><span class="svc-tag">Content</span></div>
+      <div class="svc-title">A+ Content & Brand Store</div>
+      <p class="svc-desc">Premium visual content that builds trust and converts undecided shoppers into buyers.</p>
+      <ul class="svc-pts">
+        <li>Structured A+ module strategy</li>
+        <li>Brand Store architecture & design brief</li>
+        <li>Conversion-focused storytelling</li>
+      </ul>
+      <span class="svc-more">How we do it →</span>
+    </div>
+
+    <div class="svc-card" onclick="openModal('images')">
+      <div class="svc-head"><span class="svc-ico">📸</span><span class="svc-tag">Creative</span></div>
+      <div class="svc-title">Product Image Strategy</div>
+      <p class="svc-desc">Your image stack audited and rebuilt — because your first image determines if anyone reads the rest.</p>
+      <ul class="svc-pts">
+        <li>Hero image compliance & CTR audit</li>
+        <li>Infographic & lifestyle image brief</li>
+        <li>Video thumbnail & secondary image sequencing</li>
+      </ul>
+      <span class="svc-more">How we do it →</span>
+    </div>
+
+    <div class="svc-card" onclick="openModal('brand')">
+      <div class="svc-head"><span class="svc-ico">💎</span><span class="svc-tag">Strategy</span></div>
+      <div class="svc-title">Brand Consulting</div>
+      <p class="svc-desc">Positioning, pricing, and differentiation strategy so your brand stands out in a crowded category.</p>
+      <ul class="svc-pts">
+        <li>Competitive landscape & positioning audit</li>
+        <li>Price-tier & margin analysis</li>
+        <li>New product launch & category entry roadmap</li>
+      </ul>
+      <span class="svc-more">How we do it →</span>
+    </div>
+
+    <div class="svc-card" onclick="openModal('fba')">
+      <div class="svc-head"><span class="svc-ico">📦</span><span class="svc-tag">Operations</span></div>
+      <div class="svc-title">FBA & Inventory Management</div>
+      <p class="svc-desc">Forecasting and replenishment that keeps your IPI healthy and your Buy Box intact.</p>
+      <ul class="svc-pts">
+        <li>Demand forecasting & stock health monitoring</li>
+        <li>FBA shipment planning</li>
+        <li>Stranded & excess inventory management</li>
+      </ul>
+      <span class="svc-more">How we do it →</span>
+    </div>
+
+    <div class="svc-card" onclick="openModal('protection')">
+      <div class="svc-head"><span class="svc-ico">🛡️</span><span class="svc-tag">Protection</span></div>
+      <div class="svc-title">Brand Registry & Protection</div>
+      <p class="svc-desc">We safeguard the brand equity you've built — from hijackers to counterfeit removal.</p>
+      <ul class="svc-pts">
+        <li>Brand Registry enrolment & setup</li>
+        <li>Hijacker & counterfeit removal</li>
+        <li>IP complaint & case management</li>
+      </ul>
+      <span class="svc-more">How we do it →</span>
+    </div>
+
+    <div class="svc-card" onclick="openModal('reporting')">
+      <div class="svc-head"><span class="svc-ico">📊</span><span class="svc-tag">Reporting</span></div>
+      <div class="svc-title">Analytics & Reporting</div>
+      <p class="svc-desc">Bi-weekly reports built around decisions, not decorations. You always know what's happening and why.</p>
+      <ul class="svc-pts">
+        <li>Custom KPI dashboards per brand goal</li>
+        <li>Bi-weekly performance walkthroughs</li>
+        <li>Actionable next-step summaries every report</li>
+      </ul>
+      <span class="svc-more">How we do it →</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why" class="sw">
+  <div class="why-g">
+    <div class="fade">
+      <span class="lbl">Why Mad Marketing Verse</span>
+      <h2 class="sh">We've Operated Through Every Amazon Era.</h2>
+      <p class="ss">Six years means we've navigated every algorithm shift, policy overhaul, and market disruption — and we've built repeatable strategies that outlast all of them.</p>
+      <ul class="why-pts">
+        <li class="why-pt">
+          <div class="why-n">01</div>
+          <div><div class="why-pt-h">Amazon-Only Specialists</div><div class="why-pt-p">We don't split attention across Google Ads or Meta. Amazon is our entire practice — every team member, every process, every tool.</div></div>
         </li>
-        <li class="why-point">
-          <div class="why-num">02</div>
-          <div>
-            <div class="why-point-title">Full-Funnel Visibility</div>
-            <div class="why-point-desc">We look beyond the ad console — listings, images, reviews, pricing, inventory — and fix the real reasons brands underperform on Amazon.</div>
-          </div>
+        <li class="why-pt">
+          <div class="why-n">02</div>
+          <div><div class="why-pt-h">Full Account Visibility</div><div class="why-pt-p">Ads, listings, images, reviews, pricing, inventory — we diagnose the whole account, not just the part you pointed us to.</div></div>
         </li>
-        <li class="why-point">
-          <div class="why-num">03</div>
-          <div>
-            <div class="why-point-title">No Commitment to Start</div>
-            <div class="why-point-desc">We audit your account before you spend a rupee. See exactly what's wrong and what the opportunity looks like — then decide.</div>
-          </div>
+        <li class="why-pt">
+          <div class="why-n">03</div>
+          <div><div class="why-pt-h">Audit Before Commitment</div><div class="why-pt-p">We show you exactly what's wrong and what the upside looks like before you spend a single rupee. That's confidence in our own work.</div></div>
         </li>
-        <li class="why-point">
-          <div class="why-num">04</div>
-          <div>
-            <div class="why-point-title">Radical Transparency</div>
-            <div class="why-point-desc">Bi-weekly reports, no vanity metrics, honest recommendations. We treat your budget like it's our own money on the line.</div>
-          </div>
+        <li class="why-pt">
+          <div class="why-n">04</div>
+          <div><div class="why-pt-h">No Fluff Reporting</div><div class="why-pt-p">Every report ends with a clear action list. We treat your ad budget the same way we'd treat our own — with genuine accountability.</div></div>
         </li>
       </ul>
     </div>
-    <div class="why-panel fade-in">
-      <div class="why-panel-title">Average Client Outcomes · First 6 Months</div>
-      <div class="metric-row">
-        <div class="metric-top"><span class="metric-name">Revenue Growth</span><span class="metric-val">↑ 92%</span></div>
-        <div class="metric-bar"><div class="metric-fill" style="width:92%"></div></div>
-      </div>
-      <div class="metric-row">
-        <div class="metric-top"><span class="metric-name">Ad Spend Efficiency (ROAS)</span><span class="metric-val">↑ 88%</span></div>
-        <div class="metric-bar"><div class="metric-fill" style="width:88%"></div></div>
-      </div>
-      <div class="metric-row">
-        <div class="metric-top"><span class="metric-name">Organic Rank Improvement</span><span class="metric-val">↑ 74%</span></div>
-        <div class="metric-bar"><div class="metric-fill" style="width:74%"></div></div>
-      </div>
-      <div class="metric-row">
-        <div class="metric-top"><span class="metric-name">Listing Conversion Rate</span><span class="metric-val">↑ 65%</span></div>
-        <div class="metric-bar"><div class="metric-fill" style="width:65%"></div></div>
-      </div>
-      <div class="metric-row">
-        <div class="metric-top"><span class="metric-name">ACoS Reduction</span><span class="metric-val">↓ 38%</span></div>
-        <div class="metric-bar"><div class="metric-fill" style="width:60%"></div></div>
-      </div>
-      <div class="why-note">Results represent averages across managed accounts. Individual outcomes vary based on category, competition, and starting baseline.</div>
+    <div class="why-panel fade">
+      <div class="why-panel-t">Average Outcomes · First 6 Months</div>
+      <div class="mr"><div class="mr-top"><span class="mr-name">Revenue Growth</span><span class="mr-val">↑ 92%</span></div><div class="bar"><div class="bar-fill" style="width:92%"></div></div></div>
+      <div class="mr"><div class="mr-top"><span class="mr-name">ROAS Improvement</span><span class="mr-val">↑ 88%</span></div><div class="bar"><div class="bar-fill" style="width:88%"></div></div></div>
+      <div class="mr"><div class="mr-top"><span class="mr-name">Organic Rank Gains</span><span class="mr-val">↑ 74%</span></div><div class="bar"><div class="bar-fill" style="width:74%"></div></div></div>
+      <div class="mr"><div class="mr-top"><span class="mr-name">Listing CVR Lift</span><span class="mr-val">↑ 65%</span></div><div class="bar"><div class="bar-fill" style="width:65%"></div></div></div>
+      <div class="mr"><div class="mr-top"><span class="mr-name">ACoS Reduction</span><span class="mr-val">↓ 38%</span></div><div class="bar"><div class="bar-fill" style="width:60%"></div></div></div>
+      <div class="why-note">Averages across managed accounts. Results vary by category, baseline, and competitive intensity.</div>
     </div>
   </div>
 </section>
 
-<section id="process" class="section-wrap">
-  <div class="center fade-in">
-    <span class="section-label">How It Works</span>
-    <h2 class="section-title">Audit to Growth in 4 Clean Steps.</h2>
-    <p class="section-sub">No long sales cycles, no ambiguous onboarding. We move fast because Amazon doesn't wait.</p>
+<!-- PROCESS -->
+<section id="process" class="sw">
+  <div class="ctr fade">
+    <span class="lbl">How It Works</span>
+    <h2 class="sh">Audit to Growth in 4 Steps.</h2>
+    <p class="ss">No long sales cycles. No ambiguous onboarding. We move fast because Amazon doesn't wait.</p>
   </div>
-  <div class="process-grid fade-in">
-    <div class="process-step">
-      <div class="step-circle">01</div>
-      <div class="step-title">Free Audit</div>
-      <p class="step-desc">Submit the form. We analyse your listings, ads, reviews, and competitive position — free, no strings attached.</p>
+  <div class="proc-g fade">
+    <div class="proc-step">
+      <div class="proc-num">01</div>
+      <div class="proc-t">Free Audit</div>
+      <p class="proc-p">We analyse your listings, ads, reviews, and competitive position — thoroughly and at no cost.</p>
     </div>
-    <div class="process-step">
-      <div class="step-circle">02</div>
-      <div class="step-title">Strategy Presentation</div>
-      <p class="step-desc">We present findings and a prioritised growth roadmap specific to your brand and category.</p>
+    <div class="proc-step">
+      <div class="proc-num">02</div>
+      <div class="proc-t">Strategy Call</div>
+      <p class="proc-p">We walk through findings and present a prioritised growth roadmap tailored to your category.</p>
     </div>
-    <div class="process-step">
-      <div class="step-circle">03</div>
-      <div class="step-title">Onboarding</div>
-      <p class="step-desc">Access, briefing, and go-live plan — structured and fast. Most brands are fully onboarded within the first week.</p>
+    <div class="proc-step">
+      <div class="proc-num">03</div>
+      <div class="proc-t">Onboarding</div>
+      <p class="proc-p">Structured and fast — most brands are live within the first week. No unnecessary back-and-forth.</p>
     </div>
-    <div class="process-step">
-      <div class="step-circle">04</div>
-      <div class="step-title">Execution & Reporting</div>
-      <p class="step-desc">We execute the roadmap, optimise weekly, and keep you informed with clean bi-weekly performance reports.</p>
-    </div>
-  </div>
-</section>
-
-<section id="testimonials" class="section-wrap">
-  <div class="center fade-in">
-    <span class="section-label">Client Results</span>
-    <h2 class="section-title">Brands That Trusted the Process.</h2>
-    <p class="section-sub">What brand owners say after working with us — in their own words.</p>
-  </div>
-  <div class="testi-grid fade-in">
-    <div class="testi-card">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-quote">"Within 3 months of onboarding, our monthly revenue doubled. The team understands the Amazon algorithm at a level that genuinely surprised us. Best agency decision we've made."</p>
-      <div class="testi-author">
-        <div class="testi-av">RK</div>
-        <div><div class="testi-name">Rahul K.</div><div class="testi-role">Founder · Consumer Electronics Brand</div></div>
-      </div>
-    </div>
-    <div class="testi-card">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-quote">"ACoS dropped from 42% to 18% in the first 6 weeks. The free audit alone gave us more clarity than 2 years of managing the account ourselves."</p>
-      <div class="testi-author">
-        <div class="testi-av">SP</div>
-        <div><div class="testi-name">Sneha P.</div><div class="testi-role">Co-Founder · Wellness & Supplements Brand</div></div>
-      </div>
-    </div>
-    <div class="testi-card">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-quote">"Previous agencies gave us reports full of numbers that meant nothing. Mad Marketing Verse gave us actions. That distinction made all the difference to our bottom line."</p>
-      <div class="testi-author">
-        <div class="testi-av">AM</div>
-        <div><div class="testi-name">Arjun M.</div><div class="testi-role">Director · Home & Kitchen Brand</div></div>
-      </div>
+    <div class="proc-step">
+      <div class="proc-num">04</div>
+      <div class="proc-t">Execution</div>
+      <p class="proc-p">We execute, optimise weekly, and report bi-weekly with clear KPIs and next steps every time.</p>
     </div>
   </div>
 </section>
 
-<section id="audit" class="section-wrap">
-  <div class="audit-wrap fade-in">
-    <span class="section-label">Free Audit</span>
-    <h2 class="section-title">Let's Find Out What Amazon<br/>Owes Your Brand.</h2>
-    <p class="section-sub" style="margin:0 auto;">Register below. We'll audit your account and show you exactly what's costing you money and what's worth doubling down on. No charge. No obligation.</p>
+<!-- AUDIT FORM -->
+<section id="audit" class="sw" style="background:var(--bg2);">
+  <div class="audit-w fade">
+    <span class="lbl">Free Audit</span>
+    <h2 class="sh">Let's Find Out What Amazon<br/>Owes Your Brand.</h2>
+    <p class="ss" style="margin:0 auto;">Register below. We'll audit your account and tell you exactly what's costing you and what's worth scaling. No charge. No obligation.</p>
     <div class="audit-box">
       <form id="auditForm" onsubmit="submitForm(event)">
-        <div class="form-row">
-          <div class="fg"><label>Your Name *</label><input type="text" placeholder="Your full name" required /></div>
-          <div class="fg"><label>Brand Name *</label><input type="text" placeholder="Your brand" required /></div>
+        <div class="fr">
+          <div class="fg"><label>Your Name *</label><input type="text" placeholder="Full name" required/></div>
+          <div class="fg"><label>Brand Name *</label><input type="text" placeholder="Your brand" required/></div>
         </div>
-        <div class="form-row">
-          <div class="fg"><label>Email Address *</label><input type="email" placeholder="you@yourbrand.com" required /></div>
-          <div class="fg"><label>Phone / WhatsApp</label><input type="tel" id="phoneInput" placeholder="+91 98765 43210" /></div>
+        <div class="fr">
+          <div class="fg"><label>Email *</label><input type="email" placeholder="you@brand.com" required/></div>
+          <div class="fg"><label>Phone / WhatsApp</label><input type="tel" id="phoneInput" placeholder="+91 98765 43210"/></div>
         </div>
-        <div class="form-row">
+        <div class="fr">
           <div class="fg">
-            <label>Amazon Marketplace *</label>
-            <select id="marketplaceSelect" onchange="updateCurrency()" required>
+            <label>Marketplace *</label>
+            <select id="mktSelect" onchange="updateCurrency()" required>
               <option value="" disabled selected>Select marketplace</option>
               <option value="IN">Amazon India (.in)</option>
               <option value="US">Amazon US (.com)</option>
@@ -496,103 +432,189 @@
             </select>
           </div>
           <div class="fg">
-            <label>Monthly Revenue Range</label>
-            <select id="revenueSelect">
-              <option value="" disabled selected>Select marketplace first</option>
-            </select>
+            <label>Monthly Revenue</label>
+            <select id="revSelect"><option value="" disabled selected>Select marketplace first</option></select>
           </div>
         </div>
-        <div class="fg">
-          <label>Biggest Challenge on Amazon?</label>
-          <textarea placeholder="e.g. High ACoS, poor organic rank, listing issues, hijackers, low conversion..."></textarea>
-        </div>
-        <button type="submit" class="form-submit">Claim My Free Audit →</button>
-        <p class="form-privacy">🔒 100% free. No credit card. We respond within <span>24 business hours.</span></p>
+        <div class="fg"><label>Biggest Amazon Challenge?</label><textarea placeholder="e.g. High ACoS, low organic rank, listing issues, hijackers..."></textarea></div>
+        <button type="submit" class="fsub">Claim My Free Audit →</button>
+        <p class="fprivacy">🔒 100% free. No credit card. We respond within <span>24 business hours.</span></p>
       </form>
-      <div id="form-success">
-        <div class="success-check">✓</div>
-        <div class="success-h">Audit Request Submitted.</div>
-        <p class="success-p">Our Amazon specialists will review your details and reach out within 24 business hours to schedule your free audit call.</p>
+      <div id="fsuccess">
+        <div class="fcheck">✓</div>
+        <div class="fh">Audit Request Submitted.</div>
+        <p class="fp">Our team will review your details and reach out within 24 business hours to schedule your free audit call.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <div class="footer-grid">
+  <div class="foot-g">
     <div>
-      <div class="footer-logo-text">Mad Marketing <span>Verse</span></div>
-      <p class="footer-desc">A specialist Amazon growth agency. We help ambitious brands dominate their categories with strategy, creative, and performance management.</p>
+      <div class="foot-brand">Mad Marketing <span>Verse</span></div>
+      <p class="foot-desc">A specialist Amazon growth agency. We help ambitious brands dominate their categories through strategy, creative, and performance management.</p>
     </div>
-    <div class="footer-col">
-      <div class="footer-col-title">Services</div>
-      <a href="#services">Amazon Advertising</a>
-      <a href="#services">Listing Optimisation</a>
-      <a href="#services">Amazon SEO</a>
-      <a href="#services">A+ Content</a>
-      <a href="#services">Image Strategy</a>
-      <a href="#services">Brand Consulting</a>
+    <div class="foot-col">
+      <span class="foot-col-t">Services</span>
+      <a href="#services" onclick="openModal('ppc')">Amazon Advertising</a>
+      <a href="#services" onclick="openModal('listing')">Listing Optimisation</a>
+      <a href="#services" onclick="openModal('seo')">Amazon SEO</a>
+      <a href="#services" onclick="openModal('aplus')">A+ Content</a>
+      <a href="#services" onclick="openModal('images')">Image Strategy</a>
+      <a href="#services" onclick="openModal('brand')">Brand Consulting</a>
     </div>
-    <div class="footer-col">
-      <div class="footer-col-title">Company</div>
+    <div class="foot-col">
+      <span class="foot-col-t">Company</span>
       <a href="#why">Why Us</a>
       <a href="#process">Our Process</a>
-      <a href="#testimonials">Results</a>
       <a href="#audit">Free Audit</a>
     </div>
   </div>
-  <div class="footer-bottom">
-    <span class="footer-copy">© 2024 Mad Marketing Verse. All rights reserved.</span>
-    <span class="footer-copy">Amazon growth, handled.</span>
+  <div class="foot-bot">
+    <span class="foot-c">© 2024 Mad Marketing Verse. All rights reserved.</span>
+    <span class="foot-c">Amazon growth, handled.</span>
   </div>
 </footer>
 
+<!-- SERVICE MODALS -->
+<div class="modal-bg" id="modalBg" onclick="closeModal(event)">
+  <div class="modal" id="modalBox">
+    <button class="modal-close" onclick="closeModalBtn()">✕</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
 <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+// Fade-in
+const obs = new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on');}),{threshold:.08});
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
 
-  window.addEventListener('scroll', () => {
-    document.getElementById('mainNav').style.background =
-      window.scrollY > 30 ? 'rgba(8,10,14,0.98)' : 'rgba(8,10,14,0.9)';
+// Nav scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('mainNav').style.background=window.scrollY>30?'rgba(7,8,13,.98)':'rgba(7,8,13,.88)';
+});
+
+// Mobile nav
+function toggleNav(){
+  const l=document.querySelector('.nav-links');
+  const open=l.style.display==='flex';
+  l.style.cssText=open?'':'display:flex;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:#0D0F1A;padding:24px 6%;gap:20px;border-bottom:1px solid rgba(255,255,255,.07);z-index:199;';
+}
+
+// Currency map
+const CM={
+  IN:['Below ₹5L/mo','₹5L–₹20L/mo','₹20L–₹1Cr/mo','Above ₹1Cr/mo','Not yet selling'],
+  US:['Below $5K/mo','$5K–$25K/mo','$25K–$100K/mo','Above $100K/mo','Not yet selling'],
+  UK:['Below £5K/mo','£5K–£20K/mo','£20K–£80K/mo','Above £80K/mo','Not yet selling'],
+  UAE:['Below AED 20K/mo','AED 20–100K/mo','AED 100–400K/mo','Above AED 400K/mo','Not yet selling'],
+  CA:['Below CA$5K/mo','CA$5–25K/mo','CA$25–100K/mo','Above CA$100K/mo','Not yet selling'],
+  DE:['Below €5K/mo','€5–20K/mo','€20–80K/mo','Above €80K/mo','Not yet selling'],
+  MULTI:['Below $5K equiv/mo','$5–25K equiv/mo','$25–100K equiv/mo','Above $100K equiv/mo','Not yet selling']
+};
+const PM={IN:'+91',US:'+1',UK:'+44',UAE:'+971',CA:'+1',DE:'+49',MULTI:''};
+function updateCurrency(){
+  const s=document.getElementById('mktSelect').value;
+  const r=document.getElementById('revSelect');
+  if(!s)return;
+  r.innerHTML='<option value="" disabled selected>Select range</option>';
+  CM[s].forEach(x=>{const o=document.createElement('option');o.textContent=x;r.appendChild(o);});
+  if(PM[s])document.getElementById('phoneInput').placeholder=PM[s]+' — your number';
+}
+function submitForm(e){
+  e.preventDefault();
+  document.getElementById('auditForm').style.display='none';
+  document.getElementById('fsuccess').style.display='block';
+}
+
+// Modal data
+const MODALS={
+  ppc:{ico:'📢',tag:'Amazon Advertising',title:'PPC That Pays for Itself',
+    intro:'We don\'t run ads on autopilot. Every campaign is built with a clear profit objective — and optimised every single week based on what the data tells us.',
+    sections:[
+      {title:'What We Audit First',pts:['Current campaign structure & wasted spend analysis','ACoS by product, placement & match type','Keyword cannibalisation and bid overlap','Search term report mining for new opportunities']},
+      {title:'How We Manage Your Ads',pts:['Build separate strategies for awareness, consideration & conversion','Weekly bid adjustments tied to profitability thresholds','Negative keyword management to stop wasted spend','Sponsored Brands & Display for brand defence and category domination']},
+      {title:'What You Get',pts:['Monthly ROAS & ACoS trend reports','Keyword performance breakdown by campaign','Clear notes on every change made and why','Predictable, improving ad performance over time']}
+    ]},
+  listing:{ico:'📝',tag:'Listing Optimisation',title:'Listings That Rank and Convert',
+    intro:'A listing optimised purely for keywords will rank but not sell. We write for the algorithm and the human — because both have to say yes.',
+    sections:[
+      {title:'Our Audit Process',pts:['Keyword gap analysis vs top 3 competitors','Search volume and relevance scoring per keyword','Current indexing check for all target keywords','Conversion funnel audit: title → bullet → description']},
+      {title:'What We Rewrite',pts:['Title: keyword-rich, readable, click-worthy','Bullets: benefit-led, objection-handling, scannable','Description / A+: narrative storytelling that closes the sale','Backend search terms: maximised indexing without redundancy']},
+      {title:'What You Get',pts:['Before/after listing comparison with change rationale','Keyword tracking report to monitor rank improvements','Periodic re-optimisation as search trends shift','Measurable conversion rate lift within 60 days']}
+    ]},
+  seo:{ico:'🔍',tag:'Amazon SEO',title:'Organic Rank That Compounds',
+    intro:'Paid ads bring traffic today. SEO builds an asset that reduces your cost of sale over time. We build both — but SEO is where the long-term margin lives.',
+    sections:[
+      {title:'Our SEO Methodology',pts:['Keyword universe mapping: head, mid & long-tail terms','Search frequency rank tracking for all target keywords','Competitor reverse-ASIN keyword mining','Category-specific ranking factor analysis']},
+      {title:'How We Execute',pts:['Backend search term architecture built for maximum indexing','Title and bullet optimisation aligned with ranking signals','Review velocity and rating management to support rank','Traffic velocity strategy: external + internal signals']},
+      {title:'What You Get',pts:['Monthly keyword rank movement report','Organic vs paid traffic split tracking','Roadmap of SEO actions with expected rank impact','Compounding results — measurable within 90 days']}
+    ]},
+  aplus:{ico:'🎨',tag:'A+ Content & Brand Store',title:'Content That Builds Trust at Scale',
+    intro:'A+ content isn\'t decoration. It\'s the moment a shopper decides whether your brand is worth trusting. We build it to answer objections and close sales.',
+    sections:[
+      {title:'Our Content Audit',pts:['Current A+ module effectiveness assessment','Competitor A+ benchmarking in your category','Brand story gaps and messaging inconsistencies','Mobile vs desktop rendering review']},
+      {title:'What We Build',pts:['A+ module strategy: what each module must communicate','Copywriting briefs for every text block','Design direction briefs for visual elements','Brand Store architecture: navigation, pages & featured products']},
+      {title:'What You Get',pts:['Complete A+ content brief and module plan','Brand Store page-by-page wireframe','Measured conversion rate before and after live','Periodic refresh aligned with seasonal campaigns']}
+    ]},
+  images:{ico:'📸',tag:'Product Image Strategy',title:'Images That Stop the Scroll',
+    intro:'Your main image is your listing\'s first — and sometimes only — impression. We audit your full image stack and give you a clear roadmap to higher click-through rates.',
+    sections:[
+      {title:'Our Image Audit',pts:['Main image compliance check (white background, zoom-ready)','Click-through rate estimation vs category top performers','Secondary image sequence: does it tell a complete story?','Infographic effectiveness: are key benefits visible at a glance?']},
+      {title:'What We Recommend',pts:['Main image: positioning, angle, and compliance improvements','Infographic briefs: which benefits to call out and how','Lifestyle image direction: audience, context, emotion','Video thumbnail strategy for maximum autoplay engagement']},
+      {title:'What You Get',pts:['Full image stack audit report with priority order','Creative briefs ready to hand to any photographer or designer','Benchmark CTR data from your category','Image refresh roadmap tied to product launch calendar']}
+    ]},
+  brand:{ico:'💎',tag:'Brand Consulting',title:'Strategy That Builds a Moat',
+    intro:'Products can be copied. Brands are harder to replicate. We help you build the positioning, pricing, and differentiation that turns a product into a brand customers return to.',
+    sections:[
+      {title:'Where We Start',pts:['Category landscape analysis: who\'s winning and why','Your brand\'s current positioning vs shopper expectations','Price-tier mapping: where you sit and where you should be','Review and rating sentiment analysis for product-market fit signals']},
+      {title:'What We Develop',pts:['Positioning statement and brand differentiation pillars','Pricing strategy: entry, core, and premium tier recommendations','New product launch brief: keyword demand, competition, margin viability','Category entry roadmap for expansion into adjacent segments']},
+      {title:'What You Get',pts:['Brand strategy document with positioning and messaging framework','Competitive monitoring cadence','Pricing review built into monthly reporting','Quarterly strategic check-in on brand health metrics']}
+    ]},
+  fba:{ico:'📦',tag:'FBA & Inventory Management',title:'Never Lose the Buy Box to an Empty Shelf',
+    intro:'Running out of stock is one of the most expensive mistakes on Amazon. We put systems in place so it doesn\'t happen — and keep your FBA health metrics clean.',
+    sections:[
+      {title:'What We Monitor',pts:['Days of cover per ASIN vs sales velocity','IPI score and storage limit utilisation','Stranded, unfulfillable, and excess inventory flags','Reorder triggers based on lead time and demand patterns']},
+      {title:'How We Manage It',pts:['Weekly inventory health review with replenishment recommendations','FBA shipment planning and send-in schedule','Removal order strategy for excess and aged inventory','Forecasting model updated monthly with seasonality factors']},
+      {title:'What You Get',pts:['Weekly inventory status dashboard','Replenishment calendar with confidence-level forecasts','IPI score improvement plan if currently penalised','Buy Box retention rate tracked and reported monthly']}
+    ]},
+  protection:{ico:'🛡️',tag:'Brand Registry & Protection',title:'Protect What You\'ve Built',
+    intro:'Brand equity takes years to build and days to destroy. We set up the infrastructure to protect it — and act fast when threats appear.',
+    sections:[
+      {title:'What We Set Up',pts:['Brand Registry enrolment and verification','Transparency programme eligibility assessment','Project Zero setup for self-service counterfeit removal','IP Accelerator referral for trademark fast-tracking if needed']},
+      {title:'How We Protect',pts:['Weekly hijacker monitoring across all your ASINs','Cease & desist and IP complaint filing','ASIN variation abuse and review manipulation reporting','Buy Box theft monitoring with escalation protocols']},
+      {title:'What You Get',pts:['Monthly brand health & protection report','Case log of all complaints filed and resolutions','Escalation path for complex or recurring violations','Peace of mind that someone is watching your brand 24/7']}
+    ]},
+  reporting:{ico:'📊',tag:'Analytics & Reporting',title:'Reports You Actually Read',
+    intro:'Most agency reports are built to look impressive. Ours are built to drive decisions. Every report ends with a clear action list — not a congratulations slide.',
+    sections:[
+      {title:'What We Track',pts:['Revenue, units, and margin by ASIN','Ad spend, ROAS, ACoS, and TACoS trends','Organic rank movement for target keywords','Buy Box percentage, session count, and conversion rate']},
+      {title:'How We Report',pts:['Bi-weekly structured performance call with your team','Custom KPI dashboard updated in real time','Change log: every optimisation made since last report','Competitive benchmarking: how you\'re moving vs category']},
+      {title:'What You Get',pts:['Clean, jargon-free report every two weeks','Next 2-week action plan at the end of every report','Monthly strategic summary with trend analysis','Full data transparency — no black boxes, ever']}
+    ]}
+};
+
+function openModal(id){
+  const d=MODALS[id];
+  if(!d)return;
+  let html=`<div class="modal-ico">${d.ico}</div><span class="modal-tag">${d.tag}</span><div class="modal-title">${d.title}</div><p class="modal-intro">${d.intro}</p>`;
+  d.sections.forEach(s=>{
+    html+=`<div class="modal-section"><div class="modal-section-t">${s.title}</div><ul class="modal-pts">`;
+    s.pts.forEach(p=>html+=`<li>${p}</li>`);
+    html+=`</ul></div>`;
   });
-
-  function toggleMenu() {
-    const links = document.querySelector('.nav-links');
-    const open = links.style.display === 'flex';
-    links.style.cssText = open ? '' :
-      'display:flex;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:#0C0F16;padding:24px 6%;gap:22px;border-bottom:1px solid rgba(255,255,255,0.06);z-index:99;';
-  }
-
-  const currencyMap = {
-    IN:    ['Below ₹5 Lakh/mo', '₹5L – ₹20L/mo', '₹20L – ₹1Cr/mo', 'Above ₹1Cr/mo', 'Not yet selling'],
-    US:    ['Below $5K/mo', '$5K – $25K/mo', '$25K – $100K/mo', 'Above $100K/mo', 'Not yet selling'],
-    UK:    ['Below £5K/mo', '£5K – £20K/mo', '£20K – £80K/mo', 'Above £80K/mo', 'Not yet selling'],
-    UAE:   ['Below AED 20K/mo', 'AED 20K – 100K/mo', 'AED 100K – 400K/mo', 'Above AED 400K/mo', 'Not yet selling'],
-    CA:    ['Below CA$5K/mo', 'CA$5K – CA$25K/mo', 'CA$25K – CA$100K/mo', 'Above CA$100K/mo', 'Not yet selling'],
-    DE:    ['Below €5K/mo', '€5K – €20K/mo', '€20K – €80K/mo', 'Above €80K/mo', 'Not yet selling'],
-    MULTI: ['Below $5K equiv./mo', '$5K – $25K equiv./mo', '$25K – $100K equiv./mo', 'Above $100K equiv./mo', 'Not yet selling']
-  };
-
-  const phoneMap = { IN: '+91', US: '+1', UK: '+44', UAE: '+971', CA: '+1', DE: '+49', MULTI: '' };
-
-  function updateCurrency() {
-    const sel = document.getElementById('marketplaceSelect').value;
-    const rev = document.getElementById('revenueSelect');
-    if (!sel) return;
-    rev.innerHTML = '<option value="" disabled selected>Select range</option>';
-    currencyMap[sel].forEach(r => {
-      const o = document.createElement('option'); o.textContent = r; rev.appendChild(o);
-    });
-    if (phoneMap[sel]) document.getElementById('phoneInput').placeholder = phoneMap[sel] + ' — your number';
-  }
-
-  function submitForm(e) {
-    e.preventDefault();
-    document.getElementById('auditForm').style.display = 'none';
-    document.getElementById('form-success').style.display = 'block';
-  }
+  html+=`<a href="#audit" class="modal-cta" onclick="closeModalBtn()">Get a Free Audit →</a>`;
+  document.getElementById('modalContent').innerHTML=html;
+  document.getElementById('modalBg').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(e){if(e.target===document.getElementById('modalBg'))closeModalBtn();}
+function closeModalBtn(){
+  document.getElementById('modalBg').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModalBtn();});
 </script>
 </body>
 </html>
