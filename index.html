@@ -474,17 +474,17 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:48px 5% 
       <div class="audit-box">
         <form id="auditForm" onsubmit="submitForm(event)">
           <div class="fr">
-            <div class="fg"><label>Your Name *</label><input type="text" placeholder="Full name" required/></div>
-            <div class="fg"><label>Brand Name *</label><input type="text" placeholder="Your brand" required/></div>
+            <div class="fg"><label>Your Name *</label><input type="text" name="name" placeholder="Full name" required/></div>
+            <div class="fg"><label>Brand Name *</label><input type="text" name="brand" placeholder="Your brand" required/></div>
           </div>
           <div class="fr">
-            <div class="fg"><label>Email *</label><input type="email" placeholder="you@brand.com" required/></div>
+            <div class="fg"><label>Email *</label><input type="email" name="email" placeholder="you@brand.com" required/></div>
             <div class="fg"><label>Phone / WhatsApp</label><input type="tel" id="phoneInput" placeholder="+1 (555) 000-0000"/></div>
           </div>
           <div class="fr">
             <div class="fg">
               <label>Marketplace *</label>
-              <select id="mktSelect" onchange="updateCurrency()" required>
+              <select id="mktSelect" name="marketplace" onchange="updateCurrency()" required>
                 <option value="" disabled selected>Select marketplace</option>
                 <option value="US" selected>Amazon US (.com)</option>
                 <option value="IN">Amazon India (.in)</option>
@@ -497,10 +497,10 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:48px 5% 
             </div>
             <div class="fg">
               <label>Monthly Revenue</label>
-              <select id="revSelect"><option value="" disabled selected>Select range</option><option>Below $5K/mo</option><option>$5K–$25K/mo</option><option>$25K–$100K/mo</option><option>Above $100K/mo</option><option>Not yet selling</option></select>
+              <select id="revSelect" name="revenue"><option value="" disabled selected>Select range</option><option>Below $5K/mo</option><option>$5K–$25K/mo</option><option>$25K–$100K/mo</option><option>Above $100K/mo</option><option>Not yet selling</option></select>
             </div>
           </div>
-          <div class="fg"><label>Biggest Amazon Challenge?</label><textarea placeholder="e.g. High ACoS, low organic rank, listing issues, hijackers, low conversion rate..."></textarea></div>
+          <div class="fg"><label>Biggest Amazon Challenge?</label><textarea name="challenge" placeholder="e.g. High ACoS, low organic rank, listing issues, hijackers, low conversion rate..."></textarea></div>
           <button type="submit" class="fsub">Claim My Free Audit →</button>
           <p class="fpv">🔒 Completely free. No credit card required. We respond within <span>24 business hours.</span></p>
         </form>
