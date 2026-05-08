@@ -472,7 +472,7 @@ footer{background:var(--bg);border-top:1px solid var(--border2);padding:48px 5% 
       <h2 class="sh">Find Out What's Holding Your<br/>Amazon Brand Back.</h2>
       <p class="ss" style="margin:0 auto;">We'll audit your account and show you exactly what's costing you revenue and what the real growth opportunity looks like. Free. No obligation.</p>
       <div class="audit-box">
-        <form id="auditForm" action="https://formspree.io/f/xyzabc" method="POST">
+        <form id="auditForm" onsubmit="submitForm(event)">
           <div class="fr">
             <div class="fg"><label>Your Name *</label><input type="text" placeholder="Full name" required/></div>
             <div class="fg"><label>Brand Name *</label><input type="text" placeholder="Your brand" required/></div>
@@ -660,8 +660,16 @@ function updateCurrency(){
 }
 function submitForm(e){
   e.preventDefault();
-  document.getElementById('auditForm').style.display='none';
-  document.getElementById('fsuccess').style.display='block';
+  const form = document.getElementById('auditForm');
+  const data = new FormData(form);
+  fetch('https://formspree.io/f/mpqbjbgv', {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  }).then(()=>{
+    form.style.display='none';
+    document.getElementById('fsuccess').style.display='block';
+  });
 }
 
 // ── SERVICE DATA ───────────────────────
