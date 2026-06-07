@@ -1029,6 +1029,115 @@ body {
 #pg-services .page-hero-grain { display: block !important; }
 #pg-services .page-hero-glow { display: block !important; }
 
+
+/* ── PLATFORM CHIPS in Audit Form ── */
+.plat-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  border-radius: 8px;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  cursor: pointer;
+  transition: all .2s;
+  user-select: none;
+  font-size: .82rem;
+  font-weight: 500;
+  color: var(--muted);
+  font-family: 'Outfit', sans-serif;
+}
+.plat-chip:hover {
+  border-color: var(--green2);
+  color: var(--green2);
+  background: var(--greenxlt);
+}
+.plat-chip.selected {
+  border-color: var(--green);
+  background: var(--greenxlt);
+  color: var(--green);
+  font-weight: 600;
+}
+.plat-chip.selected::after {
+  content: '✓';
+  font-size: .75rem;
+  color: var(--green2);
+  margin-left: 2px;
+}
+.plat-chip-icon { font-size: 1rem; }
+.plat-chip-label { font-weight: 600; color: inherit; }
+.plat-chip-note {
+  font-size: .68rem;
+  color: var(--muted2);
+  padding: 2px 6px;
+  background: var(--off);
+  border-radius: 4px;
+  font-weight: 400;
+}
+.plat-chip.selected .plat-chip-note {
+  background: rgba(30,77,59,.1);
+  color: var(--green2);
+}
+
+/* Phone prefix pill */
+#phonePrefix {
+  background: var(--stone);
+  border: 1.5px solid var(--border);
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+  padding: 0 12px;
+  font-size: .84rem;
+  color: var(--muted);
+  font-family: 'Outfit', sans-serif;
+  display: flex;
+  align-items: center;
+  min-width: 54px;
+  justify-content: center;
+  white-space: nowrap;
+  transition: all .2s;
+}
+#phoneInput {
+  border-radius: 0 8px 8px 0 !important;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Country select - add flag emoji support */
+#countrySelect {
+  font-size: .9rem;
+}
+
+/* Animate platform chips appearing */
+.plat-chip {
+  animation: chipIn .2s ease forwards;
+}
+@keyframes chipIn {
+  from { opacity: 0; transform: scale(.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Platform checkboxes container */
+#platformCheckboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 14px;
+  background: var(--off);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  min-height: 52px;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+/* Reveal animation for form sections */
+#platformFg, #revenueGoalRow, #challengeFg, #auditSubmitBtn, #auditFpv {
+  animation: fadeSlide .3s ease;
+}
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+
 </style></head><body>
 <div id="pg-index" class="pg active"><!-- NAV -->
 <nav class="nav" id="mainNav">
@@ -2159,36 +2268,46 @@ window.addEventListener('scroll',function(){document.getElementById('mainNav').c
       </div>
       <div class="fg-row">
         <div class="fg"><label>Email Address *</label><input type="email" name="email" placeholder="you@brand.com" required/></div>
-        <div class="fg"><label>Phone / WhatsApp</label><input type="tel" name="phone" placeholder="+1 (555) 000-0000"/></div>
+        <div class="fg">
+          <label>Phone / WhatsApp</label>
+          <div style="display:flex;gap:0;">
+            <span id="phonePrefix" style="display:flex;align-items:center;padding:0 10px;background:var(--stone);border:1.5px solid var(--border);border-right:none;border-radius:8px 0 0 8px;font-size:.82rem;color:var(--muted);white-space:nowrap;font-family:'Outfit',sans-serif;min-width:52px;justify-content:center;">+1</span>
+            <input type="tel" name="phone" id="phoneInput" placeholder="(555) 000-0000" style="border-radius:0 8px 8px 0;flex:1;min-width:0;"/>
+          </div>
+        </div>
       </div>
+
+      <!-- COUNTRY -->
       <div class="fg">
-        <label>Primary Platform You Sell On *</label>
-        <select name="platforms" required>
-          <option value="" disabled selected>Select your main platform</option>
-          <option>Amazon US (.com)</option>
-          <option>Amazon India (.in)</option>
-          <option>Amazon UK (.co.uk)</option>
-          <option>Amazon UAE (.ae)</option>
-          <option>Amazon Canada (.ca)</option>
-          <option>TikTok Shop</option>
-          <option>Flipkart</option>
-          <option>Walmart</option>
-          <option>Blinkit / Zepto / Instamart</option>
-          <option>Meesho</option>
-          <option>Multiple platforms</option>
-          <option>Not yet selling &mdash; planning to launch</option>
+        <label>Your Country *</label>
+        <select name="country" id="countrySelect" onchange="onCountryChange()" required>
+          <option value="" disabled selected>Select your country</option>
+          <option value="US">&#127482;&#127480; United States</option>
+          <option value="IN">&#127470;&#127475; India</option>
+          <option value="UK">&#127468;&#127463; United Kingdom</option>
+          <option value="UAE">&#127462;&#127466; United Arab Emirates</option>
+          <option value="CA">&#127464;&#127462; Canada</option>
+          <option value="DE">&#127465;&#127466; Germany</option>
+          <option value="AU">&#127462;&#127482; Australia</option>
+          <option value="FR">&#127467;&#127479; France</option>
+          <option value="SG">&#127480;&#127468; Singapore</option>
+          <option value="OTHER">&#127758; Other</option>
         </select>
       </div>
-      <div class="fg-row">
+
+      <!-- PLATFORMS (populated by JS) -->
+      <div class="fg" id="platformFg" style="display:none;">
+        <label>Platforms You Sell On *</label>
+        <div id="platformCheckboxes" style="display:flex;flex-wrap:wrap;gap:8px;padding:14px;background:var(--off);border:1.5px solid var(--border);border-radius:8px;"></div>
+        <input type="hidden" name="platforms" id="platformsHidden"/>
+      </div>
+
+      <!-- REVENUE (currency changes by country) -->
+      <div class="fg-row" id="revenueGoalRow" style="display:none;">
         <div class="fg">
           <label>Monthly Revenue</label>
-          <select name="revenue">
-            <option value="" disabled selected>Approx. range</option>
-            <option>Below $5,000 / mo</option>
-            <option>$5,000 &ndash; $25,000 / mo</option>
-            <option>$25,000 &ndash; $100,000 / mo</option>
-            <option>Above $100,000 / mo</option>
-            <option>Not yet selling</option>
+          <select name="revenue" id="revenueSelect">
+            <option value="" disabled selected>Select range</option>
           </select>
         </div>
         <div class="fg">
@@ -2202,16 +2321,18 @@ window.addEventListener('scroll',function(){document.getElementById('mainNav').c
             <option>Launch a new product</option>
             <option>Fix listing issues</option>
             <option>Protect my brand</option>
-            <option>Fix inventory / FBA</option>
+            <option>Fix inventory / stock</option>
           </select>
         </div>
       </div>
-      <div class="fg">
+
+      <div class="fg" id="challengeFg" style="display:none;">
         <label>Biggest Challenge Right Now?</label>
-        <textarea name="challenge" placeholder="e.g. Our ACoS has been climbing for 3 months, organic rank dropped after a listing change, we want to launch on TikTok Shop but do not know where to start..."></textarea>
+        <textarea name="challenge" placeholder="e.g. High ACoS, low organic rank, want to launch on TikTok Shop, low conversion rate..."></textarea>
       </div>
-      <button type="submit" class="fsub">Claim My Free Audit &rarr;</button>
-      <p class="fpv">&#128274; 100% free. No credit card. We respond within <strong>24 business hours.</strong></p>
+
+      <button type="submit" class="fsub" id="auditSubmitBtn" style="display:none;">Claim My Free Audit &rarr;</button>
+      <p class="fpv" id="auditFpv" style="display:none;">&#128274; 100% free. No credit card. We respond within <strong>24 business hours.</strong></p>
     </form>
 
     <div id="fsuccess">
@@ -2242,19 +2363,96 @@ window.addEventListener('scroll',function(){document.getElementById('mainNav').c
 </div>
 
 <script>
-function submitForm(e){
-  e.preventDefault();
-  var form=document.getElementById('auditForm');
-  var data=new FormData(form);
-  fetch('https://formspree.io/f/mpqbjbgv',{method:'POST',body:data,headers:{'Accept':'application/json'}})
-    .then(function(){
-      form.style.display='none';
-      document.getElementById('fsuccess').style.display='block';
-    })
-    .catch(function(){
-      form.style.display='none';
-      document.getElementById('fsuccess').style.display='block';
+/* ============================================================
+   AUDIT FORM — Country → Platform → Currency Logic
+   ============================================================ */
+var COUNTRY_DATA = {
+  US:    { phone:'+1',   ph:'(555) 000-0000',  platforms:[{id:'amazon_us',label:'Amazon',icon:'📦',note:'amazon.com'},{id:'tiktok',label:'TikTok Shop',icon:'🎵',note:'US only'},{id:'walmart',label:'Walmart',icon:'🏪',note:'walmart.com'}], revenue:['Below $5,000 / mo','$5,000 – $25,000 / mo','$25,000 – $100,000 / mo','Above $100,000 / mo','Not yet selling'] },
+  IN:    { phone:'+91',  ph:'98765 43210',      platforms:[{id:'amazon_in',label:'Amazon',icon:'📦',note:'amazon.in'},{id:'flipkart',label:'Flipkart',icon:'🛒',note:'India'},{id:'blinkit',label:'Blinkit',icon:'⚡',note:'Quick Comm'},{id:'zepto',label:'Zepto',icon:'🟣',note:'Quick Comm'},{id:'swiggy',label:'Swiggy Instamart',icon:'🧡',note:'Quick Comm'},{id:'meesho',label:'Meesho',icon:'🛍️',note:'India'}], revenue:['Below ₹5L / mo','₹5L – ₹20L / mo','₹20L – ₹1Cr / mo','Above ₹1Cr / mo','Not yet selling'] },
+  UK:    { phone:'+44',  ph:'7700 000000',      platforms:[{id:'amazon_uk',label:'Amazon',icon:'📦',note:'amazon.co.uk'}], revenue:['Below £5,000 / mo','£5,000 – £20,000 / mo','£20,000 – £80,000 / mo','Above £80,000 / mo','Not yet selling'] },
+  UAE:   { phone:'+971', ph:'50 000 0000',      platforms:[{id:'amazon_ae',label:'Amazon',icon:'📦',note:'amazon.ae'}], revenue:['Below AED 20K / mo','AED 20K – 100K / mo','AED 100K – 400K / mo','Above AED 400K / mo','Not yet selling'] },
+  CA:    { phone:'+1',   ph:'(555) 000-0000',   platforms:[{id:'amazon_ca',label:'Amazon',icon:'📦',note:'amazon.ca'}], revenue:['Below CA$5,000 / mo','CA$5,000 – $25,000 / mo','CA$25,000 – $100,000 / mo','Above CA$100,000 / mo','Not yet selling'] },
+  DE:    { phone:'+49',  ph:'151 00000000',     platforms:[{id:'amazon_de',label:'Amazon',icon:'📦',note:'amazon.de'}], revenue:['Below €5,000 / mo','€5,000 – €20,000 / mo','€20,000 – €80,000 / mo','Above €80,000 / mo','Not yet selling'] },
+  AU:    { phone:'+61',  ph:'400 000 000',      platforms:[{id:'amazon_au',label:'Amazon',icon:'📦',note:'amazon.com.au'}], revenue:['Below A$5,000 / mo','A$5,000 – $25,000 / mo','A$25,000 – $100,000 / mo','Above A$100,000 / mo','Not yet selling'] },
+  FR:    { phone:'+33',  ph:'6 00 00 00 00',    platforms:[{id:'amazon_fr',label:'Amazon',icon:'📦',note:'amazon.fr'}], revenue:['Below €5,000 / mo','€5,000 – €20,000 / mo','€20,000 – €80,000 / mo','Above €80,000 / mo','Not yet selling'] },
+  SG:    { phone:'+65',  ph:'9000 0000',        platforms:[{id:'amazon_sg',label:'Amazon',icon:'📦',note:'amazon.sg'}], revenue:['Below S$5,000 / mo','S$5,000 – $25,000 / mo','S$25,000 – $100,000 / mo','Above S$100,000 / mo','Not yet selling'] },
+  OTHER: { phone:'+',    ph:'Your number',      platforms:[{id:'amazon_other',label:'Amazon',icon:'📦',note:'Your marketplace'}], revenue:['Below $5,000 equiv / mo','$5,000 – $25,000 equiv / mo','$25,000 – $100,000 equiv / mo','Above $100,000 equiv / mo','Not yet selling'] }
+};
+
+var selPlats = {};
+
+function onCountryChange() {
+  var c = document.getElementById('countrySelect').value;
+  if (!c) return;
+  var d = COUNTRY_DATA[c]; if (!d) return;
+
+  // Phone prefix
+  var pfx = document.getElementById('phonePrefix');
+  var phi = document.getElementById('phoneInput');
+  if (pfx) pfx.textContent = d.phone;
+  if (phi) phi.placeholder = d.ph;
+
+  // Build platform chips
+  selPlats = {};
+  var box = document.getElementById('platformCheckboxes');
+  box.innerHTML = '';
+  d.platforms.forEach(function(p) {
+    var auto = d.platforms.length === 1;
+    if (auto) selPlats[p.id] = p.label;
+    var chip = document.createElement('label');
+    chip.className = 'plat-chip' + (auto ? ' selected' : '');
+    chip.innerHTML = '<input type="checkbox" value="'+p.id+'"'+(auto?' checked':'')+' style="display:none"/>'
+      + '<span class="plat-chip-icon">'+p.icon+'</span>'
+      + '<span class="plat-chip-label">'+p.label+'</span>'
+      + '<span class="plat-chip-note">'+p.note+'</span>';
+    chip.addEventListener('click', function() {
+      var cb = this.querySelector('input');
+      cb.checked = !cb.checked;
+      this.classList.toggle('selected', cb.checked);
+      if (cb.checked) selPlats[p.id] = p.label; else delete selPlats[p.id];
+      updHidden();
     });
+    box.appendChild(chip);
+  });
+  updHidden();
+
+  // Revenue options
+  var rev = document.getElementById('revenueSelect');
+  rev.innerHTML = '<option value="" disabled selected>Select range</option>';
+  d.revenue.forEach(function(r) { var o=document.createElement('option'); o.textContent=r; rev.appendChild(o); });
+
+  // Show rest of form
+  document.getElementById('platformFg').style.display = 'block';
+  document.getElementById('revenueGoalRow').style.display = '';
+  document.getElementById('challengeFg').style.display = 'block';
+  document.getElementById('auditSubmitBtn').style.display = 'block';
+  document.getElementById('auditFpv').style.display = 'block';
+}
+
+function updHidden() {
+  var h = document.getElementById('platformsHidden');
+  if (h) h.value = Object.values(selPlats).join(', ');
+}
+
+function submitForm(e) {
+  e.preventDefault();
+  if (!document.getElementById('countrySelect').value) return;
+  if (Object.keys(selPlats).length === 0) {
+    var box = document.getElementById('platformCheckboxes');
+    box.style.borderColor = '#c0392b';
+    setTimeout(function(){ box.style.borderColor = ''; }, 2000);
+    return;
+  }
+  var form = document.getElementById('auditForm');
+  var data = new FormData(form);
+  fetch('https://formspree.io/f/mpqbjbgv',{method:'POST',body:data,headers:{'Accept':'application/json'}})
+    .then(function(){ showSuc(); }).catch(function(){ showSuc(); });
+}
+function showSuc(){
+  var f=document.getElementById('auditForm');
+  var s=document.getElementById('fsuccess');
+  if(f)f.style.display='none';
+  if(s)s.style.display='block';
 }
 </script></div>
 
@@ -2283,17 +2481,8 @@ function switchPlat(id,btn){
   var panel=pg.querySelector('#plat-'+id);if(panel)panel.classList.add('active');
   if(btn)btn.classList.add('active');
 }
-function submitForm(e){
-  e.preventDefault();
-  var form=document.getElementById('auditForm');
-  var data=new FormData(form);
-  fetch('https://formspree.io/f/mpqbjbgv',{method:'POST',body:data,headers:{'Accept':'application/json'}})
-    .then(function(){showSuc();}).catch(function(){showSuc();});
-}
-function showSuc(){
-  var f=document.getElementById('auditForm');var s=document.getElementById('fsuccess');
-  if(f)f.style.display='none';if(s)s.style.display='block';
-}
+/* submitForm defined in audit script */
+/* showSuc defined in audit script */
 window.addEventListener('scroll',function(){
   document.querySelectorAll('.nav').forEach(function(n){n.classList.toggle('scrolled',window.scrollY>20);});
   if(CP==='platforms'){
