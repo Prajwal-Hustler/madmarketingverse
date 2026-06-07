@@ -281,13 +281,14 @@ body{font-family:'Outfit',sans-serif;background:var(--white);color:var(--ink);li
 
 /* === SERVICES === */
 
-.page-hero{padding:140px 0 72px;background:var(--ink);position:relative;overflow:hidden;}
+.page-hero-svc-base{padding:140px 0 72px;position:relative;overflow:hidden;} /* renamed */
+#pg-services .page-hero{padding:140px 0 72px;background:var(--ink);position:relative;overflow:hidden;}
 .page-hero-grain{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;}
 .page-hero-glow{position:absolute;top:-20%;right:-10%;width:50%;height:80%;background:radial-gradient(ellipse,rgba(30,77,59,.25) 0%,transparent 65%);}
-.page-hero .eyebrow{color:var(--accent);}
-.page-hero .display{color:#fff;}
-.page-hero .display em{color:var(--accent);}
-.page-hero .body-lg{color:rgba(255,255,255,.55);}
+/* moved */
+/* moved to #pg-services scope */
+/* moved */
+/* moved */
 .breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:24px;font-size:.76rem;color:rgba(255,255,255,.35);font-weight:500;}
 .breadcrumb a{color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;}
 .breadcrumb a:hover{color:rgba(255,255,255,.7);}
@@ -464,6 +465,569 @@ body{font-family:'Outfit',sans-serif;background:var(--white);color:var(--ink);li
   .audit-left-logo{display:none;}
 }
 @media(max-width:600px){.fg-row{grid-template-columns:1fr;}.success-next{grid-template-columns:1fr;}}
+
+
+/* ============================================
+   COMPREHENSIVE MOBILE & RESPONSIVE OVERRIDES
+   Mobile-first: base = mobile, scale up
+   ============================================ */
+
+/* --- GLOBAL SPACING & TYPOGRAPHY --- */
+@media (max-width:768px){
+  .section { padding: 56px 0; }
+  .section-sm { padding: 40px 0; }
+  .sw { padding: 56px 5%; }
+  .container { padding: 0 20px; }
+
+  .display { font-size: 2rem; letter-spacing: -0.5px; line-height: 1.15; }
+  .headline { font-size: 1.6rem; letter-spacing: -0.3px; }
+  .subhead { font-size: 1.15rem; }
+  .body-lg { font-size: 0.95rem; line-height: 1.75; }
+  .body-md { font-size: 0.88rem; }
+
+  .btn-row { flex-direction: column; gap: 10px; }
+  .btn-primary, .btn-secondary { width: 100%; justify-content: center; padding: 14px 20px; }
+
+  .ctr .ss { font-size: 0.9rem; }
+}
+
+/* --- NAV --- */
+@media (max-width:860px){
+  .nav { padding: 0 20px; height: 60px; }
+  .logo-text { font-size: 0.9rem; }
+  .mob-menu { top: 60px; padding: 16px 20px; }
+  .mob-menu a { font-size: 0.88rem; padding: 12px 0; }
+}
+
+/* --- HERO (INDEX PAGE) --- */
+@media (max-width:900px){
+  .hero-inner { grid-template-columns: 1fr; gap: 36px; padding: 56px 0 40px; }
+  .hero-right { display: none; }
+  .hero-badge { font-size: 0.65rem; padding: 5px 12px; }
+  .hero-stats { grid-template-columns: repeat(3,1fr); margin-top: 32px; }
+  .hero-stat { padding: 14px 8px; }
+  .hero-stat-n { font-size: 1.4rem; }
+  .hero-stat-l { font-size: 0.6rem; }
+}
+@media (max-width:480px){
+  #hero-section { padding: 80px 20px 48px; }
+  .hero-stats { grid-template-columns: repeat(3,1fr); }
+  .hero-stat-n { font-size: 1.2rem; }
+}
+
+/* --- PLATFORM STRIP (INDEX) --- */
+@media (max-width:768px){
+  .plat-strip { padding: 20px 0; }
+  .plat-strip-inner { gap: 10px; flex-wrap: wrap; justify-content: center; padding: 0 16px; }
+  .plat-strip-divider { display: none; }
+  .plat-pill { padding: 6px 11px; font-size: 0.72rem; gap: 5px; }
+  .plat-strip-label { width: 100%; text-align: center; margin-bottom: 4px; }
+}
+
+/* --- SERVICES PREVIEW GRID (INDEX) --- */
+@media (max-width:900px){
+  .svc-preview-grid { grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 36px; }
+}
+@media (max-width:540px){
+  .svc-preview-grid { grid-template-columns: 1fr; gap: 12px; }
+  .svc-prev-card { padding: 20px 18px; }
+}
+
+/* --- WHY STRIP (INDEX) --- */
+@media (max-width:900px){
+  .why-strip { padding: 56px 0; }
+  .why-strip-grid { grid-template-columns: 1fr; gap: 36px; }
+  .why-strip-title { font-size: 1.7rem; }
+  .why-points { grid-template-columns: 1fr 1fr; gap: 14px; }
+}
+@media (max-width:480px){
+  .why-points { grid-template-columns: 1fr; }
+  .why-pt { padding: 16px; }
+  .why-pt-n { font-size: 1.4rem; }
+}
+
+/* --- PROCESS STRIP (INDEX) --- */
+@media (max-width:900px){
+  .process-steps { grid-template-columns: 1fr 1fr; }
+  .proc { padding: 24px 18px; }
+}
+@media (max-width:540px){
+  .process-steps { grid-template-columns: 1fr; border-radius: 10px; }
+  .proc { border-right: none !important; border-bottom: 1px solid var(--border); }
+  .proc:last-child { border-bottom: none; }
+}
+
+/* --- CTA SECTION (INDEX) --- */
+@media (max-width:768px){
+  .cta-inner { padding: 56px 0; }
+  .cta-inner .btn-primary { display: block; text-align: center; }
+}
+
+/* --- FOOTER --- */
+@media (max-width:900px){
+  .footer { padding: 48px 0 24px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+}
+@media (max-width:540px){
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; gap: 6px; }
+  .footer-copy { font-size: 0.7rem; }
+}
+
+/* --- PLATFORMS PAGE --- */
+@media (max-width:768px){
+  .page-hero { padding: 90px 0 48px; }
+  .page-hero::before { display: none; }
+  .page-hero-blob { display: none; }
+  .page-hero-glow { display: none; }
+  .page-hero-lines { display: none; }
+}
+@media (max-width:900px){
+  .plat-grid, .plat-grid.rev { grid-template-columns: 1fr; direction: ltr; gap: 28px; }
+  .plat-grid.rev > * { direction: ltr; }
+  .plat-big-stats { grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  .pbs { padding: 14px 10px; }
+  .pbs-n { font-size: 1.3rem; }
+}
+@media (max-width:540px){
+  .plat-big-stats { grid-template-columns: 1fr 1fr; }
+  .plat-nav { gap: 6px; flex-wrap: wrap; }
+  .plat-nav-btn { font-size: 0.73rem; padding: 7px 12px; border-radius: 6px; }
+  .plat-h { font-size: 1.4rem; }
+  .plat-p { font-size: 0.87rem; }
+  .plat-section { padding: 56px 0; }
+  .data-card { padding: 22px 18px; }
+  .data-card-top { flex-direction: column; gap: 8px; align-items: flex-start; }
+}
+/* Sticky platform nav — smaller on mobile */
+@media (max-width:600px){
+  div[style*="position:sticky"] { padding: 10px 0; }
+  div[style*="position:sticky"] .plat-nav { margin: 0; }
+}
+
+/* --- SERVICES PAGE --- */
+@media (max-width:900px){
+  .svc-grid, .svc-grid.rev { grid-template-columns: 1fr; direction: ltr; gap: 28px; }
+  .svc-grid.rev > * { direction: ltr; }
+  .svc-section { padding: 56px 0; }
+  .deliv-items { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width:540px){
+  .deliv-items { grid-template-columns: 1fr; gap: 10px; }
+  .deliv-item { padding: 14px; }
+  .deliv-panel { padding: 22px 18px; }
+  .svc-h { font-size: 1.45rem; }
+  .svc-steps { margin-top: 16px; }
+  .svc-step { gap: 10px; padding: 12px 0; }
+  .all-svc-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .mini-card { padding: 18px 16px; }
+  .insight-block { padding: 14px 16px; }
+  .insight-q { font-size: 0.9rem; }
+  .page-hero .display { font-size: 1.8rem; }
+  .page-hero-grain { display: none; }
+}
+@media (max-width:380px){
+  .all-svc-grid { grid-template-columns: 1fr; }
+}
+
+/* Services hero jump links — scroll horizontally on mobile */
+@media (max-width:600px){
+  .page-hero > .container > div[style*="display:flex"] {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .page-hero > .container > div[style*="display:flex"] a {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}
+
+/* --- ABOUT PAGE --- */
+@media (max-width:900px){
+  .mission-grid { grid-template-columns: 1fr; gap: 20px; }
+  .why-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .metrics-grid { grid-template-columns: 1fr 1fr; }
+  .values-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .mission-text { font-size: 1.2rem; }
+  .metrics-strip { padding: 48px 0; }
+}
+@media (max-width:540px){
+  .why-grid { grid-template-columns: 1fr; }
+  .why-card { padding: 24px 20px; }
+  .values-grid { grid-template-columns: 1fr; }
+  .val-card { padding: 20px 18px; }
+  .metrics-grid { grid-template-columns: 1fr 1fr; }
+  .metric-box { padding: 24px 16px; }
+  .metric-n { font-size: 2.2rem; }
+  .mission-label { font-size: 1.2rem; }
+  .mission-section { padding: 48px 0; }
+  .proc-timeline { padding-left: 0; }
+  .proc-item { gap: 18px; }
+  .proc-circle { width: 34px; height: 34px; font-size: 0.8rem; }
+  .proc-t { font-size: 1.1rem; }
+  .proc-p { font-size: 0.82rem; }
+  .big-quote { font-size: 1.2rem; }
+  .quote-section { padding: 56px 0; }
+}
+@media (max-width:380px){
+  .metrics-grid { grid-template-columns: 1fr; }
+  .metric-box { border-bottom: 1px solid rgba(255,255,255,.1); }
+}
+
+/* --- AUDIT PAGE --- */
+@media (max-width:860px){
+  .audit-layout { grid-template-columns: 1fr; min-height: auto; }
+  .audit-left { padding: 90px 20px 40px; min-height: auto; }
+  .audit-left-logo { display: flex; margin-bottom: 32px; }
+  .audit-right { padding: 40px 20px 56px; }
+  .audit-h { font-size: 1.7rem; }
+  .audit-promises { margin-bottom: 28px; }
+  .audit-testimonial { padding: 18px; }
+  .at-quote { font-size: 0.95rem; }
+  .form-title { font-size: 1.4rem; }
+  .success-next { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width:540px){
+  .audit-left { padding: 80px 16px 36px; }
+  .audit-right { padding: 32px 16px 48px; }
+  .fg-row { grid-template-columns: 1fr; }
+  .fg input, .fg select, .fg textarea { font-size: 0.9rem; padding: 11px 12px; }
+  .fsub { padding: 14px; font-size: 0.88rem; }
+  .success-next { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .audit-h { font-size: 1.5rem; }
+  .ap-text { font-size: 0.8rem; }
+}
+
+/* --- UTILITY: prevent horizontal overflow everywhere --- */
+* { max-width: 100%; }
+img, svg, video { max-width: 100%; height: auto; }
+pre, code { overflow-x: auto; }
+
+/* --- TOUCH TARGETS: min 44px height on interactive elements --- */
+@media (max-width:768px){
+  .nav-links a, .plat-nav-btn, .plat-pill { min-height: 40px; display: inline-flex; align-items: center; }
+  .btn-primary, .btn-secondary, .fsub, .mob-cta, .nav-cta { min-height: 48px; }
+  .mob-menu a { min-height: 48px; display: flex; align-items: center; }
+}
+
+/* --- AUDIT LEFT: hide glow decorations on mobile to save space --- */
+@media (max-width:860px){
+  .audit-left-glow, .audit-left-glow2 { opacity: 0.5; }
+}
+
+
+/* --- iOS & ANDROID POLISH --- */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+body {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent text from getting too small on very small phones */
+@media (max-width:360px) {
+  .display { font-size: 1.75rem; }
+  .headline { font-size: 1.4rem; }
+  .hero-badge { font-size: 0.6rem; }
+  .eyebrow { font-size: 0.6rem; }
+  .audit-h { font-size: 1.35rem; }
+  .container { padding: 0 16px; }
+}
+
+/* Audit page mobile: stack properly, left panel becomes header */
+@media (max-width:860px) {
+  .audit-layout {
+    display: flex;
+    flex-direction: column;
+  }
+  .audit-left {
+    order: 1;
+  }
+  .audit-right {
+    order: 2;
+  }
+}
+
+/* Platform nav sticky: lower z-index on mobile, fix overlap */
+@media (max-width:768px) {
+  div[style*="position:sticky"] {
+    position: sticky;
+    top: 60px;
+    z-index: 90;
+  }
+}
+
+/* Hero section: don't force 100vh on short mobile screens */
+@media (max-width:768px) and (max-height:700px) {
+  #hero-section {
+    min-height: auto;
+    padding-top: 80px;
+    padding-bottom: 48px;
+  }
+}
+
+/* Services jump links - make them a scrollable row on mobile */
+@media (max-width:600px) {
+  .svc-jump-links {
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    gap: 6px;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-top: 24px;
+  }
+  .svc-jump-links::-webkit-scrollbar { display: none; }
+  .svc-jump-links a { flex-shrink: 0; }
+}
+
+/* Plat pill strip on mobile: allow 2-col wrap */
+@media (max-width:420px) {
+  .platform-icons { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; width: 100%; }
+  .plat-pill { justify-content: center; }
+  .plat-strip { padding: 20px 16px; }
+}
+
+/* Fix proc-timeline line position on small screens */
+@media (max-width:400px) {
+  .proc-timeline::before { left: 13px; }
+  .proc-circle { width: 30px; height: 30px; font-size: 0.75rem; }
+  .proc-item { gap: 14px; }
+}
+
+/* Values grid: 1 col on very small screens */
+@media (max-width:400px) {
+  .values-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .why-card { padding: 20px 16px; }
+}
+
+/* Ensure form inputs look good on iOS (prevent zoom on focus) */
+@media (max-width:768px) {
+  .fg input,
+  .fg select,
+  .fg textarea {
+    font-size: 16px !important; /* prevents iOS zoom on focus */
+    border-radius: 8px;
+  }
+}
+
+/* Footer on mobile: more breathing room */
+@media (max-width:540px) {
+  .footer { padding: 40px 0 24px; }
+  .footer-grid { padding: 0 20px; }
+  .footer-bottom { padding: 16px 20px 0; flex-direction: column; align-items: flex-start; }
+}
+
+/* Proof/stat cards on mobile */
+@media (max-width:768px) {
+  .proof-g, .proof-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+/* Hero stat bar - 3 col always */
+@media (max-width:360px) {
+  .hero-stats { grid-template-columns: 1fr 1fr 1fr; }
+  .hero-stat { padding: 12px 4px; }
+  .hero-stat-n { font-size: 1.1rem; }
+  .hero-stat-l { font-size: 0.55rem; }
+}
+
+
+/* Platforms page hero - light background, dark text */
+#pg-platforms .page-hero { background: var(--off); border-bottom: 1px solid var(--border); }
+#pg-platforms .page-hero .display { color: var(--ink); }
+#pg-platforms .page-hero .display em { color: var(--green2); }
+#pg-platforms .page-hero .eyebrow { color: var(--green2); }
+#pg-platforms .page-hero .body-lg { color: var(--muted); }
+#pg-platforms .breadcrumb { color: var(--muted2); }
+#pg-platforms .breadcrumb a { color: var(--muted2); }
+#pg-platforms .breadcrumb a:hover { color: var(--green2); }
+
+/* About page hero - white background, dark text */
+#pg-about .page-hero { background: var(--white); }
+#pg-about .page-hero .display { color: var(--ink); }
+#pg-about .page-hero .display em { color: var(--green2); }
+#pg-about .page-hero .eyebrow { color: var(--green2); }
+#pg-about .page-hero .body-lg { color: var(--muted); }
+#pg-about .breadcrumb { color: var(--muted2); }
+#pg-about .breadcrumb a { color: var(--muted2); }
+#pg-about .breadcrumb a:hover { color: var(--green2); }
+
+
+/* About mission section - ensure readability */
+#pg-about .mission-text { color: var(--ink); }
+#pg-about .mission-label { color: var(--green); font-style: italic; }
+#pg-about .mission-sub { color: var(--muted); }
+
+
+/* Audit page text - ensure all text visible */
+#pg-audit .audit-h { color: #fff; }
+#pg-audit .audit-p { color: rgba(255,255,255,.55); }
+#pg-audit .audit-eyebrow { color: var(--accent); }
+#pg-audit .form-title { color: var(--ink); }
+#pg-audit .form-sub { color: var(--muted); }
+#pg-audit .fg label { color: var(--muted); }
+#pg-audit .fpv { color: var(--muted2); }
+#pg-audit .fpv strong { color: var(--green2); }
+
+/* Nav on audit page - fix for split layout page */
+#pg-audit .nav { display: none; }
+
+
+/* ── GLOBAL TEXT CONTRAST FIXES ── */
+
+/* Ensure svc-h heading always dark on light sections */
+.svc-section { background: var(--white); }
+.svc-section:nth-child(even) { background: var(--off); }
+.svc-h { color: var(--ink) !important; }
+.svc-p { color: var(--muted) !important; }
+.svc-tag { color: var(--green2); background: var(--greenxlt); border-color: rgba(30,77,59,.18); }
+
+/* Ensure platform section text is always readable */
+.plat-h { color: var(--ink) !important; }
+.plat-p { color: var(--muted) !important; }
+.plat-services li { color: var(--ink2) !important; }
+
+/* Why card text always dark */
+.why-card-t { color: var(--ink) !important; }
+.why-card-p { color: var(--muted) !important; }
+
+/* Value cards always dark */
+.val-t { color: var(--ink) !important; }
+.val-p { color: var(--muted) !important; }
+
+/* Mission text on about */
+.mission-text { color: var(--ink); }
+.mission-sub { color: var(--muted); }
+.mission-label { color: var(--green); }
+
+/* Process items always readable */
+.proc-t { color: var(--ink) !important; }
+.proc-p { color: var(--muted) !important; }
+
+/* Footer: ensure all col links visible */
+.footer-col a { color: rgba(255,255,255,.5); }
+.footer-col a:hover { color: rgba(255,255,255,.9); }
+.footer-col-title { color: rgba(255,255,255,.3); }
+
+/* Why strip - dark bg - ensure white text */
+.why-strip-title { color: #fff; }
+.why-strip-body { color: rgba(255,255,255,.5); }
+.why-pt-t { color: #fff !important; }
+.why-pt-p { color: rgba(255,255,255,.45) !important; }
+
+/* Metrics strip - dark bg - white text */
+.metric-n { color: #fff; }
+.metric-l { color: rgba(255,255,255,.55); }
+
+/* Big quote - dark bg */
+.big-quote { color: #fff; }
+.quote-attr { color: rgba(255,255,255,.35); }
+
+/* Insight block always readable */
+.insight-q { color: var(--ink) !important; }
+.insight-lbl { color: var(--green2) !important; }
+
+/* Proof cards */
+.proof-title { color: var(--ink) !important; }
+.proof-desc { color: var(--muted) !important; }
+
+/* Page hero - default: dark text (overridden by #pg-services for dark bg) */
+.page-hero .display { color: var(--ink); }
+.page-hero .display em { color: var(--green2); }
+.page-hero .eyebrow { color: var(--green2); }
+.page-hero .body-lg { color: var(--muted); }
+.breadcrumb { color: var(--muted2); }
+.breadcrumb a { color: var(--muted2); }
+.breadcrumb span { color: var(--muted2); }
+
+/* Deliverable panel - light bg */
+.deliv-panel { background: var(--white); }
+.deliv-panel-label { color: var(--muted2); }
+.deliv-t { color: var(--ink2); }
+.deliv-p { color: var(--muted); }
+.deliv-item { background: var(--off); }
+
+/* Data cards - white bg */
+.data-card { background: var(--white); }
+.dm-name { color: var(--muted); }
+.dm-val { color: var(--green2); }
+.data-note { color: var(--muted); }
+
+/* PP card labels */
+.pp-card-lbl { color: var(--muted2); }
+.pp-note { color: var(--muted2); }
+
+/* Platform tag colors already set via .pp-tag classes */
+
+/* Hero card */
+.hv-card-title { color: var(--ink); }
+.hv-name { color: var(--muted); }
+.hv-val { color: var(--green2); }
+.hv-badge { color: var(--green2); }
+
+/* Process section (index) */
+#pg-index .proc-n { color: var(--green2); opacity: .35; }
+#pg-index .proc { background: var(--off); }
+#pg-index .process-steps { background: var(--border); }
+
+/* Services page dark CTA at bottom */
+#pg-services .svc-cta-dark { background: var(--ink); }
+
+/* Svc step items */
+.svc-step-t { color: var(--ink2); }
+.svc-step-p { color: var(--muted); }
+.svc-step-n { color: var(--green2); }
+
+/* Mini cards */
+.mini-t { color: var(--ink); }
+.mini-p { color: var(--muted); }
+
+/* About proc items */
+.proc-body .proc-t { color: var(--ink); }
+.proc-body .proc-p { color: var(--muted); }
+.proc-tag { color: var(--green2); background: var(--greenxlt); }
+
+
+/* Services jump links - proper styling */
+.svc-jump-link {
+  padding: 7px 16px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,.15);
+  color: rgba(255,255,255,.6) !important;
+  font-size: .78rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all .2s;
+  font-family: 'Outfit', sans-serif;
+  display: inline-block;
+}
+.svc-jump-link:hover {
+  border-color: rgba(200,181,96,.5) !important;
+  color: #C8B560 !important;
+}
+
+
+/* ── SERVICES PAGE: Dark hero - scoped text colors ── */
+#pg-services .page-hero { background: var(--ink) !important; }
+#pg-services .page-hero .display { color: #fff !important; }
+#pg-services .page-hero .display em { color: var(--accent) !important; }
+#pg-services .page-hero .eyebrow { color: var(--accent) !important; }
+#pg-services .page-hero .body-lg { color: rgba(255,255,255,.55) !important; }
+#pg-services .page-hero .breadcrumb { color: rgba(255,255,255,.35) !important; }
+#pg-services .page-hero .breadcrumb a { color: rgba(255,255,255,.35) !important; }
+#pg-services .page-hero .breadcrumb a:hover { color: rgba(255,255,255,.75) !important; }
+#pg-services .page-hero .breadcrumb span { color: rgba(255,255,255,.3) !important; }
+#pg-services .page-hero-grain { display: block !important; }
+#pg-services .page-hero-glow { display: block !important; }
 
 </style></head><body>
 <div id="pg-index" class="pg active"><!-- NAV -->
@@ -1066,15 +1630,15 @@ window.addEventListener('scroll',function(){
     <h1 class="display" style="margin-bottom:16px;">Every Service.<br/><em>Every Platform.</em></h1>
     <p class="body-lg" style="max-width:560px;">Deep expertise across the full e-commerce stack. Click any service below for our exact process, what we look for, and what you will get.</p>
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:36px;">
-      <a href="#ppc" style="padding:7px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);font-size:.78rem;font-weight:500;text-decoration:none;transition:all .2s;font-family:'Outfit',sans-serif;" onmouseover="this.style.borderColor='rgba(200,181,96,.5)';this.style.color='#C8B560'" onmouseout="this.style.borderColor='rgba(255,255,255,.15)';this.style.color='rgba(255,255,255,.6)'">Advertising &amp; PPC</a>
-      <a href="#listing" style="padding:7px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);font-size:.78rem;font-weight:500;text-decoration:none;transition:all .2s;font-family:'Outfit',sans-serif;" onmouseover="this.style.borderColor='rgba(200,181,96,.5)';this.style.color='#C8B560'" onmouseout="this.style.borderColor='rgba(255,255,255,.15)';this.style.color='rgba(255,255,255,.6)'">Listing Optimisation</a>
-      <a href="#seo" style="padding:7px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);font-size:.78rem;font-weight:500;text-decoration:none;transition:all .2s;font-family:'Outfit',sans-serif;" onmouseover="this.style.borderColor='rgba(200,181,96,.5)';this.style.color='#C8B560'" onmouseout="this.style.borderColor='rgba(255,255,255,.15)';this.style.color='rgba(255,255,255,.6)'">Marketplace SEO</a>
-      <a href="#tiktok" style="padding:7px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);font-size:.78rem;font-weight:500;text-decoration:none;transition:all .2s;font-family:'Outfit',sans-serif;" onmouseover="this.style.borderColor='rgba(200,181,96,.5)';this.style.color='#C8B560'" onmouseout="this.style.borderColor='rgba(255,255,255,.15)';this.style.color='rgba(255,255,255,.6)'">TikTok Shop</a>
-      <a href="#brand" style="padding:7px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);font-size:.78rem;font-weight:500;text-decoration:none;transition:all .2s;font-family:'Outfit',sans-serif;" onmouseover="this.style.borderColor='rgba(200,181,96,.5)';this.style.color='#C8B560'" onmouseout="this.style.borderColor='rgba(255,255,255,.15)';this.style.color='rgba(255,255,255,.6)'">Brand Consulting</a>
-      <a href="#fba" style="padding:7px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);font-size:.78rem;font-weight:500;text-decoration:none;transition:all .2s;font-family:'Outfit',sans-serif;" onmouseover="this.style.borderColor='rgba(200,181,96,.5)';this.style.color='#C8B560'" onmouseout="this.style.borderColor='rgba(255,255,255,.15)';this.style.color='rgba(255,255,255,.6)'">FBA &amp; Fulfilment</a>
-      <a href="#content" style="padding:7px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);font-size:.78rem;font-weight:500;text-decoration:none;transition:all .2s;font-family:'Outfit',sans-serif;" onmouseover="this.style.borderColor='rgba(200,181,96,.5)';this.style.color='#C8B560'" onmouseout="this.style.borderColor='rgba(255,255,255,.15)';this.style.color='rgba(255,255,255,.6)'">A+ Content</a>
-      <a href="#images" style="padding:7px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);font-size:.78rem;font-weight:500;text-decoration:none;transition:all .2s;font-family:'Outfit',sans-serif;" onmouseover="this.style.borderColor='rgba(200,181,96,.5)';this.style.color='#C8B560'" onmouseout="this.style.borderColor='rgba(255,255,255,.15)';this.style.color='rgba(255,255,255,.6)'">Image Strategy</a>
-      <a href="#reporting" style="padding:7px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);font-size:.78rem;font-weight:500;text-decoration:none;transition:all .2s;font-family:'Outfit',sans-serif;" onmouseover="this.style.borderColor='rgba(200,181,96,.5)';this.style.color='#C8B560'" onmouseout="this.style.borderColor='rgba(255,255,255,.15)';this.style.color='rgba(255,255,255,.6)'">Analytics</a>
+      <a href="#" onclick="return false;" class="svc-jump-link">Advertising &amp; PPC</a>
+      <a href="#" onclick="return false;" class="svc-jump-link">Listing Optimisation</a>
+      <a href="#" onclick="return false;" class="svc-jump-link">Marketplace SEO</a>
+      <a href="#" onclick="return false;" class="svc-jump-link">TikTok Shop</a>
+      <a href="#" onclick="return false;" class="svc-jump-link">Brand Consulting</a>
+      <a href="#" onclick="return false;" class="svc-jump-link">FBA &amp; Fulfilment</a>
+      <a href="#" onclick="return false;" class="svc-jump-link">A+ Content</a>
+      <a href="#" onclick="return false;" class="svc-jump-link">Image Strategy</a>
+      <a href="#" onclick="return false;" class="svc-jump-link">Analytics</a>
     </div>
   </div>
 </div>
